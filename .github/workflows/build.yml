@@ -33,13 +33,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Cache notebook execution
+      - name: Cache Jupyter Book build (notebook execution + Sphinx doctrees)
         uses: actions/cache@v4
         with:
-          path: _build/.jupyter_cache
-          key: jupyter-cache-${{ hashFiles('src/**/*.ipynb') }}
+          path: |
+            _build/.jupyter_cache
+            _build/.doctrees
+          key: jupyter-book-build-${{ hashFiles('src/**/*.ipynb') }}
           restore-keys: |
-            jupyter-cache-
+            jupyter-book-build-
       - name: Setup
         run: |
           ln -s /home/user/.venv /root/.venv

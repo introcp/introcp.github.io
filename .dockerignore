@@ -1,0 +1,16 @@
+.git
+docs
+src
+exercises
+extra
+_build
+_static
+.artifacts
+.cache
+.venv
+.venv_add_group
+scripts/old
+*.ipynb
+*.pdf
+cookies.json
+users_groups.csv
