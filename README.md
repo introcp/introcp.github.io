@@ -14,6 +14,7 @@ The repository is organized into four main directories:
     -   **CXX** (e.g., `C00`, `C01`): Theoretical lectures on computer systems.
     -   **PXX** (e.g., `P00`, `P01`): Theory lectures on Python.
     -   **EXX** (e.g., `E00`, `E01`): Exercise collections.
+    -   **HXX** (e.g., `H00`, `H01`): Homework assignments, following the same student/pseudocode/solution variants as `EXX` (see [2b. Exercises](#2b-exercises)). Homework notebooks are not linked into the public website's table of contents (`_toc.yml`).
 
     The ID for each lecture corresponds to the internal course timetable (see Google Spreadsheet). Within each folder, the typical structure is:
 
@@ -60,6 +61,11 @@ Generated notebooks are placed in `src/EXX` to be included in the final website,
 ## 3. Previewing Slides
 
 You can generate and preview HTML/PDF slides for a single notebook using the `scripts/generate-slides-from-notebook` script. This script uses Docker to ensure a consistent environment.
+
+**Platform notes:** all the slide generation happens inside the Docker container, so the host OS itself doesn't matter for the build — but the `scripts/generate-slides-from-notebook` script and the `Makefile` targets (`docker-run`, `docker-build-book`, ...) are Bash/POSIX scripts (they use `bash`, `chmod`, and `` `id -u`/`id -g` ``), so you need a Unix-like shell to run them:
+
+-   **Linux / macOS**: works out of the box in a normal Terminal, as long as [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or the Docker Engine) is installed and running.
+-   **Windows**: run these commands from **WSL2** (Windows Subsystem for Linux), with Docker Desktop's WSL2 integration enabled ("Settings → Resources → WSL Integration"), and with the repository cloned inside the WSL2 filesystem. Native `cmd.exe`/PowerShell are not supported directly, since they don't provide `bash`, `make`, or `id`. Git Bash can work as an alternative but is not recommended: it is missing `make` by default, and it is known to mis-translate Docker volume paths (e.g. `-v $(PWD):/home/user/introcp`) in some setups.
 
 ```bash
 # Fetch the container image

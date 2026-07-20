@@ -2,9 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Introduction to computer programming
-author: Emilio Coppa and Alessio Martino
+author: Emilio Coppa
 logo: src/dist/img/logo2.png
-copyright: "2025"
+copyright: "2026"
 
 exclude_patterns: [ exercises, extra, docs, book, old, scripts, README.md, oldbook, dist, plugin, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", venv, venv2, .cache, .venv, temp, extra]
 
