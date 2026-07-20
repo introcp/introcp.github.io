@@ -1,8 +1,8 @@
-jupyter-book
-matplotlib
-numpy
-seaborn
-jupyterlab
-playwright
-PyMuPDF
-Pillow
+jupyter-book==1.0.4.post1
+matplotlib==3.10.5
+numpy==2.3.2
+seaborn==0.13.2
+jupyterlab==4.4.6
+playwright==1.54.0
+PyMuPDF==1.26.4
+Pillow==11.3.0
