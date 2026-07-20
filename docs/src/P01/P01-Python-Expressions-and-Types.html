@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Expressions and Data Types &#8212; Introduction to computer programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7faeedcc" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/P01/P01-Python-Expressions-and-Types';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Variables and Strings" href="../P02/P02-Python-Types-Strings.html" />
+    <link rel="prev" title="Getting Started" href="../P00/P00-Python-Getting-Started.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo2.png" class="logo__image only-light" alt="Introduction to computer programming - Home"/>
+    <script>document.write(`<img src="../../_static/logo2.png" class="logo__image only-dark" alt="Introduction to computer programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    <b style="font-family: 'LUISS', 'Lato'">Introduction to computer programming</b>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../A00/A00-Introduction.html"><b style="font-family: 'LUISS', 'Lato'">Course overview</b></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../C00/C00-Bits-and-Bytes.html"><b style="font-family: 'LUISS', 'Lato'">Bits and Bytes</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C01/C01-Boolean-Logic.html"><b style="font-family: 'LUISS', 'Lato'">Boolean Logic</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C02/C02-Hardware.html"><b style="font-family: 'LUISS', 'Lato'">Hardware</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C03/C03-Software.html"><b style="font-family: 'LUISS', 'Lato'">Software</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C04/C04-OS-Essentials.html"><b style="font-family: 'LUISS', 'Lato'">Operating System Essentials</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C05/C05-Computer-Network.html"><b style="font-family: 'LUISS', 'Lato'">Computer Networks</b></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../P00/P00-Python-Getting-Started.html"><b style="font-family: 'LUISS', 'Lato'">Getting Started</b></a></li>
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><b style="font-family: 'LUISS', 'Lato'">Expressions and Data Types</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P02/P02-Python-Types-Strings.html"><b style="font-family: 'LUISS', 'Lato'">Variables and Strings</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P03/P03-Python-Branching.html"><b style="font-family: 'LUISS', 'Lato'">Branching</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P04/P04-Python-Functions.html"><b style="font-family: 'LUISS', 'Lato'">Functions</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../E01/E01-Python-Errors.html"><b style="font-family: 'LUISS', 'Lato'">Types of Errors</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P05/P05-Python-Iteration.html"><b style="font-family: 'LUISS', 'Lato'">Iteration</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P06/P06-Python-Strings.html"><b style="font-family: 'LUISS', 'Lato'">Strings</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P07/P07-Python-Lists.html"><b style="font-family: 'LUISS', 'Lato'">Lists</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P08/P08-Python-Dictionaries-Tuples-Sets.html"><b style="font-family: 'LUISS', 'Lato'">Dictionaries, Tuples, and Sets</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P11/P11-Python-Files.html"><b style="font-family: 'LUISS', 'Lato'">Files</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P12/P12-Python-Sockets-HTTP.html"><b style="font-family: 'LUISS', 'Lato'">Sockets, HTTP and REST API</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P09/P09-Python-Classes.html"><b style="font-family: 'LUISS', 'Lato'">Classes and Objects</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P13/P13-Python-Exceptions.html"><b style="font-family: 'LUISS', 'Lato'">Exceptions and Error Handling</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P10/P10-Python-Recursion.html"><b style="font-family: 'LUISS', 'Lato'">Recursion</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P14/P14-Python-Multiprocessing.html"><b style="font-family: 'LUISS', 'Lato'">Multiprocessing</b></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/introcp/introcp.github.io/blob/2026/src/P01/P01-Python-Expressions-and-Types.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+
+<li><a href="https://ercoppa.github.io/jupyterlite/lab/?fromURL=https://introcp.github.io/_sources//src/P01/P01-Python-Expressions-and-Types.ipynb" target="_blank"
+  class="btn btn-sm dropdown-item"
+  title="Launch on JupyterLite"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+ 
+
+<span class="btn__icon-container">
+ 
+   <img alt="JupyterLite logo" src="https://avatars.githubusercontent.com/u/81094398?s=200&v=4">
+ </span>
+<span class="btn__text-container">JupyterLite</span>
+</a>
+</li>
+    
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://introcp.github.io/src/download.html?file=/_sources/src/P01/P01-Python-Expressions-and-Types.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.open(window.location.pathname.replace('.html', '.pdf'));"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+    <button onclick="window.open(window.location.pathname.replace('.html', '.slides.html'));"
+    class="btn btn-sm btn-fullscreen-button"
+    title="Slide"
+    data-bs-placement="bottom" data-bs-toggle="tooltip"
+    >
+    
+    <span class="btn__icon-container">
+        <i class="fa-brands fa-slideshare"></i>
+    </span>
+
+    </button>
+
+    <button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><b style="font-family: 'LUISS', 'Lato'">Expressions and Data Types</b></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">Why Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-statements">Expressions and Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-vs-statements">Expressions vs. Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-vs-script-mode-vs-jupyter-notebook">Interactive vs. Script Mode vs. Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-in-python">Programming in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-objects">Scalar Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-int">Type <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-float">Type <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-bool">Type <code class="docutils literal notranslate"><span class="pre">bool</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truth-table-between-two-boolean-variables">Truth Table between two Boolean variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversions-explicit">Type Conversions: explicit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversions-implicit">Type Conversions: implicit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations-on-int-and-float-a-recap">Arithmetic Operations on <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code>: a Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-ints-and-floats-a-recap">Comparison Between <code class="docutils literal notranslate"><span class="pre">int</span></code>s and <code class="docutils literal notranslate"><span class="pre">float</span></code>s: a Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chained-comparisons">Chained Comparisons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-precedence">Operator Precedence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-big-picture-of-operator-precedence">The Big Picture of Operator Precedence</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="expressions-and-data-types">
+<h1><b style="font-family: 'LUISS', 'Lato'">Expressions and Data Types</b><a class="headerlink" href="#expressions-and-data-types" title="Link to this heading">#</a></h1>
+<h2 style="font-family: 'LUISS', 'Lato'">Introduction to computer programming</h2>
+<h3 style="font-family: 'LUISS', 'Lato'">Management and Artificial Intelligence</h3>
+<br>
+<img src="https://introcp.github.io/dist/img/logo2.png" width="200px">
+<p><br><br><br></p>
+<section id="why-python">
+<h2>Why Python?<a class="headerlink" href="#why-python" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A <strong>high-level</strong> language for <strong>beginners</strong></p></li>
+<li><p>with a <strong>clean syntax</strong>, but…</p></li>
+<li><p><strong>Industrial strength</strong> programming
+language used at thousands of companies (one of three official Google
+languages)</p></li>
+<li><p>Free, well documented, well supported</p></li>
+</ul>
+<br>
+<br>
+<div class="alert alert-block alert-info">
+<b>NOTE</b>: We will use Python 3. Python 2 is now
+unsupported, and there are non-backwards compatible
+differences between Python 3 and Python 2.
+</div>
+</section>
+<section id="expressions-and-statements">
+<h2>Expressions and Statements<a class="headerlink" href="#expressions-and-statements" title="Link to this heading">#</a></h2>
+<p>A (Python) program is composed by a sequence of:</p>
+<ul class="simple">
+<li><p><strong>definitions</strong> (also
+<strong>expressions</strong>) which are
+<strong>evaluated</strong></p></li>
+<li><p><strong>statements</strong> (also
+<strong>commands</strong>) which are
+<strong>executed</strong></p></li>
+</ul>
+<p>In plain terms…</p>
+<ul class="simple">
+<li><p><strong>expressions</strong> yield some results (e.g.,
+<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">5</span></code>)</p></li>
+<li><p><strong>statements</strong> instruct the interpreter to
+do something (e.g., print on screen, assign to variable)</p></li>
+</ul>
+</section>
+<section id="expressions-vs-statements">
+<h2>Expressions vs. Statements<a class="headerlink" href="#expressions-vs-statements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Expressions:</strong> <b style="color:red">Represent</b> something</p>
+<ul>
+<li><p>Python <em>evaluates</em> expressions</p></li>
+<li><p>end-result is a value</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="mf">2.3</span>         <span class="c1"># a plain literal</span>
+    <span class="mf">2.3</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span>   <span class="c1"># 4 literals and some operators</span>
+    <span class="mi">18</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Statements:</strong> <b style="color:red">Do</b> something</p>
+<ul>
+<li><p>Python <em>executes</em> statements</p></li>
+<li><p>no need to return a value</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi there!&quot;</span><span class="p">)</span>
+    <span class="n">Hi</span> <span class="n">there</span><span class="err">!</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</pre></div>
+</div>
+</section>
+<section id="interactive-vs-script-mode-vs-jupyter-notebook">
+<h2>Interactive vs. Script Mode vs. Jupyter Notebook<a class="headerlink" href="#interactive-vs-script-mode-vs-jupyter-notebook" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Interactive Mode</strong>: perfectly fine for testing and learning.<br />
+Type your commands/expressions into the shell and Python will
+execute/evaluate them:</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-left"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">5</span> <span class="pre">*</span> <span class="pre">5</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\leftarrow\)</span>input</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">25</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\leftarrow\)</span>output</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<ul class="simple">
+<li><p><strong>Script Mode</strong>:
+is what you normally do in the real world.<br />
+Write the entire source code in a text file ending with the <code class="docutils literal notranslate"><span class="pre">.py</span></code>
+extension (say <code class="docutils literal notranslate"><span class="pre">myscript.py</span></code>).<br />
+<code class="docutils literal notranslate"><span class="pre">myscript.py</span></code> will be executed in its entirety by the Python
+interpreter</p></li>
+<li><p><strong>Jupyter Notebook</strong>: what we will in this course most of the time.<br />
+Write the code into a code cell and execute it</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="programming-in-python">
+<h2>Programming in Python<a class="headerlink" href="#programming-in-python" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>programs manipulate <strong>data objects</strong></p></li>
+<li><p>each object has its own <strong>type</strong>, which defines the type of operations that can be done with them</p></li>
+<li><p>data objects can either be:</p>
+<ul>
+<li><p><strong>Scalar</strong>: primitive data types that cannot be subdivided (like numbers, booleans)</p></li>
+<li><p><strong>Non-scalar</strong>: composite data types with internal structure that can be accessed (like lists, dictionaries, objects)</p></li>
+</ul>
+</li>
+</ul>
+<div align="center">
+<img src="img/PythonBasics.png" width="350">
+</div>
+</section>
+<section id="scalar-objects">
+<h2>Scalar Objects<a class="headerlink" href="#scalar-objects" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: represents integers (e.g., <code class="docutils literal notranslate"><span class="pre">5</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: represents real numbers (e.g., <code class="docutils literal notranslate"><span class="pre">3.14</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: represents Boolean values (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NoneType</span></code>: special with only one value (<code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+</ul>
+<br>
+<br>
+<div class="alert alert-block alert-success">
+<b>HINT</b>: Use the <code>type()</code> function if you are not sure about the data type.
+</div>
+<p>Examples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">109</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">10.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="type-int">
+<h2>Type <code class="docutils literal notranslate"><span class="pre">int()</span></code><a class="headerlink" href="#type-int" title="Link to this heading">#</a></h2>
+<p>Values:  <span class="math notranslate nohighlight">\(~~~~~~~~~~~~~\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\)</span></p>
+<p>Integer literals look like a sequence of numbers with no periods nor
+commas.</p>
+<p>Operations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code> (floor division), <code class="docutils literal notranslate"><span class="pre">%</span></code> (modulus, remainder),
+<code class="docutils literal notranslate"><span class="pre">**</span></code> (exponentiation)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> (unary minus, to negate a number)</p></li>
+</ul>
+<p>Examples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="o">//</span><span class="mi">5</span> <span class="c1"># NOTE: // is the floor division!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="type-float">
+<h2>Type <code class="docutils literal notranslate"><span class="pre">float()</span></code><a class="headerlink" href="#type-float" title="Link to this heading">#</a></h2>
+<p>Values: <span class="math notranslate nohighlight">\(~~~~~~~~~~~~~~\)</span> some (approximated) range of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span><br />
+Note that:</p>
+<ul class="simple">
+<li><p>numbers with a “.” are decimals (e.g., <code class="docutils literal notranslate"><span class="pre">2.0</span></code>)</p></li>
+<li><p>numbers with no decimal separator are integers (e.g., <code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
+</ul>
+<p>Operations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code> (floor division), <code class="docutils literal notranslate"><span class="pre">%</span></code> (modulus, remainder of division), <code class="docutils literal notranslate"><span class="pre">**</span></code> (exponentiation)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> (unary, invert sign)</p></li>
+</ul>
+<br>
+<br>
+<div class="alert alert-block alert-info">
+<b>NOTE</b>: Operations between floats or between a float and an
+integer, always yield a float.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">7.0</span><span class="o">/</span><span class="mf">5.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">7.0</span><span class="o">//</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python stores <strong>floating point numbers</strong> as base 2 (binary) fractions:
+$<span class="math notranslate nohighlight">\(
+    \text{\{number\}} = \text{\{integer mantissa\}} \cdot 2^{-\text{\{exponent\}}}
+\)</span>$</p>
+<p>For example: <span class="math notranslate nohighlight">\(0.125 = 1 \cdot 2^{-3} = 1\cdot \frac{1}{2^3}=1\cdot \frac{1}{8}\)</span>.</p>
+<div class="alert alert-block alert-warning">
+<b>WARNING</b>: Not all numbers can be represented in base 2 fractions. Python
+chooses the best approximation it can. The same also holds for some
+numbers in base 10 fraction: e.g., what about 1/3?
+</div>
+<p>Python may yield some <strong>approximation errors</strong>, that propagate as expressions go through.</p>
+<p>Example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6000000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2000000000000002
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="type-bool">
+<h2>Type <code class="docutils literal notranslate"><span class="pre">bool</span></code><a class="headerlink" href="#type-bool" title="Link to this heading">#</a></h2>
+<p>Values:</p>
+<p><span class="math notranslate nohighlight">\(~~~~~~~~~~~~~~~\)</span> <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> (<strong>capitalized</strong>!)</p>
+<p>Operations:</p>
+<p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">a</span></code> = <span class="math notranslate nohighlight">\(\begin{cases}
+          \texttt{True} &amp; \text{if} \texttt{ a } \text{is} \texttt{ False }\\
+          \texttt{False} &amp; \text{if} \texttt{ a } \text{is} \texttt{ True }
+      \end{cases}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">and</span> <span class="pre">b</span></code> = <span class="math notranslate nohighlight">\(\begin{cases}
+          \texttt{True} &amp; \text{if both} \texttt{ b } \text{and} \texttt{ a } \text{are} \texttt{ True}\\
+          \texttt{False} &amp; \text{otherwise}
+      \end{cases}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">or</span> <span class="pre">b</span></code> = <span class="math notranslate nohighlight">\(\begin{cases}
+          \texttt{True} &amp; \text{if} \texttt{ a } \text{is} \texttt{ True } \text{or} \texttt{ b } \text{is} \texttt{ True }\\
+          \texttt{False} &amp; \text{otherwise}
+      \end{cases}\)</span></p>
+<p>Booleans are the output of comparisons between items (e.g., <code class="docutils literal notranslate"><span class="pre">int</span></code> or
+<code class="docutils literal notranslate"><span class="pre">float</span></code>):</p>
+<ul class="simple">
+<li><p>Order:  <code class="docutils literal notranslate"><span class="pre">i&lt;j</span></code>, <code class="docutils literal notranslate"><span class="pre">i&gt;j</span></code>, <code class="docutils literal notranslate"><span class="pre">i&lt;=j</span></code>, <code class="docutils literal notranslate"><span class="pre">i&gt;=j</span></code></p></li>
+<li><p>(In)equality: <code class="docutils literal notranslate"><span class="pre">i!=j</span></code>, <code class="docutils literal notranslate"><span class="pre">i==j</span></code></p></li>
+</ul>
+</section>
+<section id="truth-table-between-two-boolean-variables">
+<h2>Truth Table between two Boolean variables<a class="headerlink" href="#truth-table-between-two-boolean-variables" title="Link to this heading">#</a></h2>
+<br>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></th>
+<th class="head text-center"><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></th>
+<th class="head text-center"><p>not <code class="docutils literal notranslate"><span class="pre">a</span></code></p></th>
+<th class="head text-center"><p>not <code class="docutils literal notranslate"><span class="pre">b</span></code></p></th>
+<th class="head text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code></p></th>
+<th class="head text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="type-conversions-explicit">
+<h2>Type Conversions: explicit<a class="headerlink" href="#type-conversions-explicit" title="Link to this heading">#</a></h2>
+<p>Switching between <code class="docutils literal notranslate"><span class="pre">float</span></code> and <code class="docutils literal notranslate"><span class="pre">int</span></code> can be performed via <strong>casting</strong> (<strong>explicit</strong> conversion):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">float(2)</span></code> converts value <code class="docutils literal notranslate"><span class="pre">2</span></code> (integer) to <code class="docutils literal notranslate"><span class="pre">2.0</span></code> (floating point)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int(2.9)</span></code> converts value <code class="docutils literal notranslate"><span class="pre">2.9</span></code> (floating point) to <code class="docutils literal notranslate"><span class="pre">2</span></code> (integer)</p></li>
+</ul>
+<br>
+<br>
+<div class="alert alert-block alert-warning">
+<b>WARNING</b> <code>int()</code> does not round to the nearest integer: rather, it
+truncates the decimal part. To round to the nearest integer, use
+<code>round()</code> instead.
+</div></section>
+<section id="type-conversions-implicit">
+<h2>Type Conversions: implicit<a class="headerlink" href="#type-conversions-implicit" title="Link to this heading">#</a></h2>
+<p>Python supports <strong>widening</strong> automatically (<strong>implicit</strong> conversion):</p>
+<div class="math notranslate nohighlight">
+\[
+    \underbrace{\texttt{bool} \rightarrow \texttt{int} \rightarrow \texttt{float}}_\text{narrow to wide}
+\]</div>
+<ul>
+<li><p><strong>Widening</strong>: Python does it automatically, if needed. Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">1/0.5=2.0</span></code> because Python casts <code class="docutils literal notranslate"><span class="pre">1</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+</li>
+<li><p><strong>Narrowing</strong>: Python never does it automatically. Because narrowing leads to information loss!</p></li>
+</ul>
+</section>
+<section id="expressions">
+<h2>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Expressions</strong> are combinations of <strong>objects</strong> and <strong>operators</strong></p></li>
+<li><p>an expression yields a <strong>value</strong>, which has its own <strong>type</strong></p></li>
+<li><p>the simplest expression has the form:</p></li>
+</ul>
+<div align="center">
+<p><code class="docutils literal notranslate"><span class="pre">&lt;object,</span> <span class="pre">operator,</span> <span class="pre">object&gt;</span></code></p>
+</div></section>
+<section id="arithmetic-operations-on-int-and-float-a-recap">
+<h2>Arithmetic Operations on <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code>: a Recap<a class="headerlink" href="#arithmetic-operations-on-int-and-float-a-recap" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><strong>Syntax</strong></p></th>
+<th class="head text-center"><p><strong>Operator</strong></p></th>
+<th class="head text-left"><p><strong>Output Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">i+j</span></code></p></td>
+<td class="text-center"><p>Sum</p></td>
+<td class="text-left"><p>if either of them is float, result is float</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">i-j</span></code></p></td>
+<td class="text-center"><p>Difference</p></td>
+<td class="text-left"><p>if either of them is float, result is float</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">i*j</span></code></p></td>
+<td class="text-center"><p>Product</p></td>
+<td class="text-left"><p>if either of them is float, result is float</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">i/j</span></code></p></td>
+<td class="text-center"><p>Division</p></td>
+<td class="text-left"><p>result is float (always)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">i%j</span></code></p></td>
+<td class="text-center"><p>Remainder (Modulo)</p></td>
+<td class="text-left"><p>if either of them is float, result is float</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">i**j</span></code></p></td>
+<td class="text-center"><p>Power of</p></td>
+<td class="text-left"><p>if either of them is float, result is float</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">i//j</span></code></p></td>
+<td class="text-center"><p>Floor division</p></td>
+<td class="text-left"><p>if either of them is float, result is float</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="comparison-between-ints-and-floats-a-recap">
+<h2>Comparison Between <code class="docutils literal notranslate"><span class="pre">int</span></code>s and <code class="docutils literal notranslate"><span class="pre">float</span></code>s: a Recap<a class="headerlink" href="#comparison-between-ints-and-floats-a-recap" title="Link to this heading">#</a></h2>
+<div class="alert alert-block alert-info">
+<b>NOTE</b>: Comparisons below evaluate to a <code>bool</code>.
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Expression</p></th>
+<th class="head text-left"><p></p></th>
+<th class="head text-left"><p>Evaluation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">i&lt;j</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\rightarrow\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">i</span></code> is smaller than <code class="docutils literal notranslate"><span class="pre">j</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">i&lt;=j</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\rightarrow\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">i</span></code> is smaller than or equal to <code class="docutils literal notranslate"><span class="pre">j</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">i&gt;j</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\rightarrow\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">j</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">i&gt;=j</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\rightarrow\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">i</span></code> is greater than or equal to <code class="docutils literal notranslate"><span class="pre">j</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">i==j</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\rightarrow\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">i</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">j</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">i!=j</span></code></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\rightarrow\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">i</span></code> is not equal to <code class="docutils literal notranslate"><span class="pre">j</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="chained-comparisons">
+<h2>Chained Comparisons<a class="headerlink" href="#chained-comparisons" title="Link to this heading">#</a></h2>
+<p>Comparisons can be chained arbitrarily and comparisons have the same priority:</p>
+<div align="center"><code>i&lt;j&lt;k</code> is the same as <code>i&lt;j and j&lt;k</code></div>
+<p>Since comparisons do not act in a pairwise fashion, <em>weird</em> comparisons like</p>
+<div align="center"><code>i&lt;j&gt;k</code></div>
+<p>are perfectly valid since it is equivalent to <code>(i&lt;j) and (j&gt;k)</code>.</p>
+</section>
+<section id="operator-precedence">
+<h2>Operator Precedence<a class="headerlink" href="#operator-precedence" title="Link to this heading">#</a></h2>
+<p>Precedence between operators can be <em>forced</em> via parenthesis.</p>
+<p>In principle, operators follow the <strong>PEMDAS</strong> order:</p>
+<ol class="arabic simple">
+<li><p><strong>P</strong>arenthesis</p></li>
+<li><p><strong>E</strong>xponential</p></li>
+<li><p><strong>M</strong>ultiplication and <strong>D</strong>ivision</p></li>
+<li><p><strong>A</strong>ddition and <strong>S</strong>ubtraction</p></li>
+</ol>
+</section>
+<section id="the-big-picture-of-operator-precedence">
+<h2>The Big Picture of Operator Precedence<a class="headerlink" href="#the-big-picture-of-operator-precedence" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Parenthesis: <code class="docutils literal notranslate"><span class="pre">(...)</span></code></p></li>
+<li><p>Exponentiation: <code class="docutils literal notranslate"><span class="pre">**</span></code></p></li>
+<li><p>Unary operators: <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
+<li><p>Binary arithmetic:  <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span></code></p></li>
+<li><p>Binary arithmetic: <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
+<li><p>Comparisons: <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code></p></li>
+<li><p>Logical <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+<li><p>Logical <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p>Logical <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+</ol>
+<br>
+<br>
+<div class="alert alert-block alert-info">
+<b>NOTE</b>: Same line means same precedence. Read ties left to right.
+</div>
+<div class="alert alert-block alert-success">
+<b>HINT</b>: In case of emergency, use parenthesis!
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src/P01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../P00/P00-Python-Getting-Started.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><b style="font-family: 'LUISS', 'Lato'">Getting Started</b></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../P02/P02-Python-Types-Strings.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><b style="font-family: 'LUISS', 'Lato'">Variables and Strings</b></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">Why Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-statements">Expressions and Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-vs-statements">Expressions vs. Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-vs-script-mode-vs-jupyter-notebook">Interactive vs. Script Mode vs. Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-in-python">Programming in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-objects">Scalar Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-int">Type <code class="docutils literal notranslate"><span class="pre">int()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-float">Type <code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-bool">Type <code class="docutils literal notranslate"><span class="pre">bool</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truth-table-between-two-boolean-variables">Truth Table between two Boolean variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversions-explicit">Type Conversions: explicit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversions-implicit">Type Conversions: implicit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations-on-int-and-float-a-recap">Arithmetic Operations on <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code>: a Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-ints-and-floats-a-recap">Comparison Between <code class="docutils literal notranslate"><span class="pre">int</span></code>s and <code class="docutils literal notranslate"><span class="pre">float</span></code>s: a Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chained-comparisons">Chained Comparisons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-precedence">Operator Precedence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-big-picture-of-operator-precedence">The Big Picture of Operator Precedence</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emilio Coppa and Alessio Martino
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

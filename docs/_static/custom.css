@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "LUISS";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../dist/fonts/LuissSans-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "LUISS";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../dist/fonts/LuissSans-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "LUISS";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../dist/fonts/LuissSans-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: LUISS;
+  font-weight: bold;
+  font-style: italic;
+  src: url("../dist/fonts/LuissSans-BoldItalic.otf") format("opentype");
+}
+
+/* Hide scrollbar in left sidebar */
+.bd-sidebar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.bd-sidebar::-webkit-scrollbar {
+  display: none; /* WebKit browsers (Chrome, Safari, Edge) */
+}
+
+/* Alternative selector for sidebar navigation */
+.bd-sidebar .bd-toc {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.bd-sidebar .bd-toc::-webkit-scrollbar {
+  display: none;
+}

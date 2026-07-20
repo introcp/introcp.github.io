@@ -1,0 +1,1131 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Software &#8212; Introduction to computer programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7faeedcc" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/C03/C03-Software';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operating System Essentials" href="../C04/C04-OS-Essentials.html" />
+    <link rel="prev" title="Hardware" href="../C02/C02-Hardware.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo2.png" class="logo__image only-light" alt="Introduction to computer programming - Home"/>
+    <script>document.write(`<img src="../../_static/logo2.png" class="logo__image only-dark" alt="Introduction to computer programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    <b style="font-family: 'LUISS', 'Lato'">Introduction to computer programming</b>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../A00/A00-Introduction.html"><b style="font-family: 'LUISS', 'Lato'">Course overview</b></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Systems</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../C00/C00-Bits-and-Bytes.html"><b style="font-family: 'LUISS', 'Lato'">Bits and Bytes</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C01/C01-Boolean-Logic.html"><b style="font-family: 'LUISS', 'Lato'">Boolean Logic</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C02/C02-Hardware.html"><b style="font-family: 'LUISS', 'Lato'">Hardware</b></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><b style="font-family: 'LUISS', 'Lato'">Software</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C04/C04-OS-Essentials.html"><b style="font-family: 'LUISS', 'Lato'">Operating System Essentials</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C05/C05-Computer-Network.html"><b style="font-family: 'LUISS', 'Lato'">Computer Networks</b></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../P00/P00-Python-Getting-Started.html"><b style="font-family: 'LUISS', 'Lato'">Getting Started</b></a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../P01/P01-Python-Expressions-and-Types.html"><b style="font-family: 'LUISS', 'Lato'">Expressions and Data Types</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P02/P02-Python-Types-Strings.html"><b style="font-family: 'LUISS', 'Lato'">Variables and Strings</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P03/P03-Python-Branching.html"><b style="font-family: 'LUISS', 'Lato'">Branching</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P04/P04-Python-Functions.html"><b style="font-family: 'LUISS', 'Lato'">Functions</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../E01/E01-Python-Errors.html"><b style="font-family: 'LUISS', 'Lato'">Types of Errors</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P05/P05-Python-Iteration.html"><b style="font-family: 'LUISS', 'Lato'">Iteration</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P06/P06-Python-Strings.html"><b style="font-family: 'LUISS', 'Lato'">Strings</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P07/P07-Python-Lists.html"><b style="font-family: 'LUISS', 'Lato'">Lists</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P08/P08-Python-Dictionaries-Tuples-Sets.html"><b style="font-family: 'LUISS', 'Lato'">Dictionaries, Tuples, and Sets</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P11/P11-Python-Files.html"><b style="font-family: 'LUISS', 'Lato'">Files</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P12/P12-Python-Sockets-HTTP.html"><b style="font-family: 'LUISS', 'Lato'">Sockets, HTTP and REST API</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P09/P09-Python-Classes.html"><b style="font-family: 'LUISS', 'Lato'">Classes and Objects</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P13/P13-Python-Exceptions.html"><b style="font-family: 'LUISS', 'Lato'">Exceptions and Error Handling</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P10/P10-Python-Recursion.html"><b style="font-family: 'LUISS', 'Lato'">Recursion</b></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../P14/P14-Python-Multiprocessing.html"><b style="font-family: 'LUISS', 'Lato'">Multiprocessing</b></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/introcp/introcp.github.io/blob/2026/src/C03/C03-Software.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+
+<li><a href="https://ercoppa.github.io/jupyterlite/lab/?fromURL=https://introcp.github.io/_sources//src/C03/C03-Software.ipynb" target="_blank"
+  class="btn btn-sm dropdown-item"
+  title="Launch on JupyterLite"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+ 
+
+<span class="btn__icon-container">
+ 
+   <img alt="JupyterLite logo" src="https://avatars.githubusercontent.com/u/81094398?s=200&v=4">
+ </span>
+<span class="btn__text-container">JupyterLite</span>
+</a>
+</li>
+    
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://introcp.github.io/src/download.html?file=/_sources/src/C03/C03-Software.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.open(window.location.pathname.replace('.html', '.pdf'));"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+    <button onclick="window.open(window.location.pathname.replace('.html', '.slides.html'));"
+    class="btn btn-sm btn-fullscreen-button"
+    title="Slide"
+    data-bs-placement="bottom" data-bs-toggle="tooltip"
+    >
+    
+    <span class="btn__icon-container">
+        <i class="fa-brands fa-slideshare"></i>
+    </span>
+
+    </button>
+
+    <button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><b style="font-family: 'LUISS', 'Lato'">Software</b></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-a-computer-execute-a-program">How can a computer execute a program?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-code-intel-amd-vs-arm">Machine code: Intel/AMD vs ARM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-machine-code-to-assembly-code">From machine code to assembly code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-low-level-code-is-impractical">Writing low level code is impractical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-low-level-to-high-level-programming">From low-level to high-level programming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation">Compilation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-to-learn-a-programming-language">Why do we need to learn a programming language?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#language-syntax-and-semantics">Language: syntax and semantics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-language-paradigms">Programming language paradigms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-task-algorithm-recipe">Solving a task → Algorithm → Recipe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-slightly-more-complex-example-newton-s-method">A slightly more complex example: Newton’s method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#many-different-high-level-languages">MANY different high-level languages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popular-programming-languages">Popular programming languages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computers-run-complex-software-stacks">Computers run complex software stacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operating-systems">Operating Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-goals-of-modern-operating-systems">Design goals of modern Operating Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-operating-system">Overview Operating System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-operating-system-cont-d">Overview Operating System (cont’d)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Overview Operating System (cont’d)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu-cores-and-operating-system-multitasking">CPU Cores and Operating System Multitasking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popular-operating-systems">Popular Operating Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-linux">GNU/Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#android">Android</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ios">iOS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-the-os-essentials">Learn the OS Essentials</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="software">
+<h1><b style="font-family: 'LUISS', 'Lato'">Software</b><a class="headerlink" href="#software" title="Link to this heading">#</a></h1>
+<h2 style="font-family: 'LUISS', 'Lato'">Introduction to computer programming</h2>
+<h3 style="font-family: 'LUISS', 'Lato'">Management and Artificial Intelligence</h3>
+<br>
+<img src="https://introcp.github.io/dist/img/logo2.png" width="200px">
+<p><br><br><br></p>
+<section id="how-can-a-computer-execute-a-program">
+<h2>How can a computer execute a program?<a class="headerlink" href="#how-can-a-computer-execute-a-program" title="Link to this heading">#</a></h2>
+<div align="center">
+<img src="img/cpus.drawio.png" width="80%">
+</div>
+<p>The <strong>CPU</strong> is responsible for executing the program code:</p>
+<ul class="simple">
+<li><p>It interprets the instructions one by one from the <strong>RAM</strong></p></li>
+<li><p>The instructions must be written in <strong>machine code</strong></p></li>
+<li><p>The machine code is:</p>
+<ul>
+<li><p><strong>Low level</strong>: relatively simple operations</p></li>
+<li><p><strong>CPU specific</strong>: different CPUs have different machine codes</p></li>
+<li><p><strong>Binary format</strong>: humans struggle to read it</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="machine-code-intel-amd-vs-arm">
+<h2>Machine code: Intel/AMD vs ARM<a class="headerlink" href="#machine-code-intel-amd-vs-arm" title="Link to this heading">#</a></h2>
+<p>A simple sequence of instructions to compute the sum of two integer numbers would look like this in machine code:</p>
+<table>
+  <tr>
+    <td>Intel/AMD 64 bit machine code</td>
+    <td></td><td></td>
+    <td>ARM 64-bit machine code</td>
+  </tr>
+  <tr>
+    <td><pre><code>f3 0f 1e fa
+55
+48 89 e5
+89 7d fc
+89 75 f8
+8b 55 fc
+8b 45 f8
+01 d0
+5d
+c3
+</code></pre></td>
+    <td></td><td></td>
+    <td><pre><code>ff 43 00 d1 
+e0 0f 00 b9 
+e8 0f 40 b9 
+e9 0f 40 b9 
+00 7d 09 1b 
+ff 43 00 91 
+c0 03 5f d6 
+</code></pre></td>
+  </tr>
+</table>
+<ul class="simple">
+<li><p>Each instruction is shown on a separate line for clarity, but stored contiguously in memory</p></li>
+<li><p>Machine code is binary (shown here in hexadecimal for readability)</p></li>
+<li><p>Intel/AMD processors share the same machine code format</p></li>
+<li><p>Other processors like ARM use entirely different machine code formats</p></li>
+</ul>
+</section>
+<section id="from-machine-code-to-assembly-code">
+<h2>From machine code to assembly code<a class="headerlink" href="#from-machine-code-to-assembly-code" title="Link to this heading">#</a></h2>
+<p>To make machine code understandable for humans, we can translate it to assembly code:</p>
+<ul class="simple">
+<li><p><strong>Low level</strong> [same as machine code]: relatively simple operations</p></li>
+<li><p><strong>CPU specific</strong> [same as machine code]: different CPUs have different assembly codes</p></li>
+<li><p><strong>Human readable</strong> [differently from machine code]: CPU struggles to read it!<br><br></p></li>
+</ul>
+<table>
+  <tr>
+    <td>Intel/AMD 64-bit assembly</td>
+    <td></td><td></td>
+    <td>ARM 64-bit assembly</td>
+  </tr>
+  <tr>
+    <td><pre><code>endbr64
+push   %rbp
+mov    %rsp,%rbp
+mov    %edi,-0x4(%rbp)
+mov    %esi,-0x8(%rbp)
+mov    -0x4(%rbp),%edx
+mov    -0x8(%rbp),%eax
+add    %edx,%eax
+pop    %rbp
+ret
+</code></td>
+    <td></td><td></td>
+    <td><pre><code>sub     sp, sp, #16
+str     w0, [sp, #12]
+ldr     w8, [sp, #12]
+ldr     w9, [sp, #12]
+mul     w0, w8, w9
+add     sp, sp, #16
+ret
+</code></pre></td>
+  </tr>
+</table>
+<p>Without getting into details, we can see that this code is doing some basic operations, such as addition, multiplication, copy/move of values from/to registers (which are different from CPU to CPU), etc.</p>
+<p><strong>NOTE:</strong></p>
+<ul class="simple">
+<li><p>Translation from/to machine code to/from assembly code is a one-to-one non-ambiguous mapping.</p></li>
+<li><p>Translating from machine code to assembly code is called <strong>disassembly</strong></p></li>
+<li><p>While the opposite is called <strong>assembly</strong></p></li>
+</ul>
+</section>
+<section id="writing-low-level-code-is-impractical">
+<h2>Writing low level code is impractical<a class="headerlink" href="#writing-low-level-code-is-impractical" title="Link to this heading">#</a></h2>
+<p>Major problems when working with machine/assembly code are:</p>
+<ol class="arabic simple">
+<li><p>Programmers have to write a lot of code to perform simple operations</p></li>
+<li><p>Code is not portable across different hardware platforms</p></li>
+<li><p>Programmers have to deal with hardware details</p></li>
+<li><p>Programming in machine/assembly code is hard and error-prone</p></li>
+</ol>
+<p><strong>Yet, CPUs only understand and run machine code.</strong></p>
+<p>How can programmers survive?</p>
+</section>
+<section id="from-low-level-to-high-level-programming">
+<h2>From low-level to high-level programming<a class="headerlink" href="#from-low-level-to-high-level-programming" title="Link to this heading">#</a></h2>
+<p>Most programmers use high-level languages, such as Python, Javascript, or PHP, to write software.</p>
+<p><em><strong>However, the CPU does not understand high-level languages. Never!</strong></em></p>
+<p>Code written in high-level languages must be translated into machine code. Two main strategies:</p>
+<ol class="arabic simple">
+<li><p><strong>Compilation</strong>:</p>
+<ul class="simple">
+<li><p>Compilers translate high-level code into machine code at <em>compile time</em></p></li>
+<li><p>Compile time is when the developer compiles the code (before it is run).</p></li>
+<li><p>Machine code is packaged into an executable.</p></li>
+<li><p>One executable for each platform (Operating Systems and CPUs).</p></li>
+<li><p>Developers keep the high-level code, while users get the low-level code.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p><strong>Interpretation</strong>:</p>
+<ul class="simple">
+<li><p>Interpreters translate high-level code into machine code at <em>running time</em>.</p></li>
+<li><p>Running time means when the user runs the code.</p></li>
+<li><p>The code is portable and platform independent.</p></li>
+<li><p>Developers distribute the high-level code, users use the interpreter to run the code.</p></li>
+</ul>
+</li>
+</ol>
+<p>Compiled code is typically more efficient than interpreted code.</p>
+</section>
+<section id="compilation">
+<h2>Compilation<a class="headerlink" href="#compilation" title="Link to this heading">#</a></h2>
+<div align="center">
+<img src="img/compilation.drawio.png" width="70%">
+</div></section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h2>
+<div align="center">
+<img src="img/interpretation.drawio.png" width="80%">
+</div></section>
+<section id="why-do-we-need-to-learn-a-programming-language">
+<h2>Why do we need to learn a programming language?<a class="headerlink" href="#why-do-we-need-to-learn-a-programming-language" title="Link to this heading">#</a></h2>
+<p>Most everyday tasks require to perform:</p>
+<ul class="simple">
+<li><p>repetitive…</p></li>
+<li><p>long sequences of…</p></li>
+<li><p>simple steps</p></li>
+</ul>
+<p>This scenario is <em>exactly</em> where a computer excels!</p>
+<blockquote>
+<div><p>Computers are incredibly fast, accurate, and stupid. Human beings are incredibly slow, inaccurate, and brilliant. Together they are powerful beyond imagination.<br><br>– Albert Einstein</p>
+</div></blockquote>
+</section>
+<section id="language-syntax-and-semantics">
+<h2>Language: syntax and semantics<a class="headerlink" href="#language-syntax-and-semantics" title="Link to this heading">#</a></h2>
+<p>Programming languages have:</p>
+<ul class="simple">
+<li><p><strong>Syntax</strong>: it defines which strings of characters and symbols are well formed.</p></li>
+<li><p><strong>Semantics</strong>: it defines the meaning of the well-formed strings.<br><br></p></li>
+</ul>
+<p>The same is true even for natural languages (English, Italian, etc.):</p>
+<ul class="simple">
+<li><p><strong>Syntax</strong>:</p>
+<ul>
+<li><p><em>“I are big”</em> is syntactically incorrect (<em>“I am big”</em> is correct).</p></li>
+<li><p><em>“The square circle is big”</em> is a well-formed sentence.</p></li>
+</ul>
+</li>
+<li><p><strong>Semantics</strong>:</p>
+<ul>
+<li><p><em>“The square circle is big”</em> is semantically incorrect (nonsensical because “square” and “circle” contradict).</p></li>
+</ul>
+</li>
+</ul>
+<p>An important difference between programming languages and natural languages is that programming languages are designed to be <strong>unambiguous</strong>, which means that there is no room for interpretation.</p>
+</section>
+<section id="programming-language-paradigms">
+<h2>Programming language paradigms<a class="headerlink" href="#programming-language-paradigms" title="Link to this heading">#</a></h2>
+<p>Two major computing paradigms:</p>
+<ul class="simple">
+<li><p><strong>Imperative programming</strong>:</p>
+<ul>
+<li><p>we describe how the program must accomplish the task</p></li>
+<li><p>language statements describe the steps (how to do), just like a <strong>recipe</strong></p></li>
+<li><p>close to the paradigm adopted by machine code</p></li>
+</ul>
+</li>
+<li><p><strong>Declarative programming</strong>:</p>
+<ul>
+<li><p>we describe what to do (define the end goal), without saying how (no step-by-step)</p></li>
+<li><p>language statements describe facts (what to do)</p></li>
+<li><p>paradigm adopted, e.g., by Database programming languages (SQL)</p></li>
+<li><p>distant from the paradigm adopted by machine code</p></li>
+</ul>
+</li>
+</ul>
+<div align="center">
+<br>
+<b>Imperative programming is what we will see in this course.</b>
+<br>
+</div>
+<p><strong>NOTE:</strong> In many cases, code will be a mixture of both designs too, so it’s not always
+black-and-white.</p>
+</section>
+<section id="solving-a-task-algorithm-recipe">
+<h2>Solving a task → Algorithm → Recipe<a class="headerlink" href="#solving-a-task-algorithm-recipe" title="Link to this heading">#</a></h2>
+<p>An algorithm features:</p>
+<ul class="simple">
+<li><p>a sequence of <strong>simple steps</strong></p></li>
+<li><p><strong>flow of control</strong> to specify when each step must be executed</p></li>
+<li><p>a way of determining when to <strong>stop</strong>.</p></li>
+</ul>
+<p>…just like a recipe!</p>
+<p>Even a plain 1 + 2 + 3 + 4 + 5 =? is an algorithm!</p>
+</section>
+<section id="a-slightly-more-complex-example-newton-s-method">
+<h2>A slightly more complex example: Newton’s method<a class="headerlink" href="#a-slightly-more-complex-example-newton-s-method" title="Link to this heading">#</a></h2>
+<p>The square root of <span class="math notranslate nohighlight">\(x\)</span> is a number <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(y \cdot y = x\)</span> ← <strong>declarative</strong>!</p>
+<p>Let’s see an <strong>imperative</strong> version:</p>
+<ol class="arabic simple">
+<li><p>Start with a guess <span class="math notranslate nohighlight">\(g\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(g \cdot g\)</span> is “close enough” to <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Let <span class="math notranslate nohighlight">\(y = g\)</span></p></li>
+<li><p>Stop</p></li>
+</ol>
+</li>
+<li><p>Otherwise:
+a. Let <span class="math notranslate nohighlight">\(g \leftarrow \tfrac{1}{2}\left( g + \tfrac{x}{g}\right)\)</span>
+b. Repeat from step #2</p></li>
+</ol>
+<p>Square root of 16 via Newton’s method:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(g\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(g \cdot g\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\tfrac{1}{2}\left( g + \tfrac{x}{g}\right)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><span class="math notranslate nohighlight">\(3 \cdot 3 = 9\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\tfrac{1}{2}\left( 3 + \tfrac{16}{3}\right) \simeq 4.17\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>4.17</p></td>
+<td><p><span class="math notranslate nohighlight">\(4.17 \cdot 4.17 \simeq 17.39\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\tfrac{1}{2}\left( 4.17 + \tfrac{16}{4.17}\right) \simeq 4.0035\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>4.0035</p></td>
+<td><p><span class="math notranslate nohighlight">\(4.0035 \cdot 4.0035 \simeq 16.028\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\tfrac{1}{2}\left( 4.0035 + \tfrac{16}{4.0035}\right) \simeq 4\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>NOTE</strong>: As already pointed out, we cannot write an algorithm in our own natural language (e.g., English). To make an algorithm interpretable by a computer, we need to learn a <strong>programming language</strong>.</p>
+</section>
+<section id="many-different-high-level-languages">
+<h2>MANY different high-level languages<a class="headerlink" href="#many-different-high-level-languages" title="Link to this heading">#</a></h2>
+<div align="center">
+<img src="img/pl.png" width="55%" style="margin: -10px;">
+</div>
+<p>There are thousands of high-level languages:</p>
+<ul class="simple">
+<li><p>They have been designed with different goals in mind</p></li>
+<li><p>Some are general purpose, some are domain specific (e.g., web)</p></li>
+<li><p>Some gives more control to the user, some hide more details</p></li>
+<li><p>Some are compiled, some are interpreted</p></li>
+</ul>
+<p>In this course, we will focus on a single high-level language: <em><strong>but which should we choose?</strong></em></p>
+</section>
+<section id="popular-programming-languages">
+<h2>Popular programming languages<a class="headerlink" href="#popular-programming-languages" title="Link to this heading">#</a></h2>
+<div align="center">
+<img src="img/popular-pl.drawio.png" width="90%">
+<p style="text-align: center;"><b>See the full <a href="https://www.youtube.com/watch?v=5yAbVkIMl_M&ab_channel=CaptainGizmo">video</a></b></p>
+</div></section>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<center>
+<a class="reference internal image-reference" href="../../_images/Python_logo_and_wordmark.svg.png"><img alt="../../_images/Python_logo_and_wordmark.svg.png" src="../../_images/Python_logo_and_wordmark.svg.png" style="width: 400px;" />
+</a>
+</center>
+<p>Benefits:</p>
+<ul class="simple">
+<li><p><strong>Easy to learn</strong>: designed to be readable, quick to learn</p></li>
+<li><p><strong>High-level language</strong>: abstracting away most low-level aspects of a computer</p></li>
+<li><p><strong>Large community and great support</strong>: several libraries allow to build complex projects with just a few lines of code</p></li>
+<li><p><strong>Adequate for most tasks</strong>: it shows its limits when performance is essential and low-level details play a role. You will hardly work on anything that cannot be implemented in Python</p></li>
+</ul>
+<p>Python:</p>
+<ul class="simple">
+<li><p>is an <strong>imperative programming language</strong></p></li>
+<li><p>with minor flavors of declarative (functional) programming traits.</p></li>
+</ul>
+</section>
+<section id="computers-run-complex-software-stacks">
+<h2>Computers run complex software stacks<a class="headerlink" href="#computers-run-complex-software-stacks" title="Link to this heading">#</a></h2>
+<p>Python is nice and powerful, but computers are expected to run <strong>MANY</strong> programs at the same time:</p>
+<ul class="simple">
+<li><p>Browser to visit web pages (e.g., Chrome)</p></li>
+<li><p>Office editor to write documents</p></li>
+<li><p>File manager to organize files</p></li>
+<li><p>Messaging applications (e.g., Telegram)</p></li>
+<li><p>Video streaming client (e.g., Netflix)</p></li>
+<li><p>…and way more!</p></li>
+</ul>
+<p>Some of these may be written in Python, but others are written in other languages.</p>
+<p>Hence, <strong>a computer cannot just run a single Python program</strong>. Moreover, computers are expected to:</p>
+<ul class="simple">
+<li><p>embrace the concept of user accounts</p></li>
+<li><p>provide access only after user authentication</p></li>
+<li><p>protect files across users and prevent hardware damage</p></li>
+<li><p>allow only admin users to install other programs</p></li>
+<li><p>handle network connections, power management</p></li>
+</ul>
+<p>This is a <strong>LOT</strong> of <strong>HARD</strong> work: we need an <strong>Operating System (OS)</strong>.</p>
+</section>
+<section id="operating-systems">
+<h2>Operating Systems<a class="headerlink" href="#operating-systems" title="Link to this heading">#</a></h2>
+<p>Modern computing systems are based on <strong>operating systems</strong>, which are software designed to allow the execution of applications (programs) on the available hardware.</p>
+<p>The main tasks of an operating system are:</p>
+<ul class="simple">
+<li><p><strong>Process management</strong> (creation, termination, CPU scheduling, etc.): any application (program) running on your OS is associated with a <strong>process</strong>.</p></li>
+<li><p><strong>Resource allocation</strong> to processes (RAM, storage, network connections)</p></li>
+<li><p><strong>Time management</strong> (clock, timers)</p></li>
+<li><p><strong>User management</strong> for multi-user systems (access privileges to files, programs)</p></li>
+<li><p><strong>Inter-process communication</strong> (locally or across networked systems)</p></li>
+<li><p><strong>Error handling</strong> during process execution or system operations</p></li>
+<li><p><strong>Protection and security</strong>, isolating processes to prevent interference with other processes, the OS, or hardware (preventing data theft or malicious/buggy operations)</p></li>
+</ul>
+</section>
+<section id="design-goals-of-modern-operating-systems">
+<h2>Design goals of modern Operating Systems<a class="headerlink" href="#design-goals-of-modern-operating-systems" title="Link to this heading">#</a></h2>
+<p>Modern operating systems are designed with several key objectives:</p>
+<ul class="simple">
+<li><p><strong>Multitasking</strong>: Ability to run multiple applications simultaneously</p></li>
+<li><p><strong>Preemption</strong>: Capability to take CPU control from one process and give it to another</p></li>
+<li><p><strong>Progress &amp; fairness</strong>: Regular CPU allocation to all processes to ensure computational progress</p></li>
+<li><p><strong>High throughput</strong>: Maximizing the number of instructions executed per time unit</p></li>
+<li><p><strong>Low latency</strong>: Minimizing response time for system operations (critical in real-time environments like automotive safety systems)</p></li>
+</ul>
+</section>
+<section id="overview-operating-system">
+<h2>Overview Operating System<a class="headerlink" href="#overview-operating-system" title="Link to this heading">#</a></h2>
+<div align="center">
+<a class="reference internal image-reference" href="../../_images/schema.png"><img alt="../../_images/schema.png" src="../../_images/schema.png" style="width: 50%;" />
+</a>
+</div>
+<ul class="simple">
+<li><p>The <strong>hardware</strong> is the physical part of the computer, containing CPU, RAM, disks and other devices.</p></li>
+<li><p>To program the hardware, each architecture defines the <strong>Instruction Set Architecture (ISA)</strong>, which defines machine code instruction syntax and semantics.</p></li>
+<li><p>The platform (operating system on a specific architecture, e.g., Windows x86) defines the <strong>Application Binary Interface (ABI)</strong>, which defines conventions (rules) on how different programs can interact, reuse code, and interface with the operating system.</p></li>
+</ul>
+</section>
+<section id="overview-operating-system-cont-d">
+<h2>Overview Operating System (cont’d)<a class="headerlink" href="#overview-operating-system-cont-d" title="Link to this heading">#</a></h2>
+<div align="center">
+<a class="reference internal image-reference" href="../../_images/schema.png"><img alt="../../_images/schema.png" src="../../_images/schema.png" style="width: 50%;" />
+</a>
+</div>
+<p>The <strong>operating system</strong>:</p>
+<ul class="simple">
+<li><p>has full control over the hardware:</p>
+<ul>
+<li><p>it runs in <strong>supervisor (kernel) execution mode</strong></p></li>
+<li><p>it can execute <strong>ALL</strong> instructions from the ISA.</p></li>
+</ul>
+</li>
+<li><p>controls which applications should run on the CPU cores at any time</p></li>
+<li><p>plays the role of intermediary between applications and the hardware</p></li>
+<li><p>manages four key aspects: <strong>processes</strong>, <strong>memory management</strong>, <strong>file and I/O</strong>, <strong>time</strong></p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>Overview Operating System (cont’d)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div align="center">
+<a class="reference internal image-reference" href="../../_images/schema.png"><img alt="../../_images/schema.png" src="../../_images/schema.png" style="width: 50%;" />
+</a>
+</div>
+<p>In <strong>user execution mode</strong>:</p>
+<ul class="simple">
+<li><p>Code can run only a limited (safe) subset of the ISA</p></li>
+<li><p>Privileged instructions must be delegated to the OS following the ABI</p></li>
+<li><p>Processes can be related to:</p>
+<ul>
+<li><p>built-in applications provided by the OS: e.g., file manager</p></li>
+<li><p>applications installed by the users: e.g., Chrome (web browser by Google)</p></li>
+</ul>
+</li>
+<li><p>Applications use system libraries (subprograms for standard tasks, e.g., reading a file, make a network connection) to avoid reinventing the wheel when not necessary.</p></li>
+</ul>
+</section>
+<section id="cpu-cores-and-operating-system-multitasking">
+<h2>CPU Cores and Operating System Multitasking<a class="headerlink" href="#cpu-cores-and-operating-system-multitasking" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>CPUs traditionally had only a single core (and many still have few cores)</p></li>
+<li><p>Yet we can run many applications simultaneously</p></li>
+</ul>
+<p><em><strong>How is this possible?</strong></em></p>
+<p>The Operating System creates the <strong>illusion of parallel execution</strong>:</p>
+<ul class="simple">
+<li><p>CPU time is divided into small time slots (milliseconds)</p></li>
+<li><p>Each application gets a turn to use the CPU</p></li>
+<li><p>When a time slot expires, the OS performs <em>context switching</em></p></li>
+<li><p>Applications take turns using the CPU so quickly that users perceive them running simultaneously</p></li>
+</ul>
+<p>This technique is called <strong>time-sharing</strong> or <strong>preemptive multitasking</strong> and it is the essential trait of all modern operating systems.</p>
+<p><strong>NOTE</strong>: If you have:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(1\)</span> core without preemptive multitasking: up to <span class="math notranslate nohighlight">\(1\)</span> applications executing in parallel</p></li>
+<li><p><span class="math notranslate nohighlight">\(1\)</span> core with preemptive multitasking: illusion of parallel execution of an infinite number of apps</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> cores without preemptive multitasking: up to <span class="math notranslate nohighlight">\(k\)</span> applications executing in parallel</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> cores with preemptive multitasking: illusion of parallel execution of an infinite number of applications, with up to <span class="math notranslate nohighlight">\(k\)</span> actually executing in parallel at any given time</p></li>
+</ul>
+</section>
+<section id="popular-operating-systems">
+<h2>Popular Operating Systems<a class="headerlink" href="#popular-operating-systems" title="Link to this heading">#</a></h2>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Proprietary, closed-source OS developed by Microsoft for:</p>
+<ul>
+<li><p>Intel/AMD CPUs</p></li>
+<li><p>ARM (still early stage)</p></li>
+</ul>
+</li>
+<li><p>Most widely used desktop OS globally</p></li>
+<li><p>Known for user-friendly interface and software compatibility</p></li>
+</ul>
+<div align="center">
+<br>
+<img src="img/windows.png" width="90%">
+</div></section>
+<section id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Proprietary, closed-source OS developed by Apple for:</p>
+<ul>
+<li><p>PowerPC CPUs (before 2006)</p></li>
+<li><p>Intel CPUs (before 2021)</p></li>
+<li><p>Apple Silicon CPUs (now)</p></li>
+</ul>
+</li>
+<li><p>Known for sleek design and stability</p></li>
+<li><p>Popular among creative professionals</p></li>
+</ul>
+<div align="center">
+<img src="img/macos.png" width="40%">
+</div></section>
+<section id="gnu-linux">
+<h3>GNU/Linux<a class="headerlink" href="#gnu-linux" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Combination of the Linux kernel and GNU userspace libraries</p></li>
+<li><p>Packaged by different <em>distributions</em> (Ubuntu, Fedora, Debian, Gentoo, Arch)</p></li>
+<li><p><strong>Open Source</strong>: you can see and change its code!</p></li>
+<li><p>Powers most web servers and supercomputers (even Microsoft uses it in their cloud!)</p></li>
+</ul>
+<div align="center">
+<br>
+<img src="img/linux.png" width="80%">
+</div></section>
+<section id="android">
+<h3>Android<a class="headerlink" href="#android" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Linux-based OS developed by Google</p></li>
+<li><p>Most popular mobile OS worldwide</p></li>
+<li><p>Open ecosystem with extensive app marketplace</p></li>
+</ul>
+<div align="center">
+<img src="img/android.png" width="35%">
+</div></section>
+<section id="ios">
+<h3>iOS<a class="headerlink" href="#ios" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Proprietary, closed-source OS for Apple mobile devices</p></li>
+<li><p>Second most popular mobile OS worldwide</p></li>
+<li><p>Closed ecosystem with extensive app marketplace</p></li>
+</ul>
+<div align="center">
+<img src="img/ios.png" width="45%">
+</div></section>
+</section>
+<section id="learn-the-os-essentials">
+<h2>Learn the OS Essentials<a class="headerlink" href="#learn-the-os-essentials" title="Link to this heading">#</a></h2>
+<p>In the next lecture, we will learn about and work with essential operating system concepts.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src/C03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../C02/C02-Hardware.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><b style="font-family: 'LUISS', 'Lato'">Hardware</b></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../C04/C04-OS-Essentials.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><b style="font-family: 'LUISS', 'Lato'">Operating System Essentials</b></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-a-computer-execute-a-program">How can a computer execute a program?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-code-intel-amd-vs-arm">Machine code: Intel/AMD vs ARM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-machine-code-to-assembly-code">From machine code to assembly code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-low-level-code-is-impractical">Writing low level code is impractical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-low-level-to-high-level-programming">From low-level to high-level programming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation">Compilation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-to-learn-a-programming-language">Why do we need to learn a programming language?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#language-syntax-and-semantics">Language: syntax and semantics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-language-paradigms">Programming language paradigms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-a-task-algorithm-recipe">Solving a task → Algorithm → Recipe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-slightly-more-complex-example-newton-s-method">A slightly more complex example: Newton’s method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#many-different-high-level-languages">MANY different high-level languages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popular-programming-languages">Popular programming languages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computers-run-complex-software-stacks">Computers run complex software stacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operating-systems">Operating Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-goals-of-modern-operating-systems">Design goals of modern Operating Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-operating-system">Overview Operating System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-operating-system-cont-d">Overview Operating System (cont’d)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Overview Operating System (cont’d)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu-cores-and-operating-system-multitasking">CPU Cores and Operating System Multitasking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popular-operating-systems">Popular Operating Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-linux">GNU/Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#android">Android</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ios">iOS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-the-os-essentials">Learn the OS Essentials</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emilio Coppa and Alessio Martino
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
