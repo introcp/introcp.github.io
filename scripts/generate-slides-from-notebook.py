@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+"""
+Generate and preview HTML/PDF slides for a single notebook, using Docker to
+ensure a consistent environment (Linux, macOS, Windows).
+
+Usage:
+
+    python3 scripts/generate-slides-from-notebook.py <notebook>.ipynb
+
+On Linux/macOS the script is also directly executable:
+
+    ./scripts/generate-slides-from-notebook.py <notebook>.ipynb
+
+Starts a watch process that regenerates the slides whenever the notebook is
+saved. Press Ctrl+C to stop.
+"""
+
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+IMAGE = "ercoppa/introcp"
+
+
+def fail(message):
+    print(message, file=sys.stderr)
+    sys.exit(1)
+
+
+def main():
+    if len(sys.argv) != 2:
+        fail(f"Usage: {sys.argv[0]} <notebook>.ipynb")
+
+    notebook_arg = sys.argv[1]
+    notebook_path = Path(notebook_arg)
+
+    if notebook_path.suffix != ".ipynb":
+        fail(f"File {notebook_arg} is not a .ipynb file")
+
+    if not notebook_path.is_file():
+        fail(f"File {notebook_arg} does not exist")
+
+    repo_root = Path(__file__).resolve().parent.parent
+
+    try:
+        notebook_in_repo = notebook_path.resolve().relative_to(repo_root)
+    except ValueError:
+        fail(f"File {notebook_arg} must be inside the repository ({repo_root})")
+
+    # Path as seen by the (always Linux) container, regardless of host OS.
+    container_notebook_path = notebook_in_repo.as_posix()
+
+    container_name = f"introcp-slide-{os.getpid()}"
+
+    docker_cmd = ["docker", "run", "--rm", "-i"]
+
+    # UID/GID mapping only makes sense on POSIX hosts (Linux/macOS); Docker
+    # Desktop on Windows has no equivalent concept, so it's skipped there.
+    if os.name == "posix":
+        docker_cmd += ["-u", f"{os.getuid()}:{os.getgid()}"]
+
+    docker_cmd += [
+        "-v", f"{repo_root}:/home/user/introcp",
+        "-w", "/home/user/introcp",
+        "--ipc=host", "--cap-add=SYS_ADMIN", "--init",
+        "--name", container_name,
+        IMAGE,
+        "scripts/convert-notebook-to-PDF-slides.py", "--watch", container_notebook_path,
+    ]
+
+    print("[INFO] Starting watch container. Press Ctrl+C to stop.")
+    try:
+        subprocess.run(docker_cmd)
+    except KeyboardInterrupt:
+        print("\n[INFO] Stopping container...")
+    finally:
+        # Best-effort cleanup: harmless if the container already stopped/removed itself (--rm).
+        subprocess.run(
+            ["docker", "stop", container_name],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+
+
+if __name__ == "__main__":
+    main()

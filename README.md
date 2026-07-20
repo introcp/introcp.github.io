@@ -60,25 +60,21 @@ Generated notebooks are placed in `src/EXX` to be included in the final website,
 
 ## 3. Previewing Slides
 
-You can generate and preview HTML/PDF slides for a single notebook using the `scripts/generate-slides-from-notebook` script. This script uses Docker to ensure a consistent environment.
-
-**Platform notes:** all the slide generation happens inside the Docker container, so the host OS itself doesn't matter for the build — but the `scripts/generate-slides-from-notebook` script and the `Makefile` targets (`docker-run`, `docker-build-book`, ...) are Bash/POSIX scripts (they use `bash`, `chmod`, and `` `id -u`/`id -g` ``), so you need a Unix-like shell to run them:
-
--   **Linux / macOS**: works out of the box in a normal Terminal, as long as [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or the Docker Engine) is installed and running.
--   **Windows**: run these commands from **WSL2** (Windows Subsystem for Linux), with Docker Desktop's WSL2 integration enabled ("Settings → Resources → WSL Integration"), and with the repository cloned inside the WSL2 filesystem. Native `cmd.exe`/PowerShell are not supported directly, since they don't provide `bash`, `make`, or `id`. Git Bash can work as an alternative but is not recommended: it is missing `make` by default, and it is known to mis-translate Docker volume paths (e.g. `-v $(PWD):/home/user/introcp`) in some setups.
+You can generate and preview HTML/PDF slides for a single notebook using the `scripts/generate-slides-from-notebook.py` script. This script uses Docker to ensure a consistent environment, and only requires [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or the Docker Engine) and **Python 3** on the host — no `bash`, `make`, or manual `chmod` needed, so it works the same way on Linux, macOS, and Windows.
 
 ```bash
 # Fetch the container image
 docker pull ercoppa/introcp
 
-# Make the script executable
-chmod +x scripts/generate-slides-from-notebook
-
 # Run the script with the path to your notebook
-./scripts/generate-slides-from-notebook src/A00/A00-Introduction.ipynb
+python3 scripts/generate-slides-from-notebook.py src/A00/A00-Introduction.ipynb
 ```
 
-This will start a watch process that automatically regenerates the slides whenever you save the notebook. You will find the generated HTML and PDF slides in the same directory as the notebook, e.g., `src/A00/A00-Introduction.slides.html` and `src/A00/A00-Introduction.slides.pdf`.
+On Linux/macOS the script is also directly executable, if you prefer: `./scripts/generate-slides-from-notebook.py src/A00/A00-Introduction.ipynb`. On Windows, use `python` instead of `python3` if that's how Python is set up on your system.
+
+This will start a watch process that automatically regenerates the slides whenever you save the notebook (press Ctrl+C to stop). You will find the generated HTML and PDF slides in the same directory as the notebook, e.g., `src/A00/A00-Introduction.slides.html` and `src/A00/A00-Introduction.slides.pdf`.
+
+**Note:** the `Makefile` targets (`docker-build`, `docker-run`, `docker-build-book`, ...) are maintainer-facing shortcuts (building/publishing the image, running the full site build) and remain Bash/`make`-based — they're not needed for the day-to-day workflow above. They work out of the box on Linux/macOS; on Windows they require a Unix-like shell (WSL2 recommended, with Docker Desktop's WSL2 integration enabled and the repository cloned inside the WSL2 filesystem — native `cmd.exe`/PowerShell aren't supported since they lack `bash`, `make`, and `id`).
 
 ## 4. Adding a Notebook to the Website TOC
 
