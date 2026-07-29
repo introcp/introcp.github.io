@@ -65,6 +65,10 @@ def main():
         "-w", "/home/user/introcp",
         "--ipc=host", "--cap-add=SYS_ADMIN", "--init",
         "--name", container_name,
+        # Without a TTY (-t), Python's stdout is block-buffered by default, so
+        # progress messages would only appear in bursts (or not until exit).
+        # Force unbuffered output so hints show up immediately.
+        "-e", "PYTHONUNBUFFERED=1",
         IMAGE,
         "scripts/convert-notebook-to-PDF-slides.py", "--watch", container_notebook_path,
     ]

@@ -253,7 +253,7 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
         return
 
     def run_playwright(playwright: Playwright):
-        if verbose: print("Launching browser...")
+        print("  - Launching headless browser...")
         browser = playwright.chromium.launch(
             headless=True,
             args=[
@@ -277,6 +277,7 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
             html_url = f"file://{os.getcwd()}/{filename.replace('.ipynb', '.slide.pdf.html?print-pdf')}"
             if verbose: print(f"Visiting {html_url}")
 
+            print("  - Loading slides in browser...")
             page.goto(html_url, wait_until="load")
             page.wait_for_load_state("networkidle")
 
@@ -285,6 +286,7 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
             except Exception:
                 pass # Ignore if Reveal is not ready
 
+            print("  - Rendering math (MathJax)...")
             try:
                 page.wait_for_function("() => window.MathJax && window.MathJax.startup", timeout=5000)
                 page.evaluate("async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }")
@@ -292,6 +294,7 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
                 print(f"    - MathJax rendering timed out or failed: {e}")
 
             # Generate main slides PDF (without front slide initially)
+            print("  - Exporting slides to PDF...")
             page.pdf(
                 path=main_pdf_path,
                 print_background=True, margin=[], height="720px", width="1280px"
@@ -307,7 +310,7 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
         final_pdf_path = f"{os.getcwd()}/{filename.replace('.ipynb', '.pdf')}"
         try:
             if title:
-                if verbose: print(f"Generating front slide with title: {title}")
+                print(f"  - Generating front slide with title: {title}")
                 front_pdf = generate_front_slide(title, main_pdf_path)
                 if front_pdf and os.path.exists(front_pdf):
                     # Move the front slide PDF to final location
