@@ -262,60 +262,70 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
                 '--no-zygote', '--single-process'
             ]
         )
-        page = browser.new_page()
-        page.emulate_media(media="screen")
 
-        # Use the slide.pdf.html file for PDF conversion
-        html_file = f"file://{os.getcwd()}/{filename.replace('.ipynb', '.slide.pdf.html?print-pdf')}"
-        if verbose: print(f"Visiting {html_file}")
-        
-        page.goto(html_file, wait_until="load")
-        page.wait_for_load_state("networkidle")
-
-        try:
-            page.wait_for_function("() => window.Reveal && (Reveal.isReady ? Reveal.isReady() : true)", timeout=5000)
-        except Exception:
-            pass # Ignore if Reveal is not ready
-
-        try:
-            page.wait_for_function("() => window.MathJax && window.MathJax.startup", timeout=5000)
-            page.evaluate("async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }")
-        except Exception as e:
-            print(f"    - MathJax rendering timed out or failed: {e}")
-
-        # Generate main slides PDF (without front slide initially)
-        main_pdf_path = f"{os.getcwd()}/{filename.replace('.ipynb', '_slides.pdf')}"
-        page.pdf(
-            path=main_pdf_path,
-            print_background=True, margin=[], height="720px", width="1280px"
-        )
-        browser.close()
-        
-        # Clean up the slide.pdf.html file after PDF generation
         slide_pdf_html = filename.replace('.ipynb', '.slide.pdf.html')
-        if os.path.exists(slide_pdf_html):
-            os.remove(slide_pdf_html)
-        
+        main_pdf_path = f"{os.getcwd()}/{filename.replace('.ipynb', '_slides.pdf')}"
+
+        # Everything from here on must guarantee that slide_pdf_html and
+        # main_pdf_path are removed the moment they are no longer needed,
+        # even if an exception (or interrupt) occurs mid-way.
+        try:
+            page = browser.new_page()
+            page.emulate_media(media="screen")
+
+            # Use the slide.pdf.html file for PDF conversion
+            html_url = f"file://{os.getcwd()}/{filename.replace('.ipynb', '.slide.pdf.html?print-pdf')}"
+            if verbose: print(f"Visiting {html_url}")
+
+            page.goto(html_url, wait_until="load")
+            page.wait_for_load_state("networkidle")
+
+            try:
+                page.wait_for_function("() => window.Reveal && (Reveal.isReady ? Reveal.isReady() : true)", timeout=5000)
+            except Exception:
+                pass # Ignore if Reveal is not ready
+
+            try:
+                page.wait_for_function("() => window.MathJax && window.MathJax.startup", timeout=5000)
+                page.evaluate("async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }")
+            except Exception as e:
+                print(f"    - MathJax rendering timed out or failed: {e}")
+
+            # Generate main slides PDF (without front slide initially)
+            page.pdf(
+                path=main_pdf_path,
+                print_background=True, margin=[], height="720px", width="1280px"
+            )
+        finally:
+            browser.close()
+            # slide_pdf_html is no longer needed once the browser is done with
+            # it (whether PDF generation succeeded or not) - remove it now.
+            if os.path.exists(slide_pdf_html):
+                os.remove(slide_pdf_html)
+
         # Generate final PDF with front slide if title was extracted
         final_pdf_path = f"{os.getcwd()}/{filename.replace('.ipynb', '.pdf')}"
-        if title:
-            if verbose: print(f"Generating front slide with title: {title}")
-            front_pdf = generate_front_slide(title, main_pdf_path)
-            if front_pdf and os.path.exists(front_pdf):
-                # Move the front slide PDF to final location
-                os.rename(front_pdf, final_pdf_path)
-                # Clean up temporary main slides PDF
-                if os.path.exists(main_pdf_path):
-                    os.remove(main_pdf_path)
-                print(f"Successfully generated PDF with front slide for {filename}")
+        try:
+            if title:
+                if verbose: print(f"Generating front slide with title: {title}")
+                front_pdf = generate_front_slide(title, main_pdf_path)
+                if front_pdf and os.path.exists(front_pdf):
+                    # Move the front slide PDF to final location
+                    os.rename(front_pdf, final_pdf_path)
+                    print(f"Successfully generated PDF with front slide for {filename}")
+                else:
+                    # Fallback: use main PDF without front slide
+                    os.rename(main_pdf_path, final_pdf_path)
+                    print(f"Successfully generated PDF (no front slide) for {filename}")
             else:
-                # Fallback: use main PDF without front slide
+                # No title found, use main PDF as final
                 os.rename(main_pdf_path, final_pdf_path)
-                print(f"Successfully generated PDF (no front slide) for {filename}")
-        else:
-            # No title found, use main PDF as final
-            os.rename(main_pdf_path, final_pdf_path)
-            print(f"Successfully generated PDF (no title found) for {filename}")
+                print(f"Successfully generated PDF (no title found) for {filename}")
+        finally:
+            # main_pdf_path is only a temporary artifact; remove it as soon as
+            # it's no longer needed, whether or not the rename above ran.
+            if os.path.exists(main_pdf_path):
+                os.remove(main_pdf_path)
 
         with open(f"{HASHED_DIR}{hash_name}.hash", 'w') as f:
             f.write(file_hash(filename))
@@ -366,6 +376,15 @@ if args.watch:
         print("[ERROR] --watch requires a single input file.", file=sys.stderr)
         sys.exit(1)
     
+    # By default, SIGTERM (e.g. sent by `docker stop`) kills the process
+    # instantly with no chance to run cleanup code, which is what left stray
+    # temp files behind when the watch container was stopped. Convert it into
+    # a KeyboardInterrupt so the same graceful shutdown path below (which
+    # waits for the in-flight conversion to finish and clean up) is used.
+    def _handle_sigterm(signum, frame):
+        raise KeyboardInterrupt()
+    signal.signal(signal.SIGTERM, _handle_sigterm)
+
     print(f"[INFO] Watching {args.input} for changes...\n")
     last_hash = None
     changed = True
@@ -426,14 +445,17 @@ if args.watch:
                 changed = False
             time.sleep(0.5)
     except KeyboardInterrupt:
-        print("\n[INFO] Watch mode stopped by user. Stopping ongoing processes...")
+        print("\n[INFO] Watch mode stopped. Waiting for in-flight conversion to finish and clean up...")
         
-        # Signal abortion and wait for threads to finish
+        # Signal abortion (checked between steps) and wait for the threads to
+        # actually finish, so their try/finally cleanup of temp files runs to
+        # completion. No timeout here on purpose: killing them early is what
+        # leaves stray temp files (*.slide.pdf.html, *_slides.pdf) behind.
         abort_event.set()
         if pdf_thread and pdf_thread.is_alive():
-            pdf_thread.join(timeout=5)
+            pdf_thread.join()
         if scrollable_thread and scrollable_thread.is_alive():
-            scrollable_thread.join(timeout=5)
+            scrollable_thread.join()
         
         print("[INFO] Exiting.")
         sys.exit(0)

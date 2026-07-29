@@ -8,3 +8,4 @@ extra/old
 users_groups.csv
 cookies.json
 .venv_add_group
+scripts/__pycache__/

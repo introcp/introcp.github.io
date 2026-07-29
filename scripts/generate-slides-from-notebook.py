@@ -69,11 +69,26 @@ def main():
         "scripts/convert-notebook-to-PDF-slides.py", "--watch", container_notebook_path,
     ]
 
-    print("[INFO] Starting watch container. Press Ctrl+C to stop.")
+    print("[INFO] Starting watch container. Press Ctrl+C to stop (press twice to force-kill).")
+    # Use Popen (not subprocess.run) so that a KeyboardInterrupt here does not
+    # SIGKILL the docker CLI immediately. On Ctrl+C, the terminal already sends
+    # SIGINT to the whole foreground process group (including the docker CLI),
+    # which forwards it into the container. The in-container script then needs
+    # time to finish any in-progress conversion (headless-browser PDF rendering
+    # can take well over a minute) and run its own cleanup logic (removing temp
+    # files like *.slide.pdf.html and *_slides.pdf) before exiting. So we wait
+    # indefinitely for a graceful exit, and only force-stop if the user presses
+    # Ctrl+C a second time.
+    proc = subprocess.Popen(docker_cmd)
     try:
-        subprocess.run(docker_cmd)
+        proc.wait()
     except KeyboardInterrupt:
-        print("\n[INFO] Stopping container...")
+        print("\n[INFO] Waiting for the container to finish and stop gracefully... "
+              "(press Ctrl+C again to force-kill; this may leave temp files behind)")
+        try:
+            proc.wait()
+        except KeyboardInterrupt:
+            print("\n[INFO] Forcing container to stop...")
     finally:
         # Best-effort cleanup: harmless if the container already stopped/removed itself (--rm).
         subprocess.run(
