@@ -1,0 +1,160 @@
+######################
+# # # Exercise 1 # # #
+######################
+# Write a piece of code that checks whether a number is even. If so, print a message.
+
+num = 42
+if num % 2 == 0:
+    print("Condition evaluates to True.")
+    print("Number", num, "is even")
+
+# if int(num / 2) == (num / 2):
+#     print("Condition evaluates to True.")
+#     print("Number", num, "is even")
+
+
+######################
+# # # Exercise 2 # # #
+######################
+# Write a piece of code that checks whether a number is even. Print a message about the outcome (odd or even).
+
+num = 42
+if num % 2 == 0:
+    print("Condition evaluates to True.")
+    print("Number", num, "is even")
+else:
+    print("Condition evaluates to False.")
+    print("Number", num, "is odd")
+
+
+######################
+# # # Exercise 3 # # #
+######################
+# Write a piece of code that checks whether a number is odd or even.
+# Assign a proper value (e.g., 'odd' or 'even') to a variable, depending on the outcome of the condition.
+# Print the outcome at the end.
+
+num = 13
+
+if num % 2 == 0:
+    parity = 'even'
+else:
+    parity = 'odd'
+
+print('Number', num, 'is', parity)
+
+
+#######################
+# # # Exercise 4a # # #
+#######################
+# Write a piece of code that checks whether a number is divisible by 2, 3, 5 and 7. [incorrect version]
+
+num = 15
+
+if num % 2 == 0:
+    print("Number ", num, "is divisible by 2.")
+elif num % 3 == 0:
+    print("Number ", num, "is divisible by 3.")
+elif num % 5 == 0:
+    print("Number ", num, "is divisible by 5.")
+elif num % 7 == 0:
+    print("Number ", num, "is divisible by 7.")
+
+
+#######################
+# # # Exercise 4b # # #
+#######################
+# Write a piece of code that checks whether a number is divisible by 2, 3, 5 and 7. [correct version]
+
+num = 15
+
+if num % 2 == 0:
+    print("Number", num, "is divisible by 2.")
+if num % 3 == 0:
+    print("Number", num, "is divisible by 3.")
+if num % 5 == 0:
+    print("Number", num, "is divisible by 5.")
+if num % 7 == 0:
+    print("Number", num, "is divisible by 7.")
+
+
+######################
+# # # Exercise 5 # # #
+######################
+# Write a piece of code that checks whether a number is odd or even. Print a message informing the user.
+# If odd, check whether the number is divisible by 5. Print a message informing the user.
+# If even, check whether the number is divisible by 3. Print a message informing the user.
+
+num = 15
+
+if num % 2 == 0:
+    print("Number", num, "is even.")
+    if num % 3 == 0:
+        print("Number", num, "is also divisible by 3.")
+    else:
+        print("Number", num, "is not divisible by 3.")
+else:
+    print("Number", num, "is odd.")
+    if num % 5 == 0:
+        print("Number", num, "is also divisible by 5.")
+    else:
+        print("Number", num, "is not divisible by 5.")
+
+
+######################
+# # # Exercise 6 # # #
+######################
+# Write a piece of code that asks the user to insert the dog's age in human's years and calculates a dog's age in dog's years.
+# For the first two years, a dog year is equal to 10.5 human years. After that, each dog year equals 4 human years.
+
+h_age = int(input("Input a dog's age in human years: "))
+
+if h_age <= 0:
+    print("Age must be a positive number.")
+else:
+    if h_age <= 2:
+        d_age = h_age * 10.5
+    else:
+        d_age = 10.5 + 10.5 + (h_age - 2) * 4
+    print("The dog's age in dog's years is:", d_age)
+
+
+##################
+### Exercise 7 ###
+##################
+# Write a piece of code that checks whether a number is divisible by 2, 3, 5. If not, print a proper message.
+
+# num = 15
+#
+# if num % 2 == 0:
+#     print("Number", num, "is divisible by 2.")
+# elif num % 3 == 0:
+#     print("Number", num, "is divisible by 3.")
+# elif num % 5 == 0:
+#     print("Number", num, "is divisible by 5.")
+# else:
+#     print('All checks failed!')
+#     print("Number ", num, "is not divisible by 2, 3 and 5.")
+
+
+##################
+### Exercise 8 ###
+##################
+# Write a piece of code that checks the day of the week and its correspondence in the Norse mythology.
+
+# today = 'Wednesday'
+#
+# if today == 'Sunday':
+#     print("Today is the day of the sun.")
+# elif today == 'Monday':
+#     print("Today is the day of the moon.")
+# elif today == 'Tuesday':
+#     print("Today is the day of Tyr, the god of war.")
+# elif today == 'Wednesday':
+#     print("Today is the day of Odin, the supreme deity.")
+# elif today == 'Thursday':
+#     print("Today is the day of Thor, the god of thunder.")
+# elif today == 'Friday':
+#     print("Today is the day of Frigga, the goddess of beauty.")
+# elif today == 'Saturday':
+#     print("Today is the day of Saturn, the god of fun and feasting.")

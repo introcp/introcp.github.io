@@ -1,0 +1,95 @@
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\beamer@sectionpages {2}{2}}
+\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\sectionentry {2}{Variables}{3}{Variables}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{3}{Variables = a Name for Values}}
+\headcommand {\slideentry {2}{2}{2}{3/3}{Variables = a Name for Values}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {2}{2}{3}{4/4}{Variables = a Name for Values}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {2}{2}{4}{5/5}{Variables = a Name for Values}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {2}{2}{5}{6/6}{Variables = a Name for Values}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionpages {3}{6}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{7}{Dynamic Typing}}
+\headcommand {\slideentry {2}{3}{6}{7/7}{Dynamic Typing}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@sectionpages {3}{7}}
+\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\sectionentry {3}{Strings: a Warmup}{8}{Strings: a Warmup}{0}}
+\headcommand {\beamer@subsectionpages {8}{7}}
+\headcommand {\slideentry {3}{1}{7}{8/8}{}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {3}{1}{8}{9/9}{}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {3}{1}{9}{10/10}{}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {3}{1}{10}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsectionpages {8}{11}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{12}{Escape Sequences}}
+\headcommand {\slideentry {3}{2}{11}{12/12}{Escape Sequences}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {3}{2}{12}{13/13}{Escape Sequences}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@sectionpages {8}{13}}
+\headcommand {\beamer@subsectionpages {12}{13}}
+\headcommand {\sectionentry {4}{Input/Output}{14}{Input/Output}{0}}
+\headcommand {\beamer@subsectionpages {14}{13}}
+\headcommand {\beamer@subsectionpages {14}{13}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{14}{Output: \texttt {print()}}}
+\headcommand {\slideentry {4}{2}{13}{14/14}{Output: \texttt {print()}}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {4}{2}{14}{15/15}{Output: \texttt {print()}}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {14}{15}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{16}{String Formatting}}
+\headcommand {\slideentry {4}{3}{15}{16/16}{String Formatting}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {4}{3}{16}{17/17}{String Formatting}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {4}{3}{17}{18/18}{String Formatting}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@subsectionpages {16}{18}}
+\headcommand {\beamer@subsectionentry {0}{4}{4}{19}{Input: \texttt {input()}}}
+\headcommand {\slideentry {4}{4}{18}{19/19}{Input: \texttt {input()}}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {4}{4}{19}{20/20}{Input: \texttt {input()}}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@sectionpages {14}{20}}
+\headcommand {\beamer@subsectionpages {19}{20}}
+\headcommand {\sectionentry {5}{Some Recaps}{21}{Some Recaps}{0}}
+\headcommand {\beamer@subsectionpages {21}{20}}
+\headcommand {\beamer@subsectionpages {21}{20}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{21}{Data Types}}
+\headcommand {\slideentry {5}{2}{20}{21/21}{Data Types}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@subsectionpages {21}{21}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{22}{Interactive vs. Script}}
+\headcommand {\slideentry {5}{3}{21}{22/22}{Interactive vs. Script}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\beamer@subsectionpages {22}{22}}
+\headcommand {\beamer@subsectionentry {0}{5}{4}{23}{Expressions vs. Statements}}
+\headcommand {\slideentry {5}{4}{22}{23/23}{Expressions vs. Statements}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\beamer@sectionpages {21}{23}}
+\headcommand {\beamer@subsectionpages {23}{23}}
+\headcommand {\sectionentry {6}{References}{24}{References}{0}}
+\headcommand {\beamer@subsectionpages {24}{23}}
+\headcommand {\slideentry {6}{1}{23}{24/24}{}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@sectionpages {24}{24}}
+\headcommand {\beamer@subsectionpages {24}{24}}
+\headcommand {\sectionentry {7}{Acknowledgments}{25}{Acknowledgments}{0}}
+\headcommand {\beamer@subsectionpages {25}{24}}
+\headcommand {\slideentry {7}{1}{24}{25/25}{}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\beamer@partpages {1}{25}}
+\headcommand {\beamer@subsectionpages {25}{25}}
+\headcommand {\beamer@sectionpages {25}{25}}
+\headcommand {\beamer@documentpages {25}}
+\headcommand {\gdef \inserttotalframenumber {24}}

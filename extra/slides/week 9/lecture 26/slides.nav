@@ -1,0 +1,117 @@
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\beamer@sectionpages {2}{2}}
+\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\sectionentry {2}{Collections}{3}{Collections}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\slideentry {2}{1}{2}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{4}{A Story of Two Collections}}
+\headcommand {\slideentry {2}{2}{3}{4/4}{A Story of Two Collections}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@sectionpages {3}{4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\sectionentry {3}{Dictionaries}{5}{Dictionaries}{0}}
+\headcommand {\beamer@subsectionpages {5}{4}}
+\headcommand {\slideentry {3}{1}{4}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{6}{Creating a Dictionary}}
+\headcommand {\slideentry {3}{2}{5}{6/6}{Creating a Dictionary}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{7}{Indexing and Manipulating a Dictionary}}
+\headcommand {\slideentry {3}{3}{6}{7/7}{Indexing and Manipulating a Dictionary}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {3}{3}{7}{8/8}{Indexing and Manipulating a Dictionary}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {3}{3}{8}{9/9}{Indexing and Manipulating a Dictionary}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@sectionpages {5}{9}}
+\headcommand {\beamer@subsectionpages {7}{9}}
+\headcommand {\sectionentry {4}{Dict Methods}{10}{Dict Methods}{0}}
+\headcommand {\beamer@subsectionpages {10}{9}}
+\headcommand {\beamer@subsectionpages {10}{9}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{10}{\texttt {dict.keys()}, \texttt {dict.items()} and \texttt {dict.values()}}}
+\headcommand {\slideentry {4}{2}{9}{10/10}{\texttt {dict.keys()}, \texttt {dict.items()} and \texttt {dict.values()}}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {4}{2}{10}{11/11}{\texttt {dict.keys()}, \texttt {dict.items()} and \texttt {dict.values()}}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsectionpages {10}{11}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{12}{\texttt {dict.get()}}}
+\headcommand {\slideentry {4}{3}{11}{12/12}{\texttt {dict.get()}}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {4}{3}{12}{13/13}{\texttt {dict.get()}}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {4}{3}{13}{14/14}{\texttt {dict.get()}}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionpages {12}{14}}
+\headcommand {\beamer@subsectionentry {0}{4}{4}{15}{\texttt {dict.clear()}}}
+\headcommand {\slideentry {4}{4}{14}{15/15}{\texttt {dict.clear()}}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{4}{5}{16}{\texttt {dict.pop()}}}
+\headcommand {\slideentry {4}{5}{15}{16/16}{\texttt {dict.pop()}}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\beamer@subsectionentry {0}{4}{6}{17}{\texttt {dict.update()}}}
+\headcommand {\slideentry {4}{6}{16}{17/17}{\texttt {dict.update()}}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@sectionpages {10}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\sectionentry {5}{Iterating over Dicts}{18}{Iterating over Dicts}{0}}
+\headcommand {\beamer@subsectionpages {18}{17}}
+\headcommand {\slideentry {5}{1}{17}{18/18}{}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {5}{1}{18}{19/19}{}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@sectionpages {18}{19}}
+\headcommand {\beamer@subsectionpages {18}{19}}
+\headcommand {\sectionentry {6}{Tuples}{20}{Tuples}{0}}
+\headcommand {\beamer@subsectionpages {20}{19}}
+\headcommand {\slideentry {6}{1}{19}{20/20}{}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {6}{1}{20}{21/21}{}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {6}{1}{21}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {6}{1}{22}{23/23}{}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\beamer@sectionpages {20}{23}}
+\headcommand {\beamer@subsectionpages {20}{23}}
+\headcommand {\sectionentry {7}{Sets}{24}{Sets}{0}}
+\headcommand {\beamer@subsectionpages {24}{23}}
+\headcommand {\slideentry {7}{1}{23}{24/24}{}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\slideentry {7}{1}{24}{25/25}{}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\slideentry {7}{1}{25}{26/26}{}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {7}{1}{26}{27/27}{}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\slideentry {7}{1}{27}{28/28}{}{0}}
+\headcommand {\beamer@framepages {28}{28}}
+\headcommand {\beamer@sectionpages {24}{28}}
+\headcommand {\beamer@subsectionpages {24}{28}}
+\headcommand {\sectionentry {8}{Recap on Collections}{29}{Recap on Collections}{0}}
+\headcommand {\beamer@subsectionpages {29}{28}}
+\headcommand {\slideentry {8}{1}{28}{29/29}{}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\beamer@sectionpages {29}{29}}
+\headcommand {\beamer@subsectionpages {29}{29}}
+\headcommand {\sectionentry {9}{References}{30}{References}{0}}
+\headcommand {\beamer@subsectionpages {30}{29}}
+\headcommand {\slideentry {9}{1}{29}{30/30}{}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\beamer@sectionpages {30}{30}}
+\headcommand {\beamer@subsectionpages {30}{30}}
+\headcommand {\sectionentry {10}{Acknowledgments}{31}{Acknowledgments}{0}}
+\headcommand {\beamer@subsectionpages {31}{30}}
+\headcommand {\slideentry {10}{1}{30}{31/31}{}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\beamer@partpages {1}{31}}
+\headcommand {\beamer@subsectionpages {31}{31}}
+\headcommand {\beamer@sectionpages {31}{31}}
+\headcommand {\beamer@documentpages {31}}
+\headcommand {\gdef \inserttotalframenumber {30}}

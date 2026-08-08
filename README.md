@@ -64,7 +64,7 @@ You can generate and preview HTML/PDF slides for a single notebook using the `sc
 
 ```bash
 # Fetch the container image
-docker pull ercoppa/introcp
+docker pull ercoppa/introcp:v2
 
 # Run the script with the path to your notebook
 python3 scripts/generate-slides-from-notebook.py src/A00/A00-Introduction.ipynb

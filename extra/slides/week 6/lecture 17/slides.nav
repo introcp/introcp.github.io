@@ -1,0 +1,97 @@
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\beamer@sectionpages {2}{2}}
+\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\sectionentry {2}{Introduction}{3}{Introduction}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\slideentry {2}{1}{2}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{4}{Indices and Ordering}}
+\headcommand {\slideentry {2}{2}{3}{4/4}{Indices and Ordering}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@sectionpages {3}{4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\sectionentry {3}{Mutability}{5}{Mutability}{0}}
+\headcommand {\beamer@subsectionpages {5}{4}}
+\headcommand {\slideentry {3}{1}{4}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@sectionpages {5}{5}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\sectionentry {4}{Iterating}{6}{Iterating}{0}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\slideentry {4}{1}{5}{6/6}{}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@sectionpages {6}{6}}
+\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\sectionentry {5}{Basic Operations}{7}{Basic Operations}{0}}
+\headcommand {\beamer@subsectionpages {7}{6}}
+\headcommand {\beamer@subsectionpages {7}{6}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{7}{\texttt {append()}}}
+\headcommand {\slideentry {5}{2}{6}{7/7}{\texttt {append()}}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{8}{\texttt {+} vs. \texttt {extend()}}}
+\headcommand {\slideentry {5}{3}{7}{8/8}{\texttt {+} vs. \texttt {extend()}}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\beamer@subsectionentry {0}{5}{4}{9}{\texttt {pop()} vs. \texttt {remove()} vs. \texttt {del()}}}
+\headcommand {\slideentry {5}{4}{8}{9/9}{\texttt {pop()} vs. \texttt {remove()} vs. \texttt {del()}}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {5}{4}{9}{10/10}{\texttt {pop()} vs. \texttt {remove()} vs. \texttt {del()}}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@sectionpages {7}{10}}
+\headcommand {\beamer@subsectionpages {9}{10}}
+\headcommand {\sectionentry {6}{Strings \& Lists}{11}{Strings \& Lists}{0}}
+\headcommand {\beamer@subsectionpages {11}{10}}
+\headcommand {\slideentry {6}{1}{10}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {6}{1}{11}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@sectionpages {11}{12}}
+\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\sectionentry {7}{Other Operations}{13}{Other Operations}{0}}
+\headcommand {\beamer@subsectionpages {13}{12}}
+\headcommand {\slideentry {7}{1}{12}{13/13}{}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {7}{1}{13}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {7}{1}{14}{15/15}{}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@sectionpages {13}{15}}
+\headcommand {\beamer@subsectionpages {13}{15}}
+\headcommand {\sectionentry {8}{Aliasing \& Cloning}{16}{Aliasing \& Cloning}{0}}
+\headcommand {\beamer@subsectionpages {16}{15}}
+\headcommand {\slideentry {8}{1}{15}{16/16}{}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {8}{1}{16}{17/17}{}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {8}{1}{17}{18/18}{}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {8}{1}{18}{19/19}{}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {8}{1}{19}{20/20}{}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@sectionpages {16}{20}}
+\headcommand {\beamer@subsectionpages {16}{20}}
+\headcommand {\sectionentry {9}{Nesting}{21}{Nesting}{0}}
+\headcommand {\beamer@subsectionpages {21}{20}}
+\headcommand {\slideentry {9}{1}{20}{21/21}{}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@sectionpages {21}{21}}
+\headcommand {\beamer@subsectionpages {21}{21}}
+\headcommand {\sectionentry {10}{References}{22}{References}{0}}
+\headcommand {\beamer@subsectionpages {22}{21}}
+\headcommand {\slideentry {10}{1}{21}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\beamer@sectionpages {22}{22}}
+\headcommand {\beamer@subsectionpages {22}{22}}
+\headcommand {\sectionentry {11}{Acknowledgments}{23}{Acknowledgments}{0}}
+\headcommand {\beamer@subsectionpages {23}{22}}
+\headcommand {\slideentry {11}{1}{22}{23/23}{}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\beamer@partpages {1}{23}}
+\headcommand {\beamer@subsectionpages {23}{23}}
+\headcommand {\beamer@sectionpages {23}{23}}
+\headcommand {\beamer@documentpages {23}}
+\headcommand {\gdef \inserttotalframenumber {22}}

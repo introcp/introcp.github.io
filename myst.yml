@@ -1,0 +1,143 @@
+# Jupyter Book v2 / MyST project config — replaces the old Jupyter Book v1
+# _config.jupyterbook.yml and _toc.yml (removed; superseded entirely by this
+# file). See https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 10e33258-4d73-48fc-a208-e72b4b4386df
+  title: "Introduction to computer programming"
+  authors:
+    - name: "Emilio Coppa"
+  copyright: "2026"
+  exclude:
+    - exercises/**
+    - extra/**
+    - docs/**
+    - book/**
+    - old/**
+    - scripts/**
+    - README.md
+    - oldbook/**
+    - dist/**
+    - plugin/**
+    - Thumbs.db
+    - "**/.ipynb_checkpoints/**"
+    - venv/**
+    - venv2/**
+    - .cache/**
+    - .venv/**
+    - .venv_add_group/**
+    - temp/**
+  toc:
+    - file: src/index.md
+    - file: src/toc.md
+      hidden: true
+    - title: Introduction
+      children:
+        - file: src/A00/A00-Introduction.ipynb
+    - title: Computer Systems
+      children:
+        - file: src/C00/C00-Bits-and-Bytes.ipynb
+        - file: src/C01/C01-Boolean-Logic.ipynb
+        - file: src/C02/C02-Hardware.ipynb
+        - file: src/C03/C03-Software.ipynb
+        - file: src/C04/C04-OS-Essentials.ipynb
+        - file: src/C05/C05-Computer-Network.ipynb
+    - title: Python
+      children:
+        - file: src/P00/P00-Python-Getting-Started.ipynb
+        - file: src/P01/P01-Python-Expressions-and-Types.ipynb
+        - file: src/P02/P02-Python-Types-Strings.ipynb
+        - file: src/P03/P03-Python-Branching.ipynb
+        - file: src/P04/P04-Python-Functions.ipynb
+        - file: src/E01/E01-Python-Errors.ipynb
+        - file: src/P05/P05-Python-Iteration.ipynb
+        - file: src/P06/P06-Python-Strings.ipynb
+        - file: src/P07/P07-Python-Lists.ipynb
+        - file: src/P08/P08-Python-Dictionaries-Tuples-Sets.ipynb
+        - file: src/P11/P11-Python-Files.ipynb
+        - file: src/P12/P12-Python-Sockets-HTTP.ipynb
+        - file: src/P09/P09-Python-Classes.ipynb
+        - file: src/P13/P13-Python-Exceptions.ipynb
+        - file: src/P10/P10-Python-Recursion.ipynb
+        - file: src/P14/P14-Python-Multiprocessing.ipynb
+    # Companion exercise notebooks: not shown in the nav, but built and
+    # reachable by URL since chapter pages link to them directly (e.g.
+    # "find more exercises here"). See scripts/fix-cross-reference-links.py.
+    - file: src/E02/E02-Python-Exercises-Math-Datetime.ipynb
+      hidden: true
+    - file: src/E03/E03-Python-Exercises-Branching.ipynb
+      hidden: true
+    - file: src/E03/E03-Python-Exercises-Branching-pseudocode.ipynb
+      hidden: true
+    - file: src/E03/E03-Python-Exercises-Branching-solution.ipynb
+      hidden: true
+    - file: src/E03/E03-Python-Exercises-Branching-student.ipynb
+      hidden: true
+    - file: src/E04/E04-Python-Exercises-Functions.ipynb
+      hidden: true
+    - file: src/E04/E04-Python-Exercises-Functions-pseudocode.ipynb
+      hidden: true
+    - file: src/E04/E04-Python-Exercises-Functions-solution.ipynb
+      hidden: true
+    - file: src/E04/E04-Python-Exercises-Functions-student.ipynb
+      hidden: true
+    - file: src/E05/E05-Python-Exercises-Iteration.ipynb
+      hidden: true
+    - file: src/E05/E05-Python-Iteration-Exercises-pseudocode.ipynb
+      hidden: true
+    - file: src/E05/E05-Python-Iteration-Exercises-solution.ipynb
+      hidden: true
+    - file: src/E05/E05-Python-Iteration-Exercises-student.ipynb
+      hidden: true
+    - file: src/E06/E06-Python-Exercises-Strings-Lists.ipynb
+      hidden: true
+    - file: src/E06/E06-Python-Exercises-Strings-Lists-pseudocode.ipynb
+      hidden: true
+    - file: src/E06/E06-Python-Exercises-Strings-Lists-solution.ipynb
+      hidden: true
+    - file: src/E06/E06-Python-Exercises-Strings-Lists-student.ipynb
+      hidden: true
+    - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets.ipynb
+      hidden: true
+    - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets-pseudocode.ipynb
+      hidden: true
+    - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets-solution.ipynb
+      hidden: true
+    - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets-student.ipynb
+      hidden: true
+    - file: src/E09/E09-Python-Exercises-Classes.ipynb
+      hidden: true
+    - file: src/E11/E11-Python-Exercises-Files.ipynb
+      hidden: true
+    - file: src/E11/E11-Python-Exercises-Files-pseudocode.ipynb
+      hidden: true
+    - file: src/E11/E11-Python-Exercises-Files-solution.ipynb
+      hidden: true
+    - file: src/E11/E11-Python-Exercises-Files-student.ipynb
+      hidden: true
+    - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists.ipynb
+      hidden: true
+    - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-pseudocode.ipynb
+      hidden: true
+    - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-solution.ipynb
+      hidden: true
+    - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-student.ipynb
+      hidden: true
+    - file: src/P03/P03-Python-Branching-Exercises-pseudocode.ipynb
+      hidden: true
+    - file: src/P03/P03-Python-Branching-Exercises-solution.ipynb
+      hidden: true
+    - file: src/P03/P03-Python-Branching-Exercises-student.ipynb
+      hidden: true
+    - file: src/P05/P05-Python-Iteration-Exercises-pseudocode.ipynb
+      hidden: true
+    - file: src/P05/P05-Python-Iteration-Exercises-solution.ipynb
+      hidden: true
+    - file: src/P05/P05-Python-Iteration-Exercises-student.ipynb
+      hidden: true
+
+site:
+  template: book-theme
+  options:
+    logo: src/dist/img/logo2.png
+    style: _static/custom.css

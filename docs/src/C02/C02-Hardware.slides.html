@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>C02-Hardware slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -75,6 +75,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .reveal .controls button {
   padding: 2px 4px !important;
   font-size: 8px !important;
+}
+/* Fix inline code styling */
+.jp-RenderedHTMLCommon :not(pre) > code {
+  background-color: transparent !important;
+  padding: 0px 2px !important;
 }
 </style>
 <style type="text/css">
@@ -6836,6 +6841,11 @@ div.jp-Cell-Placeholder-content-3 {
   padding: 2px 4px !important;
   font-size: 8px !important;
 }
+/* Fix inline code styling */
+.jp-RenderedHTMLCommon :not(pre) > code {
+  background-color: transparent !important;
+  padding: 0px 2px !important;
+}
 </style>
 <style type="text/css">
 /*-----------------------------------------------------------------------------
@@ -7268,6 +7278,11 @@ all of MD as it is not optimized for dense, information rich UIs.
   padding: 2px 4px !important;
   font-size: 8px !important;
 }
+/* Fix inline code styling */
+.jp-RenderedHTMLCommon :not(pre) > code {
+  background-color: transparent !important;
+  padding: 0px 2px !important;
+}
 </style>
 <style type="text/css">
 a.anchor-link {
@@ -7296,6 +7311,11 @@ a.anchor-link {
 .reveal .controls button {
   padding: 2px 4px !important;
   font-size: 8px !important;
+}
+/* Fix inline code styling */
+.jp-RenderedHTMLCommon :not(pre) > code {
+  background-color: transparent !important;
+  padding: 0px 2px !important;
 }
 </style>
 <style type="text/css">
@@ -7427,6 +7447,11 @@ main {
   padding: 2px 4px !important;
   font-size: 8px !important;
 }
+/* Fix inline code styling */
+.jp-RenderedHTMLCommon :not(pre) > code {
+  background-color: transparent !important;
+  padding: 0px 2px !important;
+}
 </style>
 <!-- Load mathjax -->
 <!-- Load mathjax -->
@@ -7461,10 +7486,8 @@ main {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Hardware"><b style="font-family: 'LUISS', 'Lato'">Hardware</b><a class="anchor-link" href="#Hardware">¶</a></h1><h2 style="font-family: 'LUISS', 'Lato'">Introduction to computer programming</h2>
-<h3 style="font-family: 'LUISS', 'Lato'">Management and Artificial Intelligence</h3>
-<br/>
-<img alt="No description has been provided for this image" src="https://introcp.github.io/dist/img/logo2.png" width="200px"/>
+<h1 id="Hardware">Hardware<a class="anchor-link" href="#Hardware">¶</a></h1><h2 id="Introduction-to-computer-programming">Introduction to computer programming<a class="anchor-link" href="#Introduction-to-computer-programming">¶</a></h2><h3 id="Management-and-Artificial-Intelligence">Management and Artificial Intelligence<a class="anchor-link" href="#Management-and-Artificial-Intelligence">¶</a></h3><br/>
+<img alt="No description has been provided for this image" src="../dist/img/logo2.png" width="200px"/>
 <p><br/><br/><br/></p>
 </div>
 </div>
@@ -8151,8 +8174,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div align="center">
-<img alt="No description has been provided for this image" src="img/8bit-computer.png" width="50%">
-</img></div>
+<img alt="No description has been provided for this image" src="img/8bit-computer.png" width="50%"/>
+</div>
 <p>What you need: 7899 transistors, 12786 jump wires, ...</p>
 </div>
 </div>
@@ -8201,8 +8224,8 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Transistor-size-evolution">Transistor size evolution<a class="anchor-link" href="#Transistor-size-evolution">¶</a></h2><div align="center">
 <a href="https://www.tech-sparks.com/size-of-transistors/">
-<img alt="No description has been provided for this image" src="img/transistor-size.png" style="margin-bottom: -10px;" width="70%">
-</img></a>
+<img alt="No description has been provided for this image" src="img/transistor-size.png" style="margin-bottom: -10px;" width="70%"/>
+</a>
 </div>
 <p>Only a few companies can produce transistors smaller than 10 nm:</p>
 <ul>
@@ -8295,8 +8318,8 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Modern-System-On-Chip-(SoC)">Modern System On Chip (SoC)<a class="anchor-link" href="#Modern-System-On-Chip-(SoC)">¶</a></h2><p>Modern SoCs integrate the CPU, GPU, storage, and other components on a single chip:</p>
 <div align="center">
-<img alt="No description has been provided for this image" src="img/soc.drawio.png" width="70%">
-</img></div>
+<img alt="No description has been provided for this image" src="img/soc.drawio.png" width="70%"/>
+</div>
 </div>
 </div>
 </div>
@@ -8308,8 +8331,8 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="CPU-(Central-Processing-Unit)">CPU (<strong>C</strong>entral <strong>P</strong>rocessing <strong>U</strong>nit)<a class="anchor-link" href="#CPU-(Central-Processing-Unit)">¶</a></h2><div align="center">
-<img alt="No description has been provided for this image" src="img/cpu-alt.drawio.png" width="85%">
-</img></div>
+<img alt="No description has been provided for this image" src="img/cpu-alt.drawio.png" width="85%"/>
+</div>
 <ul>
 <li><p>The <strong>Arithmetic Logic Unit (ALU)</strong> performs arithmetic operations (such as addition and subtraction) and
 logical operations (like AND, OR, NOT) on binary data.</p>
@@ -8378,8 +8401,8 @@ logical operations (like AND, OR, NOT) on binary data.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Memory-hierarchy">Memory hierarchy<a class="anchor-link" href="#Memory-hierarchy">¶</a></h2><div align="center">
-<img alt="No description has been provided for this image" src="img/Memory-hierarchy.png" width="65%">
-</img></div>
+<img alt="No description has been provided for this image" src="img/Memory-hierarchy.png" width="65%"/>
+</div>
 <p>Fast memory is expensive, hence a complex hierarchy is used to compromise between cost and performance: larger data is stored in slower, cheaper memory, that, when needed, is loaded into faster, more expensive memory into smaller amounts.</p>
 </div>
 </div>

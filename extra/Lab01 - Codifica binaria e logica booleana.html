@@ -1,0 +1,2134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>Linguaggio e logica delle macchine</title>
+  <meta name="generator" content="LibreOffice 25.8.0.4 (Linux)"/>
+  <meta name="author" content="Alessandro Lentini"/>
+  <meta name="created" content="2020-02-09T20:37:56Z"/>
+  <meta name="changed" content="2025-08-21T16:55:09Z"/>
+</head>
+<body>
+<h1>Informatica
+Codifica binaria
+Logica booleana</h1>
+<h1 style="page-break-before:always; ">Informazione e Dati</h1>
+<ul>
+<li>Adattato da Wikipedia:</li>
+<li>L'elaborazione dei dati può portare alla conoscenza di un’informazione</li>
+<li>L’informazione associa un significato ai dati.</li>
+</ul>
+<h1 style="page-break-before:always; ">Informazione e Dati</h1>
+<ul>
+<li>Dal punto di vista informatico:</li>
+<li>il dato è un elemento conosciuto, un’informazione grezza o elementare ed è solitamente costituito da simboli che devono essere elaborati.</li>
+<li>l’informazione è un elemento, che deriva dall’elaborazione di più dati e che permette di venire a conoscenza di qualcosa.</li>
+<li>Esempio: se il prezzo di due articoli è 5 e 10 Euro (due dati) l’elaborazione dei dati (la somma in questo caso) mi fornisce l’informazione che ho bisogno di 15 Euro per acquistarli entrambi</li>
+</ul>
+<h1 style="page-break-before:always; ">Informazione e Rappresentazione</h1>
+<ul>
+<li>Diverse rappresentazioni della stessa informazione. La stessa informazione può essere rappresentata in modi diversi:</li>
+</ul>
+<h1 style="page-break-before:always; ">Informazione e Rappresentazione</h1>
+<ul>
+<li>Diverse informazioni con la stessa rappresentazione</li>
+<li>Una stessa rappresentazione può dare informazioni diverse a seconda del contesto o del destinatario</li>
+</ul>
+<h1 style="page-break-before:always; ">Immagazzinamento e trasferimenti dei dati</h1>
+<ul>
+<li>Il dato è “portato da” o “trasmesso su” o “memorizzato in” o “contenuto in” qualcosa:</li>
+<li>Questo “qualcosa” (supporto fisico) NON è il dato stesso (il dato richiede un supporto fisico, ma non coincide con esso)</li>
+<li>Ogni supporto fisico ha le sue caratteristiche in quanto supporto per i dati</li>
+<li>Alcuni supporti sono particolarmente adatti alla trasmissione dei dati, ma non alla loro memorizzazione (cavi, etere, …)</li>
+<li>Per altri supporti vale il viceversa (CD, DVD, …)</li>
+</ul>
+<h1 style="page-break-before:always; ">Supporti digitali</h1>
+<h1 style="page-break-before:always; ">Dato e codifica</h1>
+<ul>
+<li>In generale, si può chiamare codifica l’operazione con cui il dato viene scritto su un supporto fisico e decodifica  l’operazione  con  cui  il  dato  viene  letto da un supporto fisico.</li>
+</ul>
+<h1 style="page-break-before:always; ">Recap sistema binario</h1>
+<h1 style="page-break-before:always; ">Rappresentazione dell’informazione</h1>
+<ul>
+<li>Abbiamo visto che l’informazione memorizzata ed elaborata da un calcolatore viene rappresentata come una sequenza di simboli che possono assumere due soli valori</li>
+<ul>
+<li>convenzionalmente 0 e 1</li>
+</ul>
+<li>Vediamo quindi come, utilizzando un alfabeto di due soli simboli, è possibile rappresentare&nbsp;numeri interi</li>
+</ul>
+<h1 style="page-break-before:always; ">Rappresentazione posizionale decimale</h1>
+<ul>
+<li>La modalità di scrittura dei numeri naturali che comunemente usiamo prevede di scrivere un numero nella forma</li>
+<li>dove ognuno dei simboli <i> </i>è una cifra da  a </li>
+<li>Il valore rappresentato dalla sequenza di cifre può essere calcolato come</li>
+<li> </li>
+</ul>
+<h1 style="page-break-before:always; ">Rappresentazione posizionale decimale</h1>
+<ul>
+<li>Esempio:</li>
+<li>37579</li>
+<li>valore:</li>
+<li>3 104+7103+5102+7101+9100</li>
+</ul>
+<h1 style="page-break-before:always; ">Rappresentazione posizionale</h1>
+<ul>
+<li>Quello descritto è un sistema di numerazione posizionale</li>
+<li>Il valore di ogni elemento della sequenza dipende dalla sua posizione:</li>
+<ul>
+<li>ad esempio 37579 contiene due volte il simbolo 7 ma esso vale una volta 7000 e una volta 70</li>
+</ul>
+<li>In particolare quello visto è chiamato sistema di numerazione <u>decimale</u> (o in base 10), in quanto:</li>
+<ul>
+<li>10 è la base delle potenze che moltiplicano le cifre</li>
+<li>10 sono i simboli utilizzati (da 0 a 9)</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Sistemi non posizionali</h1>
+<ul>
+<li>Esistono sistemi di numerazione <i>non posizionali</i></li>
+<li>Ad esempio il sistema di numerazione romano</li>
+<li>Nel numero romano XXVIII (cioè 28) compaiono due X ma esse hanno entrambe valore 10</li>
+<li>Anche le tre I hanno tutte valore 1</li>
+</ul>
+<h1 style="page-break-before:always; ">Rappresentazione posizionale</h1>
+<ul>
+<li>È possibile utilizzare come base di un sistema di numerazione posizionale <i>qualunque numero naturale  </i></li>
+<li>Scelta una base <i>b</i>, un numero naturale viene rappresentato come</li>
+<li>  dove ognuno dei simboli <i> </i>è una cifra da  a </li>
+<li>Il valore rappresentato dalla sequenza di cifre può essere calcolato come</li>
+<li> </li>
+</ul>
+<h1 style="page-break-before:always; ">Sistema binario</h1>
+<ul>
+<li>Se scegliamo  otteniamo il sistema di numerazione binario</li>
+<li>Le cifre possibili sono 0 e 1</li>
+<li>Esempio:</li>
+<li>110111011</li>
+<li>valore:</li>
+</ul>
+<h1 style="page-break-before:always; ">Sistema binario</h1>
+<ul>
+<li>Il sistema binario ci permette di rappresentare qualunque numero intero utilizzando i due soli simboli 0 e 1</li>
+<li>Può quindi essere utilizzato per rappresentare i numeri all’interno di un calcolatore dove il segnale elettrico può facilmente essere associato a due stati (livelli) distinti ed alternativi tra loro.</li>
+</ul>
+<h1 style="page-break-before:always; ">Numeri binari</h1>
+<h1 style="page-break-before:always; ">Sistema binario</h1>
+<ul>
+<li><b>BYTE</b>:  combinazione  di  8  bit.  Può  rappresentare  un carattere  (lettera,  numero  o  simbolo  tipografico)  tra 2*2*...*2 = 28 = 256 diversi caratteri</li>
+</ul>
+<h1 style="page-break-before:always; ">Sistema ottale ed esadecimale</h1>
+<ul>
+<li>Esistono altri due sistemi di numerazione molto utilizzati in Informatica</li>
+<li>Il sistema ottale in cui b=8</li>
+<ul>
+<li>	le cifre possibile sono da 0 a 7</li>
+</ul>
+<li>Il sistema esadecimale in cui b=16</li>
+<ul>
+<li>si utilizzano le cifre da 0 a 9 (con ovvio valore)</li>
+<li>e le cifre A, B, C, D, E e F che corrispondono ai valori 10, 11, 12, 13, 14 e 15</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Sistema ottale ed esadecimale</h1>
+<ul>
+<li>Esempio (<i>b</i>=8):</li>
+<li>267</li>
+<li>valore:</li>
+<li>282 + 681 + 780 = 264 + 68 + 71 = 183</li>
+<li>Esempio (<i>b</i>=16):</li>
+<li>A3F</li>
+<li>valore:</li>
+<li>A162 + 3161 + F160= 10256 + 316 + 151 = 2623</li>
+</ul>
+<h1 style="page-break-before:always; ">Notazione</h1>
+<ul>
+<li>Nel seguito, quando necessario, indicheremo la base <i>b </i>di rappresentazione di un numero ponendo il simbolo |<i>b </i>a fianco del numero</li>
+<li>2678 indica la sequenza 267 in base 8, cioè il numero 183</li>
+<li>26716 indica invece la sequenza 267 in base 16, cioè il numero 615</li>
+</ul>
+<h1 style="page-break-before:always; ">Rappresentare <i>n </i>in base <i>b</i></h1>
+<ul>
+<li>Come possiamo ottenere la rappresentazione di un numero <i>n </i>in una certa base <i>b</i>?</li>
+<li>Esiste un procedimento semplice, che consiste nel dividere ripetutamente <i>n </i>per <i>b</i></li>
+<li>Si divide <i>n </i>per <i>b</i>: quoziente <i>n</i>1  e resto <i>r</i>1</li>
+<li><i>r</i>1 è la cifra più a destra della rappresentazione di <i>n </i>in base <i>b</i></li>
+<li>Si divide <i>n</i>1  per <i>b</i>: quoziente <i>n</i>2 e resto <i>r</i>2</li>
+<li><i>r</i>2 è la prossima cifra della rappresentazione di <i>n </i>in base <i>b</i></li>
+<li>Si continua finché il quoziente diviene 0</li>
+</ul>
+<h1 style="page-break-before:always; ">Rappresentare <i>n </i>in base <i>b</i></h1>
+<ul>
+<li>Rappresentiamo il decimale 116 in base 2</li>
+<ul>
+<li>116/2 = 58 con il resto di 0&nbsp;</li>
+<li>58/2 = 29 con il resto di 0&nbsp;</li>
+<li>29/2 = 14 con il resto di 1&nbsp;</li>
+<li>14/2 = 7 con il resto di 0&nbsp;</li>
+<li>7/2 = 3 con il resto di 1&nbsp;</li>
+<li>3/2 = 1 con il resto di 1&nbsp;</li>
+<li>1/2 = 0 con il resto di 1</li>
+</ul>
+<li>116 in base 2 è rappresentato come&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1110100</li>
+</ul>
+<h1 style="page-break-before:always; ">Esempio conversione in base 16</h1>
+<ul>
+<li>Rappresentiamo 1547 in base 16</li>
+<li>1547/16 = 96 con il resto di 11 </li>
+<li>96/16 = 6 con il resto di 0 </li>
+<li>6/16 = 0 con il resto di 6</li>
+<li>1547 in base 16 è rappresentato come 60B</li>
+</ul>
+<h1 style="page-break-before:always; ">Conversione di base in generale</h1>
+<ul>
+<li>Il procedimento visto può essere utilizzato anche per effettuare una conversione di base</li>
+<li>Sia data la rappresentazione di un numero <i>n </i>in una base <i>b</i></li>
+<li><i>ck</i>-1<i>ck</i>-2...<i>c</i>1<i>c</i>0|<i>b</i></li>
+<li>Per determinare la rappresentazione di <i>n </i>in un’altra base <i>b’ </i>si può:</li>
+<li>calcolare il valore <i>n </i>come <i>ck</i>-1 <i>bk</i>-1+...<i>c</i>1<i>b</i>1+<i>c</i>0<i>b</i>0&nbsp;</li>
+<li>utilizzare il metodo delle divisioni successive per rappresentare <i>n </i>in base <i>b’</i></li>
+</ul>
+<h1 style="page-break-before:always; ">Conversione in base 5: esempio</h1>
+<ul>
+<li>Convertiamo in base 5 il numero </li>
+<li>Calcoliamo il valore del numero:</li>
+<li>Rappresentiamo 55 in base 5</li>
+<li>55/5 = 11 con il resto di 0 </li>
+<li>11/5 = 2 con il resto di 1 </li>
+<li>2/5 = 0 con il resto di 2</li>
+<li>	Quindi </li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizi sistema binario
+(possibili domande all'esame!)</h1>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in binario il numero decimale 5</li>
+<li>&nbsp;5 / 2&nbsp; = 2 (1)</li>
+<li>&nbsp;2 / 2&nbsp; = 1 (0)</li>
+<li>&nbsp;1 / 2&nbsp; = 0 (1)</li>
+<li>Quindi il numero binario è: 101&nbsp;
+</li>
+<li>Infatti:</li>
+<li>1 * 20 + 0 * 21 + 1 * 22 =&nbsp;&nbsp;1 + 4 = 5</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio:&nbsp;Conversione in binario il numero decimale 7</h1>
+<ul>
+<li>
+</li>
+<li>&nbsp;7 / 2&nbsp; = 3 (1)</li>
+<li>&nbsp;3 / 2&nbsp; = 1 (1)</li>
+<li>&nbsp;1 / 2&nbsp; = 0 (1)</li>
+<li>Quindi il numero binario è: 111&nbsp;
+</li>
+<li>Infatti:</li>
+<li>1 * 20&nbsp;+ 1 * 21&nbsp;+ 1 * 22&nbsp;=&nbsp;&nbsp;1 + 2 + 4 = 7</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in binario il numero decimale 15</li>
+<li>15 / 2 = 7 (1)</li>
+<li>&nbsp;7 / 2&nbsp; = 3 (1)</li>
+<li>&nbsp;3 / 2&nbsp; = 1 (1)</li>
+<li>&nbsp;1 / 2&nbsp; = 0 (1)</li>
+<li>Quindi il numero binario è: 1111&nbsp;
+</li>
+<li>Infatti:</li>
+<li>1 * 20 + 1 * 21 + 1 * 22 + 1 * 23 =&nbsp;&nbsp;1 + 2 + 4 + 8 = 15</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in binario il numero decimale 24</li>
+<li>24 / 2 = 12 (0)</li>
+<li>12 / 2&nbsp; = 6 (0)</li>
+<li>&nbsp;6 / 2&nbsp; = 3 (0)</li>
+<li>&nbsp;3 / 2&nbsp; = 1 (1)</li>
+<li>&nbsp;1 / 2&nbsp; = 0 (1)</li>
+<li>Quindi il numero binario è: 11000&nbsp;
+</li>
+<li>Infatti:</li>
+<li>0 * 20 + 0 * 21 + 0 * 22 + 1 * 23 &nbsp;+ 1 * 24=&nbsp;&nbsp;8 + 16 = 24</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in binario il numero decimale 31</li>
+<li>31 / 2 = 15 (1)</li>
+<li>&nbsp;15 / 2&nbsp; = 7 (1)</li>
+<li>&nbsp; &nbsp;7 / 2&nbsp; = 1 (1)</li>
+<li>&nbsp; &nbsp;3 / 2&nbsp; = 1 (1)</li>
+<li>&nbsp; &nbsp;1 / 2&nbsp;= 0 (1)</li>
+<li>Quindi il numero binario è: 11111&nbsp;
+</li>
+<li>Infatti:</li>
+<li>1 * 20&nbsp;+ 1 * 21&nbsp;+ 1 * 22&nbsp;+ 1 * 23&nbsp;+ 1 * 24 =&nbsp;&nbsp;1 + 2 + 4 + 8 + 16 = 31</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in binario il numero decimale 63</li>
+<li>63 / 2&nbsp; = 31 (1)</li>
+<li>31 / 2&nbsp; &nbsp;= 15 (1)</li>
+<li>&nbsp;15 / 2&nbsp; =&nbsp; &nbsp;7 (1)</li>
+<li>&nbsp; &nbsp;7 / 2&nbsp; =&nbsp; &nbsp;1 (1)</li>
+<li>&nbsp; &nbsp;3 / 2&nbsp; =&nbsp; &nbsp;1 (1)</li>
+<li>&nbsp; &nbsp;1 / 2&nbsp;=&nbsp; 0 (1)</li>
+<li>Quindi il numero binario è: 111111&nbsp;
+</li>
+<li>Infatti:</li>
+<li>1 * 20&nbsp;+ 1 * 21&nbsp;+ 1 * 22&nbsp;+ 1 * 23&nbsp;+ 1 * 24&nbsp;+ 1 * 25 =&nbsp;&nbsp;1 + 2 + 4 + 8 + 16 + 32= 63</li>
+</ul>
+<h1 style="page-break-before:always; ">Che pattern possiamo notare?</h1>
+<ul>
+<li>Abbiamo convertito i numeri:</li>
+<li>5&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10<b>1</b>&nbsp;</li>
+<li>7&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;11<b>1</b></li>
+<li>15&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111<b>1</b></li>
+<li>31&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111<b>1</b></li>
+<li>63&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111<b>1</b></li>
+<li>Tutti questi numeri sono dispari: 
+<b>il bit meno significativo&nbsp;(più a destra)&nbsp;è sempre settato a 1!</b></li>
+</ul>
+<h1 style="page-break-before:always; ">Che pattern possiamo notare?</h1>
+<ul>
+<li>Se consideriamo numeri pari:</li>
+<li>4&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10<b>0</b>&nbsp;</li>
+<li>6&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;11<b>0</b></li>
+<li>14&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111<b>0</b></li>
+<li>30&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111<b>0</b></li>
+<li>62&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111<b>0</b></li>
+<li>Numero pari:&nbsp;
+<b>il bit meno significativo (più a destra) è sempre settato a 0!</b></li>
+</ul>
+<h1 style="page-break-before:always; ">Che pattern possiamo notare?</h1>
+<ul>
+<li>Abbiamo convertito i numeri:</li>
+<li>7&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111</li>
+<li>15&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1111</li>
+<li>31&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;11111</li>
+<li>63&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111111</li>
+<li>Dato un numero che è 2k – 1 (es., k = 3, 4, 5, 6): 
+<b>i bit sono settati tutti ad 1</b></li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in decimale del numero binario 10010</li>
+<li>0 * 20&nbsp;+ 1 * 21&nbsp;+ 0 * 22&nbsp;+ 0 * 23&nbsp;+ 1 * 24&nbsp;=&nbsp;&nbsp;2 + 16 = 18</li>
+<li>Quindi il numero decimale è: 18</li>
+<li>Infatti:</li>
+<li>&nbsp;18 / 2&nbsp; =&nbsp; &nbsp;9 (0)</li>
+<li>&nbsp; &nbsp;9 / 2&nbsp; &nbsp;=&nbsp; &nbsp;4 (1)</li>
+<li>&nbsp; &nbsp;4 / 2&nbsp; &nbsp;=&nbsp; &nbsp;7 (0)</li>
+<li>&nbsp; &nbsp;2 / 2&nbsp; &nbsp;=&nbsp; &nbsp;1 (0)</li>
+<li>&nbsp; &nbsp;1 / 2&nbsp; &nbsp;=&nbsp; &nbsp;0 (1)</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in decimale del numero binario 10101&nbsp;</li>
+<li>1 * 20&nbsp;+ 0 * 21&nbsp;+ 1 * 22&nbsp;+ 0 * 23&nbsp;+ 1 * 24&nbsp;= 1 + 4 + 16 = 21</li>
+<li>Quindi il numero decimale è: 21</li>
+<li>Infatti:</li>
+<li>&nbsp;21 / 2&nbsp; =&nbsp;10 (1)</li>
+<li>&nbsp;10 / 2&nbsp; &nbsp;=&nbsp; &nbsp;5 (0)</li>
+<li>&nbsp; &nbsp;5 / 2&nbsp; &nbsp;=&nbsp; &nbsp;2 (1)</li>
+<li>&nbsp; &nbsp;2 / 2&nbsp; &nbsp;=&nbsp; &nbsp;1 (0)</li>
+<li>&nbsp; &nbsp;1 / 2&nbsp; &nbsp;=&nbsp; &nbsp;0 (1)</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in decimale del numero binario 100100&nbsp;</li>
+<li>0 * 20&nbsp;+ 0 * 21&nbsp;+ 1 * 22&nbsp;+ 0 * 23&nbsp;+ 0 * 24&nbsp;+ 1 * 25&nbsp;= 4 + 32 = 36</li>
+<li>Quindi il numero decimale è: 36</li>
+<li>Infatti:</li>
+<li>&nbsp;36 / 2&nbsp; =&nbsp; &nbsp;18 (0)</li>
+<li>&nbsp;18 / 2&nbsp; &nbsp;=&nbsp; &nbsp; 9 (0)</li>
+<li>&nbsp; &nbsp;9 / 2&nbsp; &nbsp;=&nbsp; &nbsp; 4 (1)</li>
+<li>&nbsp; &nbsp;4 / 2&nbsp; &nbsp;=&nbsp; &nbsp; 2 (0)</li>
+<li>&nbsp; &nbsp;2 / 2&nbsp; &nbsp;=&nbsp; &nbsp; 1 (0)</li>
+<li>&nbsp; &nbsp;1 / 2&nbsp; &nbsp;=&nbsp; &nbsp; 0 (1)</li>
+</ul>
+<h1 style="page-break-before:always; ">Esempio conversione in base 16</h1>
+<ul>
+<li>Rappresentiamo 1547 in base 16</li>
+<li>1547/16 = 96 con il resto di 11 </li>
+<li>96/16 = 6 con il resto di 0 </li>
+<li>6/16 = 0 con il resto di 6</li>
+<li>1547 in base 16 è rappresentato come 60B</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in decimale del numero esadecimale&nbsp;CAFE&nbsp;</li>
+<li>E * 160&nbsp;+ F * 161&nbsp;+ A * 162&nbsp;+ C * 163&nbsp;= </li>
+<li>14 * 1 + 15 * 16 + 10 * 256 + 12 * 4096 = </li>
+<li>51966</li>
+<li>Quindi il numero decimale è: 51966</li>
+<li>Infatti:</li>
+<li>&nbsp;51966 / 16&nbsp; =&nbsp; &nbsp;3247&nbsp;(14 =&gt; E)</li>
+<li>&nbsp; 3247&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; 202 (15 =&gt; F)</li>
+<li>&nbsp; &nbsp; 202&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp;12 (10 =&gt; A)</li>
+<li>&nbsp; &nbsp; &nbsp; 12 / 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp; &nbsp;0 (12 =&gt; C)</li>
+</ul>
+<h1 style="page-break-before:always; ">Esercizio</h1>
+<ul>
+<li>Conversione in decimale del numero esadecimale&nbsp;DEADBEEF&nbsp;</li>
+<li>13*16⁷ + 14*16⁶ + 10*16⁵ + 13*16⁴ + 11*16³ + 14*16² + 14*16¹ + 15*16⁰ =&nbsp;3735928559</li>
+<li>Quindi il numero decimale è: 3735928559</li>
+<li>Infatti:</li>
+<li>&nbsp;3735928559&nbsp;/ 16&nbsp; =&nbsp; &nbsp;233495534&nbsp;(15 =&gt; F)</li>
+<li>&nbsp; 233495534&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp;14593470&nbsp;(14 =&gt; E)</li>
+<li>&nbsp; &nbsp; 14593470&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;912091&nbsp;(14 =&gt; E)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; 912091&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;57005&nbsp;(11 =&gt; B)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;57005&nbsp;&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3562&nbsp;(13 =&gt; D)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3562&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;222&nbsp;(10 =&gt; A)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 222&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;13&nbsp;(14 =&gt; E)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 13&nbsp;/ 16&nbsp; &nbsp;=&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0&nbsp;(13 =&gt; D)</li>
+</ul>
+<h1 style="page-break-before:always; ">Recap logica booleana</h1>
+<h1 style="page-break-before:always; ">Operatori e tavole di verità </h1>
+<h1 style="page-break-before:always; ">Boolean machine</h1>
+<ul>
+<li><a href="http://rockwellschrock.com/rbs3k/boolean/">http://rockwellschrock.com/rbs3k/boolean/</a>&nbsp;</li>
+</ul>
+<h1 style="page-break-before:always; ">Esempio tabella della verità</h1>
+<table>
+  <tr>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<ul>
+<li><b>(A AND B)
+OR
+(-A AND C)</b></li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>C</b></li>
+</ul>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<ul>
+<li><b>(A AND B)
+OR
+(-A AND C)</b></li>
+</ul>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>C</b></li>
+</ul>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<p><b></b></p>
+    </td>
+    <td>
+<ul>
+<li><b>(A AND B)
+OR
+(-A AND C)</b></li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>C</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>A AND B</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>-A AND C</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>(A AND B)
+OR
+(-A AND C)</b></li>
+</ul>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A AND B</b></li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>-A AND C</b></li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>(A AND B)
+OR
+(-A AND C)</b></li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>F</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>T</li>
+</ul>
+    </td>
+  </tr>
+</table>
+<h1 style="page-break-before:always; ">Equivalenza, Tautologia, Contraddizione</h1>
+<ul>
+<li><b>Equivalenza</b>: due espressioni booleane sono equivalenti se hanno la medesima tavola di verità</li>
+<p>Esempio:&nbsp; (A OR B)'&nbsp; =&nbsp; A' AND B'</p>
+<li><b>Tautologia</b>: un’espressione booleana è una tautologia se è sempre vera (1)</li>
+<p>Esempio:&nbsp; A OR (NOT A)</p>
+<li><b>Contraddizione</b>: un’espressione booleana è una contraddizione se è sempre falsa (0)</li>
+<p>Esempio:  A AND (NOT A)</p>
+</ul>
+<h1 style="page-break-before:always; ">Esercizi logica booleana</h1>
+<h1 style="page-break-before:always; ">Esercizio: valutare tabella di verità</h1>
+<ul>
+<li>Espressione booleana:&nbsp;A’B’+B’A&nbsp;</li>
+</ul>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<p><b>A'</b></p>
+    </td>
+    <td>
+<p><b>B'</b></p>
+    </td>
+    <td>
+<p><b>A'B'</b></p>
+    </td>
+    <td>
+<p><b>B'A</b></p>
+    </td>
+    <td>
+<p><b>A'B' + B'A</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<ul>
+<li>1</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>1</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>1</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>1</li>
+</ul>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+</table>
+<h1 style="page-break-before:always; ">Soluzione da <a href="https://web.stanford.edu/class/cs103/tools/truth-table-tool/">Truth Table Generator</a></h1>
+<h1 style="page-break-before:always; ">Esercizio: A’BC’+AB’&nbsp;</h1>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<p><b>C</b></p>
+    </td>
+    <td>
+<p><b>A'</b></p>
+    </td>
+    <td>
+<p><b>B'</b></p>
+    </td>
+    <td>
+<p><b>C'</b></p>
+    </td>
+    <td>
+<p><b>A'BC'</b></p>
+    </td>
+    <td>
+<p><b>AB'</b></p>
+    </td>
+    <td>
+<p><b>A'BC'
++ AB'</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>1</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+</table>
+<h1 style="page-break-before:always; ">Soluzione da <a href="https://web.stanford.edu/class/cs103/tools/truth-table-tool/">Truth Table Generator</a></h1>
+<h1 style="page-break-before:always; ">Esercizio:&nbsp;AB’(C+BC’)+C’ </h1>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<p><b>C</b></p>
+    </td>
+    <td>
+<p><b>AB'</b></p>
+    </td>
+    <td>
+<p><b>B'</b></p>
+    </td>
+    <td>
+<p><b>C'</b></p>
+    </td>
+    <td>
+<p><b>BC'</b></p>
+    </td>
+    <td>
+<p><b>C +
+BC'</b></p>
+    </td>
+    <td>
+<p><b>AB'
+(C+BC')</b></p>
+    </td>
+    <td>
+<p><b>AB'
+(C+BC') + C'</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>1</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+</table>
+<h1 style="page-break-before:always; ">Soluzione da <a href="https://web.stanford.edu/class/cs103/tools/truth-table-tool/">Truth Table Generator</a></h1>
+<h1 style="page-break-before:always; ">Esercizio: A’(BA+B’A’)+B’(A+A’B)</h1>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<p><b>A'</b></p>
+    </td>
+    <td>
+<p><b>B'</b></p>
+    </td>
+    <td>
+<p><b>A’(BA+B’A’)</b></p>
+    </td>
+    <td>
+<p><b>B’(A+A’B)</b></p>
+    </td>
+    <td>
+<p><b>A’(BA+B’A’)+B’(A+A’B)</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+</table>
+<h1 style="page-break-before:always; ">Soluzione da <a href="https://web.stanford.edu/class/cs103/tools/truth-table-tool/">Truth Table Generator</a></h1>
+<h1 style="page-break-before:always; ">Esercizio tautologia</h1>
+<ul>
+<li>L’espressione&nbsp;&nbsp; A+(AB)’&nbsp;&nbsp; è una tautologia?&nbsp;</li>
+</ul>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<p><b>A'</b></p>
+    </td>
+    <td>
+<p><b>B'</b></p>
+    </td>
+    <td>
+<p><b>AB</b></p>
+    </td>
+    <td>
+<p><b>(AB)'</b></p>
+    </td>
+    <td>
+<p><b>A+(AB)'</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+</table>
+<p><b>Sì, lo è!</b></p>
+<h1 style="page-break-before:always; ">Soluzione da <a href="https://web.stanford.edu/class/cs103/tools/truth-table-tool/">Truth Table Generator</a></h1>
+<h1 style="page-break-before:always; ">Esercizio contraddizione</h1>
+<ul>
+<li>L’espressione&nbsp;&nbsp; A+(A’B)&nbsp;&nbsp; è una contraddizione?&nbsp;</li>
+</ul>
+<table>
+  <tr>
+    <td>
+<ul>
+<li><b>A</b></li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li><b>B</b></li>
+</ul>
+    </td>
+    <td>
+<p><b>A'</b></p>
+    </td>
+    <td>
+<p><b>B'</b></p>
+    </td>
+    <td>
+<p><b>A'B</b></p>
+    </td>
+    <td>
+<p><b>A+(A'B)</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<ul>
+<li>0</li>
+</ul>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>0</p>
+    </td>
+    <td>
+<p>1</p>
+    </td>
+  </tr>
+</table>
+<p><b>No, non lo è!</b></p>
+<h1 style="page-break-before:always; ">Soluzione da <a href="https://web.stanford.edu/class/cs103/tools/truth-table-tool/">Truth Table Generator</a></h1>
+</body>
+</html>

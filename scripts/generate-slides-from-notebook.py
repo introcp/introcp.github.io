@@ -20,7 +20,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-IMAGE = "ercoppa/introcp"
+IMAGE = "ercoppa/introcp:v2"
 
 
 def fail(message):
@@ -53,7 +53,7 @@ def main():
 
     container_name = f"introcp-slide-{os.getpid()}"
 
-    docker_cmd = ["docker", "run", "--rm", "-i"]
+    docker_cmd = ["docker", "run", "--rm", "-i", "--pull", "always"]
 
     # UID/GID mapping only makes sense on POSIX hosts (Linux/macOS); Docker
     # Desktop on Windows has no equivalent concept, so it's skipped there.

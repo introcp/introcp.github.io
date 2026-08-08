@@ -1,0 +1,667 @@
+%\documentclass{beamer} %voce pode usar este modelo tambem
+\documentclass[t,handout,9pt]{beamer}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[british]{babel}
+\batchmode
+% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{epsfig}
+\usepackage{bbm}
+\usepackage{calc}
+\usepackage{adjustbox}
+\usepackage{color}
+\usepackage{ifthen}
+\usepackage{capt-of}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage[flushleft]{threeparttable}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{pgfpages}
+%\usepackage{showframe}
+
+\usepackage{cmbright}
+
+\renewcommand\ttdefault{cmvtt} % selects CM typewriter
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} 	% Output font encoding for international characters
+
+%\DeclareFontShape{OT1}{cmss}{b}{n}{<->ssub * cmss/bx/n}{}
+
+\usetheme[compress]{Berlin}
+\definecolor{sapienza}{RGB}{0, 49, 83}
+\usecolortheme[named=sapienza]{structure}
+
+\usepackage[backend=bibtex,style=alphabetic,giveninits=true,url=false,eprint=false,doi=false]{biblatex}
+\DeclareNameAlias{sortname}{last-first}
+\renewcommand*{\nameyeardelim}{\addcomma\addspace}
+\renewcommand*{\bibfont}{\footnotesize}
+\addbibresource{example.bib}
+\setbeamerfont{footnote}{size=\tiny}
+
+\setbeamerfont{title}{size=\LARGE}
+
+% reduce spaces between tables/figures and caption
+\usepackage[font=small,skip=1pt]{caption}
+
+%% pgf plots stuff
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=newest}
+%% the following commands are needed for some matlab2tikz features
+%\usetikzlibrary{plotmarks}
+%\usetikzlibrary{arrows.meta}
+%\usepgfplotslibrary{patchplots}
+
+% one navigation dot per slide trick
+\AtBeginSection[]{\subsection{}}
+
+% fix misbehave for allowframebreaks
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\slideentry}{\ifnum#2>0}{\ifnum2>0}{}% replace the subsection number test with a test that always returns true
+% use frame numbers instead of subsection slide numbers so that frames broken over slides get separate circles
+\patchcmd{\slideentry}{\c@subsectionslide}{\c@framenumber}{}{\@error{unable to patch}}
+\patchcmd{\beamer@writeslidentry}{\c@subsectionslide}{\c@framenumber}{}{\@error{unable to patch}}
+
+% date in footer trick
+\makeatletter
+  \setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      {\usebeamerfont{title in head/foot}\insertshorttitle\hfill\insertshortdate}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatletter
+
+% remove dot for titlepage and Outline
+\makeatletter
+\let\old@beamer@writeslidentry\beamer@writeslidentry
+\def\beamer@writeslidentry{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    \clearpage\beamer@notesactions%
+  }
+}
+\makeatother
+
+% let's number figure captions
+\setbeamertemplate{caption}[numbered]
+
+% trick for grouping equations
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+%-------------------------Titulo/Autores/Orientador------------------------------------------------
+\title[Introduction to Computer Programming]{Introduction to Computer Programming}
+\date[A.Y. 2024-2025]{\\A.Y. 2024-2025}
+\author[Giorgio Piccardo]{Prof. Giorgio Piccardo\\
+\smallskip
+{\small \href{mailto:amartino@luiss.it}{\texttt{gpiccardo@luiss.it}}}\\
+\smallskip
+}
+\institute[14/10/2024]{Department of Business and Management\\Viale Romania 32, 00197 Rome\\[\bigskipamount]
+\includegraphics[scale=0.4]{Figures/cliente-luiss.png}%
+}
+
+%-------------------------Logo na parte de baixo do slide------------------------------------------
+%\pgfdeclareimage[height=0.7cm]{senac-logo}{senac-logo.pdf}
+%\logo{\pgfuseimage{senac-logo}\hspace*{0.5cm}}
+
+%-------------------------Este cÃ³digo faz o menuzinho bacana na parte superior do slide------------
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+%\beamerdefaultoverlayspecification{<+->}
+% -----------------------------------------------------------------------------
+
+\begin{document}
+% -----------------------------------------------------------------------------
+
+%---Gerador de SumÃ¡rio---------------------------------------------------------
+
+\frame[noframenumbering]{
+	\titlepage
+}
+
+% begin personalization stuff
+\setbeamertemplate{navigation symbols}{%
+	\insertslidenavigationsymbol
+	\insertframenavigationsymbol
+	\insertsubsectionnavigationsymbol
+	\insertsectionnavigationsymbol
+	\insertdocnavigationsymbol
+	\insertbackfindforwardnavigationsymbol
+	\hspace{1em}%
+	\usebeamerfont{footline}
+	\insertframenumber/\inserttotalframenumber%
+}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+% end personalization stuff
+
+\section[]{}
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+%\begin{frame}{Outline}
+%\begin{multicols}{2}
+%  \tableofcontents
+%\end{multicols}
+%\end{frame}
+%---Fim do SumÃ¡rio------------------------------------------------------------
+
+% reset navigation dots for other slides
+\makeatletter
+\let\beamer@writeslidentry\old@beamer@writeslidentry
+\makeatother
+
+% -----------------------------------------------------------------------------
+\section{Introduction to Strings}
+\begin{frame}{Introduction to Strings}
+\vfill
+Recall from Lecture 4 that:
+\begin{itemize}
+	\item Strings are objects that can host letters, numbers, spaces, special characters.
+\end{itemize}
+\vfill
+More in detail:
+\begin{itemize}
+	\item strings are among the most popular types in Python
+	\item we can create strings simply by enclosing characters in quotes
+	\item Python treats single quotes as the same as double quotes\footnote{Caveat: if your string contains a quote (e.g., \texttt{let's dance}), enclose the string in double quotes. Similarly, if your string contains double quotes (e.g., \texttt{I say "hello"}), enclose the string in single quotes.}
+	\item to create a string, just perform a variable assignment
+\end{itemize}
+\vfill
+Examples:\\
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{var1 = 'Hello World!'} &  \\
+\texttt{var2 = "Python is cool! (hopefully)"} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+%\begin{block}{Hint}
+%If your string includes a quote (e.g., \texttt{let's dance}), enclose the string in double quotes!
+%\end{block}
+%\vfill
+\end{frame}
+%
+\begin{frame}
+\vfill
+\begin{itemize}
+	\item Python \textcolor{red}{does not support a character type}: chars are treated as strings of length 1, thus also considered a substring
+	\item To access substrings, use the \textcolor{red}{square brackets for slicing} along with the \textcolor{red}{index or indices} to obtain your substring
+%	\item Note that we include start in the slice, but we only go up to, and not including, stop.
+\end{itemize}
+\vfill
+\begin{block}{Definition}
+The slice is a segment of the string. It can be gathered as \texttt{string\_name[start:stop]}.
+\end{block}
+\begin{block}{Note}
+Note that we include \texttt{start} in the slice, but we only go up to (and \textcolor{red}{not including}) \texttt{stop}. Further, indexing is \textcolor{red}{0-based} (the 1\textsuperscript{st} element has index 0, the 2\textsuperscript{nd} element has index 1 and so on ...).
+\end{block}
+\vfill
+Examples:
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{var1 = 'Hello World!'} &  \\
+\texttt{var2 = "Python is cool! (hopefully)"} &  \\
+\texttt{print("var1[0] = ", var1[0])} &  \# indexing\\
+\texttt{print("var2[1:5] = ", var2[1:5])} &  \# slicing\\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\end{frame}
+%
+\section{Slicing}
+\begin{frame}{Slicing}
+Syntax of slicing:
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{s[start:stop]} &  \# chars \texttt{start} through \texttt{stop-1}\\
+\texttt{s[start:]} &  \# chars \texttt{start} through the rest of the string\\
+\texttt{s[:stop]} &  \# chars from the beginning through \texttt{stop-1}\\
+\texttt{s[:]} &  \# a full copy of the string\\
+\end{tabular}
+\end{flushleft}
+\end{table}
+There is also the \texttt{step} value, which can be used with any of the above:
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{s[start:stop:step]} &  \# \texttt{start} through not past \texttt{stop}, by \texttt{step}\\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\texttt{start} and \texttt{stop} can be negative numbers: this means that Python starts counting from the end of the string
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{s[-1]} &  \# last char in the string\\
+\texttt{s[-2:]} &  \# last two chars in the string\\
+\texttt{s[:-2]} &  \# everything except the last two chars\\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\end{frame}
+%
+\begin{frame}
+\vfill
+Some examples on slicing:
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> s = 'hello'} &  \# original string\\
+\texttt{>{}>{}> s[1:4]} &  \# slice from 1\textsuperscript{st} to 3\textsuperscript{rd} character\\
+\texttt{'ell'} & \\
+\texttt{>{}>{}> s[1:]} &  \# slice from 1\textsuperscript{st} character until the end\\
+\texttt{'ello'} & \\
+\texttt{>{}>{}> s[:]} &  \# yield the entire string\\
+\texttt{'hello'} & \\
+\texttt{>{}>{}> s[1:1000]} &  \# overestimating the upper bound\\
+\texttt{'ello'} & \\
+\texttt{>{}>{}> s[-1]} &  \# reverse indexing\\
+\texttt{'o'} & \\
+\texttt{>{}>{}> s[::]} &  \# yield the entire string\\
+\texttt{'hello'} & \\
+\texttt{>{}>{}> s[:-3]} &  \# everything except the last three chars\\
+\texttt{'he'} & \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\section{Operations on Strings}
+\begin{frame}{Operations on Strings}
+\vfill
+Recall from Lecture 4 the two operators:
+\begin{description}
+	\item[Concatenate:] with the \texttt{+} operator
+	\item[Replicate:] with the \texttt{*} operator
+\end{description}
+\vfill
+Examples:
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> "Hello " + "World!"} &  \# yields \texttt{"Hello World!"}\\
+\texttt{>{}>{}> "Python"*3} &  \# yields \texttt{"PythonPythonPython"}\\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\begin{frame}
+\vfill
+More operations on strings. Let \texttt{a = "Hello"} and \texttt{b = Python}.
+\vspace{-0.3cm}
+\begin{table}[]
+\begin{tabular}{@{}lll@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Operator}} & \multicolumn{1}{c}{\textbf{Description}}                                                                                          & \multicolumn{1}{c}{\textbf{Example}} \\ \midrule
+\texttt{+}                                     & \begin{tabular}[c]{@{}l@{}}Concatenation: adds values on\\ either side of the operator\end{tabular}                               & \texttt{a+b} yields \texttt{"HelloPython"}             \\
+\texttt{*}                                     & \begin{tabular}[c]{@{}l@{}}Replication: creates new strings\\ concatenating multiple copies\\ of the original string\end{tabular} & \texttt{a*2} yields \texttt{"HelloHello"}              \\
+\texttt{{[}{]}}                                & \begin{tabular}[c]{@{}l@{}}Slice: gives the character from\\ the given index\end{tabular}                                         & \texttt{a{[}1{]}} yields \texttt{"e"}                  \\
+\texttt{{[}:{]}}                               & \begin{tabular}[c]{@{}l@{}}Range: gives the character(s) from\\ the given range\end{tabular}                                         & \texttt{a{[}1:4{]}} yields \texttt{"ell"}              \\
+\texttt{==}                                    & \begin{tabular}[c]{@{}l@{}}Equality check: yields \texttt{True} if\\ two strings are equal\end{tabular}                            & \texttt{"Hello" == a} yields \texttt{True}                \\
+\texttt{in}                                    & \begin{tabular}[c]{@{}l@{}}Membership: yields \texttt{True} if a\\ substring appears in the string\end{tabular}                            & \texttt{"He" in a} yields \texttt{True}                \\
+\texttt{not in}                                & \begin{tabular}[c]{@{}l@{}}Membership: yields \texttt{True} if a\\ substring does not appear in the string\end{tabular}                    & \texttt{"Me" not in a} yields \texttt{True}            \\ \bottomrule
+\end{tabular}
+\end{table}
+\vfill
+\end{frame}
+%
+\section{Iterating over Strings}
+\begin{frame}{Iterating over Strings}
+\vfill
+You can iterate over strings (i.e., get one character at the time) via \texttt{for} or \texttt{while} loops:
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{s = "Python Program"} &  \\
+\texttt{for letter in s:} &  \\
+\texttt{\qquad print(letter)} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{s = "Python Program"} &  \\
+\texttt{i = 0} &  \\
+\texttt{while i < len(s):} &  \\
+\texttt{\qquad print(s[i])} &  \\
+\texttt{\qquad i = i + 1} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\begin{block}{Note}
+\texttt{len(s)} is a built-in function that returns the length of the string \texttt{s}.
+\end{block}
+\vfill
+\end{frame}
+%
+\begin{frame}
+\vfill
+Example: count the number of times \texttt{"a"} appears in \texttt{s}
+%\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{s = "Python Program"} &  \\
+\texttt{count = 0} &  \\
+\texttt{for letter in s:} &  \\
+\texttt{\qquad if letter == `a':} &  \\
+\texttt{\qquad\qquad count = count + 1} &  \\
+\texttt{print(count)} &  \# prints \texttt{1}\\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+Example: count the number of times \texttt{"p"} appears in \texttt{s}
+%\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{s = "Python Program"} &  \\
+\texttt{count = 0} &  \\
+\texttt{i = 0} &  \\
+\texttt{while i < len(s):} &  \\
+\texttt{\qquad if s[i] == `p':} &  \\
+\texttt{\qquad\qquad count = count + 1} &  \\
+\texttt{\qquad i = i + 1} &  \\
+\texttt{print(count)} &  \# prints \texttt{0} because \texttt{`p' != `P'}\\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\section{Changing Strings}
+\begin{frame}{Changing Strings}
+\vfill
+Strings are \textcolor{red}{immutable} sets of characters:
+\begin{itemize}
+	\item we cannot change any character within a string once it is created
+\end{itemize}
+\vfill
+Example:
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> s = "Python Program"} &  \\
+\texttt{>{}>{}> s[1]} &  \\
+\texttt{"y"} &  \\
+\texttt{>{}>{}> s[1] = "a"} &  \\
+\texttt{\textcolor{red}{TypeError}: 'str' object does not support item assignment} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\begin{frame}
+\vfill
+So, how can we update strings?
+\begin{itemize}
+	\item (re)assign a variable with a new string
+	\item the new value can be related to the previous value or to a completely different string altogether
+\end{itemize}
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> var1 = "Hello World"} &  \\
+\texttt{>{}>{}> var2 = var1[:6] + "Python"} &  \\
+\texttt{>{}>{}> print(var1)} &  \\
+\texttt{"Hello World"} &  \\
+\texttt{>{}>{}> print(var2)} &  \\
+\texttt{"Hello Python"} &  \\
+\texttt{>{}>{}> var1 = var2 + "!"} &  \\
+\texttt{>{}>{}> print(var1)} &  \\
+\texttt{"Hello Python!"} &  \\
+\texttt{>{}>{}> print(var2)} &  \\
+\texttt{"Hello Python"} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\section{Build-in String Methods}
+\begin{frame}{Build-in String Methods}
+\vfill
+Python has a set of built-in methods that you can use on strings.
+\vfill
+You can find the full list at
+\begin{center}
+\url{https://docs.python.org/3/library/stdtypes.html\#string-methods}
+\end{center}
+\vfill
+\begin{block}{Warning}
+All string methods return new values. They do not change the original string.
+\end{block}
+\vfill
+Let's go through the most popular ones, shall we?
+\vfill
+\end{frame}
+%
+\subsection{\texttt{str.capitalize()}}
+\begin{frame}
+\texttt{s.capitalize()} returns a copy of the string with its first character capitalised and the rest lowercased.
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> s = "supercalifragilisticexpialidocious"} &  \\
+\texttt{>{}>{}> s.capitalize()} &  \\
+\texttt{'Supercalifragilisticexpialidocious'} &  \\
+\texttt{ } &  \\
+\texttt{>{}>{}> s = "SupercaliFragilisTicexpialidOciouS"} &  \\
+\texttt{>{}>{}> s.capitalize()} &  \\
+\texttt{'Supercalifragilisticexpialidocious'} &  \\
+\texttt{ } &  \\
+\texttt{\# if the string is already capitalised, it has no effect} &  \\
+\texttt{>{}>{}> s = "Supercalifragilisticexpialidocious"} &  \\
+\texttt{>{}>{}> s.capitalize()} &  \\
+\texttt{'Supercalifragilisticexpialidocious'} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\subsection{\texttt{str.lower()} and \texttt{str.upper()}}
+\begin{frame}
+\texttt{s.lower()} returns a copy of the string with all the cased characters converted to lowercase.\\
+\texttt{s.upper()} returns a copy of the string with all the cased characters converted to uppercase.
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> s = "SUPercalifragiliSTIcexpialidociouS"} &  \\
+\texttt{>{}>{}> s.lower()} &  \\
+\texttt{'supercalifragilisticexpialidocious'} &  \\
+\texttt{>{}>{}> s.upper()} &  \\
+\texttt{'SUPERCALIFRAGILISTICEXPIALIDOCIOUS'} &  \\
+\texttt{ } &  \\
+\texttt{\# if the string is already lowercased, it has no effect} &  \\
+\texttt{>{}>{}> s = "supercalifragilisticexpialidocious"} &  \\
+\texttt{>{}>{}> s.lower()} &  \\
+\texttt{'supercalifragilisticexpialidocious'} &  \\
+\texttt{ } &  \\
+\texttt{\# if the string is already uppercased, it has no effect} &  \\
+\texttt{>{}>{}> s = "SUPERCALIFRAGILISTICEXPIALIDOCIOUS"} &  \\
+\texttt{>{}>{}> s.upper()} &  \\
+\texttt{'SUPERCALIFRAGILISTICEXPIALIDOCIOUS'} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\subsection{\texttt{str.count()}}
+\begin{frame}
+\texttt{s.count(sub, [start, end])} returns the number of non-overlapping occurrences of substring \texttt{sub} in the string \texttt{s}. Optionally, you may specify \texttt{start} and \texttt{end} to look for \texttt{sub} in a slice of \texttt{s}.
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> s = "supercalifragilisticexpialidocious"} &  \\
+\texttt{>{}>{}> s.count('li')} &  \\
+\texttt{3} &  \\
+\texttt{\# lowercase vs. uppercase} &  \\
+\texttt{>{}>{}> s.count('LI')} &  \\
+\texttt{0} &  \\
+\texttt{\# look for 'li' in s[0:10]} &  \\
+\texttt{>{}>{}> s.count('li', 0, 10)} &  \\
+\texttt{1} &  \\
+\texttt{>{}>{}> s[0:10].count('li')} &  \# explicit slicing, same effect\\
+\texttt{1} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\subsection{\texttt{str.endswith()} and \texttt{str.startswith()}}
+\begin{frame}
+\texttt{s.endswith(sub, [start, end])} returns \texttt{True} if the string \textit{ends} with the specified \texttt{sub}, otherwise returns \texttt{False}. \\%Use optional parameters \texttt{start} and \texttt{end} to test a slice of \texttt{s}.\\
+\texttt{s.startswith(sub, [start, end])} returns \texttt{True} if the string \textit{starts} with the specified \texttt{sub}, otherwise returns \texttt{False}.\\
+Use optional parameters \texttt{start} and \texttt{end} to test a slice of \texttt{s}.
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> s = "supercalifragilisticexpialidocious"} &  \\
+\texttt{>{}>{}> s.startswith('super')} &  \\
+\texttt{True} &  \\
+%\texttt{\# s[1:10] --> 'upercalif'} &  \\
+\texttt{>{}>{}> s.startswith('super',1,10)} &  \# \texttt{s[1:10]} --> \texttt{'upercalif'}\\
+\texttt{False} &  \\
+\texttt{>{}>{}> s.startswith('uper',1,10)} &  \\
+\texttt{True} &  \\
+\texttt{>{}>{}> s.endswith('ous')} &  \\
+\texttt{True} &  \\
+\texttt{>{}>{}> s.endswith('calif', 1, 10)} &  \\
+\texttt{True} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\end{frame}
+%
+\subsection{\texttt{str.find()} and \texttt{str.index()}}
+\begin{frame}
+\texttt{s.find(sub, [start, end])} returns the lowest index in the string \texttt{s} where substring \texttt{sub}. If \texttt{sub} is not found, it returns \texttt{-1}.\\
+\texttt{s.index(sub, [start, end])} works like \texttt{s.find()}, but raises \texttt{ValueError} when the substring is not found.\\
+Use optional parameters \texttt{start} and \texttt{end} to test a slice of \texttt{s}.
+\vfill
+\begin{table}[]
+\begin{flushleft}
+\begin{tabular}{ll}
+\texttt{>{}>{}> s = "supercalifragilisticexpialidocious"} &  \\
+\texttt{>{}>{}> s.find('calif')} &  \# super\textcolor{red}{calif}ragil... \\
+\texttt{5} &  \# \texttt{s.index('calif')} also returns 5\\
+\texttt{>{}>{}> s.find('calio')} &  \\
+\texttt{-1} &  \\
+\texttt{>{}>{}> s.index('calio')} &  \\
+\texttt{\textcolor{red}{ValueError}: substring not found} &  \\
+\texttt{>{}>{}> 'calif' in s} &  \\
+\texttt{True} &  \\
+\end{tabular}
+\end{flushleft}
+\end{table}
+\vfill
+\begin{block}{Hint}
+Use \texttt{find()} or \texttt{index()} if you need the position of the substring. To check if \texttt{sub} exists in \texttt{s}, you may use the \texttt{in} operator.
+\end{block}
+\vfill
+\end{frame}
+%
+\subsection{\texttt{str.is*()}}
+\begin{frame}
+\texttt{s.islower()} returns \texttt{True} if a non-empty string \texttt{s} contains only lowercase characters. Otherwise returns \texttt{False}.\\
+\texttt{s.isupper()} returns \texttt{True} if a non-empty string \texttt{s} contains only uppercase characters. Otherwise returns \texttt{False}.\\
+\texttt{s.isalnum()} returns \texttt{True} if a non-empty string \texttt{s} contains only alphanumeric characters\footnote{In short: numbers and letters.}. Otherwise returns \texttt{False}.\\
+\texttt{s.isalpha()} returns \texttt{True} if a non-empty string \texttt{s} contains only alphabetic characters\footnote{In short: letters.}. Otherwise returns \texttt{False}.\\
+\texttt{s.isdecimal()} returns \texttt{True} if a non-empty string \texttt{s} contains only decimal numbers. Otherwise returns \texttt{False}.\\
+\texttt{s.isdigit()} returns \texttt{True} if a non-empty string \texttt{s} contains only digits\footnote{In short: decimals, subscripts and superscripts.}. Otherwise returns \texttt{False}.\\
+\texttt{s.isnumeric()} returns \texttt{True} if a non-empty string \texttt{s} contains only numeric characters\footnote{In short: decimals, subscripts, superscripts, vulgar fractions, roman numerals, currency numerators.}. Otherwise returns \texttt{False}.\\
+\texttt{s.istitle()} returns \texttt{True} if a non-empty string \texttt{s} contains is titlecased. Otherwise returns \texttt{False}.\\
+\vfill
+\end{frame}
+%------------------------------------------------------------------------------
+%\section{References}
+%\begin{frame}[allowframebreaks]{References}
+%%\bibliographystyle{apacite}
+%\printbibliography[heading=none]
+%\end{frame}
+\section{References}
+\begin{frame}{References}
+\begin{itemize}
+	\item Guttag, J. V. (2013). \textit{Introduction to Computation and Programming using Python (Revised and Expanded Edition)}. MIT Press. [Chapter 2 \& Section 5.4]
+	\item Downey, A. (2015). \textit{Think Python}. Green Tea Press ed. 2nd. [Section 2.6 \& Chapter 8]
+	\item \url{https://docs.python.org/3/library/stdtypes.html\#string-methods}
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------
+\section{Acknowledgments}
+\begin{frame}{Acknowledgments}
+\begin{itemize}
+	% \item Prof. Irene Finocchi (LUISS University)\\
+	% \quad \textit{Introduction to Computer Programming} Lecture Notes (2020-2021)
+	\item \url{https://stackoverflow.com/questions/509211/understanding-slice-notation}
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------
+%\subsection{Sites legais}
+%\begin{frame}{Sites legais}
+%  Want to know more? See!
+%  \begin{itemize}
+%    \item Browse in my page \url{http://www.ezefranca.com}.
+%    \item Browse on BCC page \url{http://www.sp.senac.br/bcc}.
+%    \item Thanks WriteLaTeX from Support! \url{http://www.writelatex.com}.
+%  \end{itemize}
+%
+%\end{frame}
+%------------------------------------------------------------------------------
+
+% -----------------------------------------------------------------------------
+\end{document}
+%-----------------------------------------------Este comentario nunca aparecera

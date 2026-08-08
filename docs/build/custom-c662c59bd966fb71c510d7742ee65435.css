@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "LUISS";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../dist/fonts/LuissSans-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "LUISS";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../dist/fonts/LuissSans-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "LUISS";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../dist/fonts/LuissSans-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: LUISS;
+  font-weight: bold;
+  font-style: italic;
+  src: url("../dist/fonts/LuissSans-BoldItalic.otf") format("opentype");
+}
+
+/* Brand font on headings (previously hardcoded per-notebook via inline HTML
+   in the title cells; moved here since MyST v2 treats the title heading as
+   plain-text frontmatter and won't render embedded HTML tags in it). */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "LUISS", "Lato", sans-serif;
+}
+
+/* The LUISS logo has a transparent background and reads poorly on the dark
+   theme; force a white plate behind it regardless of theme. Covers both the
+   header nav logo and the same logo image embedded at the top of every
+   notebook's title cell (matched via its stable canonical source URL, since
+   the actual served path is content-hashed). */
+.myst-home-link-logo,
+img[data-canonical-url*="logo2"] {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* Hide scrollbar in left sidebar */
+.bd-sidebar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.bd-sidebar::-webkit-scrollbar {
+  display: none; /* WebKit browsers (Chrome, Safari, Edge) */
+}
+
+/* Alternative selector for sidebar navigation */
+.bd-sidebar .bd-toc {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.bd-sidebar .bd-toc::-webkit-scrollbar {
+  display: none;
+}
