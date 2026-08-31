@@ -37,29 +37,51 @@ project:
     - title: Computer Systems
       children:
         - file: src/C00/C00-Bits-and-Bytes.ipynb
+          hidden: true
         - file: src/C01/C01-Boolean-Logic.ipynb
+          hidden: true
         - file: src/C02/C02-Hardware.ipynb
+          hidden: true
         - file: src/C03/C03-Software.ipynb
+          hidden: true
         - file: src/C04/C04-OS-Essentials.ipynb
+          hidden: true
         - file: src/C05/C05-Computer-Network.ipynb
+          hidden: true
     - title: Python
       children:
         - file: src/P00/P00-Python-Getting-Started.ipynb
+          hidden: true
         - file: src/P01/P01-Python-Expressions-and-Types.ipynb
+          hidden: true
         - file: src/P02/P02-Python-Types-Strings.ipynb
+          hidden: true
         - file: src/P03/P03-Python-Branching.ipynb
+          hidden: true
         - file: src/P04/P04-Python-Functions.ipynb
+          hidden: true
         - file: src/E01/E01-Python-Errors.ipynb
+          hidden: true
         - file: src/P05/P05-Python-Iteration.ipynb
+          hidden: true
         - file: src/P06/P06-Python-Strings.ipynb
+          hidden: true
         - file: src/P07/P07-Python-Lists.ipynb
+          hidden: true
         - file: src/P08/P08-Python-Dictionaries-Tuples-Sets.ipynb
+          hidden: true
         - file: src/P11/P11-Python-Files.ipynb
+          hidden: true
         - file: src/P12/P12-Python-Sockets-HTTP.ipynb
+          hidden: true
         - file: src/P09/P09-Python-Classes.ipynb
+          hidden: true
         - file: src/P13/P13-Python-Exceptions.ipynb
+          hidden: true
         - file: src/P10/P10-Python-Recursion.ipynb
+          hidden: true
         - file: src/P14/P14-Python-Multiprocessing.ipynb
+          hidden: true
     # Companion exercise notebooks: not shown in the nav, but built and
     # reachable by URL since chapter pages link to them directly (e.g.
     # "find more exercises here"). See scripts/fix-cross-reference-links.py.
