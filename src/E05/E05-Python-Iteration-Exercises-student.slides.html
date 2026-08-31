@@ -7481,7 +7481,7 @@ main {
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a7a3b6b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1c71a86c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7491,7 +7491,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cab445ea">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc1adff9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7503,7 +7503,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=abfc2c02">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6780b29e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7514,7 +7514,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=898be3bb4114461aa8807ca6b9356f7a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9c281e82a9c40a1bd31bc9953d676b0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7525,7 +7525,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d8d97b0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8afece63">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7535,7 +7535,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=7a7c586ab2af46f9afcd9726fe477515">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=33120858c6414fdfaf68cad90c232ffd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7552,7 +7552,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e248ab9a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fd62a7c1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7562,23 +7562,44 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=8053433f9e544ef0b97a43b397fe071f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell celltag_tests" id="cell-id=297f6f77e39444e5ac69515cda636534">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Test case 1: Test with small number</span>
-<span class="n">print_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+
+<span class="n">captured_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">captured_output</span><span class="p">):</span>
+    <span class="n">print_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">captured_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+<span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✓ print_numbers tests passed"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d7c15266">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>✓ print_numbers tests passed
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66441247">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7588,7 +7609,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=82bb6fb4">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2ad2e8c9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7596,14 +7617,14 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2"># Test case 1: Test with small number</span><span class="se">\n</span><span class="s2">print_numbers(5)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import contextlib</span><span class="se">\n</span><span class="s2">import io</span><span class="se">\n\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">with contextlib.redirect_stdout(captured_output):</span><span class="se">\n</span><span class="s2">    print_numbers(5)</span><span class="se">\n\n</span><span class="s2">result = [int(line.strip()) for line in captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">') if line.strip()]</span><span class="se">\n</span><span class="s2">assert result == [1, 2, 3, 4, 5]</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ print_numbers tests passed</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e3687109">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=605f294e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7615,7 +7636,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=764d2e4a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6162e49">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7626,7 +7647,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97db08add91448529e7227b80c33c894">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=520807a6dd8d4d3bb3aed910887cc592">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7637,7 +7658,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18081fbd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d43bdcd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7647,7 +7668,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=83991914d9ed482d9a25d2933a7e2df5">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=f22b43a0e7fc450184ded97a7b3b8b09">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7664,7 +7685,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f70d9cf0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f1afe67c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7674,7 +7695,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=e960ffedb78e421692670e76d0bc5c4a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=8f696f3d65664f68aa95c0dfcd37622c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7693,7 +7714,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0bdc87f8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0c457a63">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7703,7 +7724,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=71bcc5d6bd4440ce9088db96c8068124">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=79a8ca980cf4421e8fad5d73bf30d6d5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7720,7 +7741,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=025476d7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2d7ce6de">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7730,7 +7751,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1f17693b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8f6bf1de">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7745,7 +7766,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9588772f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ea91155e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7757,7 +7778,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b194c3bb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3ad27c07">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7768,7 +7789,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bd17f250cbc445e48384294df363c772">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=766478396ff74f5eb6e46b4b0f4e8a15">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7779,7 +7800,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10eeff61">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6a05713">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7789,7 +7810,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=867cc761554847d4acbf63949799cb9c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=8f1ec8be2a5444ccbabf546151d96d3a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7806,7 +7827,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=afad9bb5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ffd53cd5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7816,7 +7837,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=3e1cbad459df4d8d8f0ce3597c1fdf79">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=6f9bb173a59648f0b7d9e1605a3a4ff2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7824,16 +7845,23 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Test case 2: Verify range and step</span>
-<span class="c1"># Expected: prints 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 (each on new line)</span>
-<span class="n">print_even_numbers</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+
+<span class="n">captured_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">captured_output</span><span class="p">):</span>
+    <span class="n">print_even_numbers</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">captured_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+<span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✓ print_even_numbers tests passed"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=faffb8c1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=359f4f36">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7843,7 +7871,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=77718eb7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5279ded5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7851,14 +7879,14 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2"># Test case 2: Verify range and step</span><span class="se">\n</span><span class="s2"># Expected: prints 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 (each on new line)</span><span class="se">\n</span><span class="s2">print_even_numbers()"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import contextlib</span><span class="se">\n</span><span class="s2">import io</span><span class="se">\n\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">with contextlib.redirect_stdout(captured_output):</span><span class="se">\n</span><span class="s2">    print_even_numbers()</span><span class="se">\n\n</span><span class="s2">result = [int(line.strip()) for line in captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">') if line.strip()]</span><span class="se">\n</span><span class="s2">assert result == [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ print_even_numbers tests passed</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d611bab">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d3700917">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7870,7 +7898,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f2bdb9bb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd6982db">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7881,7 +7909,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b12424a0bb244e76880eac79fbd29db8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb729927ab314b3699cf503591f18999">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7892,7 +7920,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9823046a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1c80b7b8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7902,7 +7930,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=feb1c789129144be8c629b8e063be084">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=642f76b9f4884717804dbe794c053ca1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7919,7 +7947,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f20d750">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f5523753">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7929,7 +7957,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=8cd91e3e68a04b208c0c62755dcb8704">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=4a66bcbffdda41178ed100b11aa4c2c9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7945,7 +7973,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=875cc7b0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=39d0ce75">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7955,7 +7983,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=b9e05346a757421095dfcf437706f08e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=510f2c30ea174a06a156d5c2ec5f7958">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7971,7 +7999,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=158cad70">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83e0c601">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7981,7 +8009,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7f10e538">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=13f07a88">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7996,7 +8024,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=38122b95">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=13694c82">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8008,7 +8036,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2550d2a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e3ab5962">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8019,7 +8047,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dfdb23aa765840c0a7417b27fb03f403">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=966e61e3be6a497a858abb0a58820bee">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8030,7 +8058,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9987a51f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=158d2ac4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8040,7 +8068,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=6290b20ef86843eda4a9b322aafdaac2">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=8bc8e19ca4034976bebb167575e77e5c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8057,7 +8085,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0910d73c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ffcf3676">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8067,7 +8095,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=3e6fb0cae2e04abe8c6c444c0dfb9878">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=38b7de0cdf1c4e44b5eb715348441029">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8075,16 +8103,24 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Test case 2: Verify format</span>
-<span class="c1"># Expected: prints 3 x 1 = 3, 3 x 2 = 6, ..., 3 x 10 = 30</span>
-<span class="n">multiplication_table_3</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+
+<span class="n">captured_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">captured_output</span><span class="p">):</span>
+    <span class="n">multiplication_table_3</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">captured_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"3 x </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">expected</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✓ multiplication_table_3 tests passed"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=86d71bf4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f48fe43">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8094,7 +8130,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e20c4704">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d78071f8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8102,14 +8138,14 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2"># Test case 2: Verify format</span><span class="se">\n</span><span class="s2"># Expected: prints 3 x 1 = 3, 3 x 2 = 6, ..., 3 x 10 = 30</span><span class="se">\n</span><span class="s2">multiplication_table_3()"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import contextlib</span><span class="se">\n</span><span class="s2">import io</span><span class="se">\n\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">with contextlib.redirect_stdout(captured_output):</span><span class="se">\n</span><span class="s2">    multiplication_table_3()</span><span class="se">\n\n</span><span class="s2">result = [line.strip() for line in captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">') if line.strip()]</span><span class="se">\n</span><span class="s2">expected = [f</span><span class="se">\"</span><span class="s2">3 x </span><span class="si">{i}</span><span class="s2"> = {3 * i}</span><span class="se">\"</span><span class="s2"> for i in range(1, 11)]</span><span class="se">\n</span><span class="s2">assert result == expected</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ multiplication_table_3 tests passed</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=721b5bf8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cba81d6d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8121,7 +8157,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af69cd49">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=55c1c873">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8132,7 +8168,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a97d002005f447a9c866c133d208915">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=82c2351dbd384ddf840af60134294d31">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8143,7 +8179,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=939da25a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b647ac28">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8153,7 +8189,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=abab22e8b4774c708bbb01a2e4bf499a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=d6895c5cb51b4a61835603f742e3d980">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8170,7 +8206,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=637d952c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=df5eaba7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8180,7 +8216,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=a5e49aa62b8842d180295c484ac8c577">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=a45b43b0f7a048d18979b721702f2650">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8199,7 +8235,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4b7741ec">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=875eadf4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8209,7 +8245,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0a347b2f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ecdbd4c7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8224,7 +8260,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f4798aa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e571f5cc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8236,7 +8272,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2cf5921d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fd8bec7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8247,7 +8283,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8159af665f424f199f512e3d7d0fe73e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d5c4d49fa9c49b8beaa99aa5ce26c17">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8258,7 +8294,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8b3181d0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f849cc89">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8268,7 +8304,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=38ce4c2fdfef403da58252376df3d9c3">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=f6dd21db0fdf426daf2e91ba7e715a78">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8285,7 +8321,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ebeda3a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb9d0025">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8295,7 +8331,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=097facce498c42ae854584291601df6c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=ae8dd40e11fe49b78ddd7666a51dfbbd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8303,16 +8339,23 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Test case 2: Verify range</span>
-<span class="c1"># Expected: prints 5, 10, 15, 20, 25, 30, 35, 40, 45, 50</span>
-<span class="n">print_divisible_by_5</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+
+<span class="n">captured_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">captured_output</span><span class="p">):</span>
+    <span class="n">print_divisible_by_5</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">captured_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+<span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✓ print_divisible_by_5 tests passed"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3ad944ee">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=20484021">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8322,7 +8365,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9ee48d53">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e254d4b7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8330,14 +8373,14 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2"># Test case 2: Verify range</span><span class="se">\n</span><span class="s2"># Expected: prints 5, 10, 15, 20, 25, 30, 35, 40, 45, 50</span><span class="se">\n</span><span class="s2">print_divisible_by_5()"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import contextlib</span><span class="se">\n</span><span class="s2">import io</span><span class="se">\n\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">with contextlib.redirect_stdout(captured_output):</span><span class="se">\n</span><span class="s2">    print_divisible_by_5()</span><span class="se">\n\n</span><span class="s2">result = [int(line.strip()) for line in captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">') if line.strip()]</span><span class="se">\n</span><span class="s2">assert result == [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ print_divisible_by_5 tests passed</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dfe71b35">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f187324">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8349,7 +8392,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8660f00c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=793777cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8360,7 +8403,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7f2dee4850794e37b547c234fe25da19">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7614b20197364402af8002c84c61eaba">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8371,7 +8414,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fd63a408">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63ac9123">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8381,7 +8424,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=3b62360d99ec4a08917779657d59381b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=dfb35f07d2f848e5bad21e531e7ee4bf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8398,7 +8441,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bbade164">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9178995">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8408,7 +8451,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=c727171b79894c6ebc645148296429e7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=3a40e06ff3ea40cab67cf21ac88ff685">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8426,7 +8469,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c32039a5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ab4f334">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8436,7 +8479,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=65f4c13a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3099e650">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8451,7 +8494,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7216b152">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a796be94">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8463,7 +8506,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64f4533e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c491609">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8474,7 +8517,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10f6b29f5aa544b088859271a72e8a2e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=03ac8de2a8bc4db09090faf2371d6817">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8485,7 +8528,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af9d6975">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=81048934">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8495,7 +8538,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=8c8073a9242b46c99d9b2ab659cf4871">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=06efcfbe1ecd45c0843619d84bb30560">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8512,7 +8555,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5cf04377">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b45fda85">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8522,7 +8565,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=4dfb9f202ece488490ae3feb28506cdb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=cac1b92536f64c86b0b037472a528f18">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8540,7 +8583,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0274d1f6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c289292">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8550,7 +8593,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=98ae460f5b6147f884fe51f1ff82dc51">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=8891576e04d84ab4873181f6fc87da27">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8567,7 +8610,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f539dee">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e53ec8ec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8577,7 +8620,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b00a95de">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f50a7853">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8592,7 +8635,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5ee10f1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=54669e2f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8604,7 +8647,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=199eade7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cec6ed13">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8615,7 +8658,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=554fdaf524404badb7d6a34c3663f445">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e04d98510564db0848a0fd1b0ab679d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8626,7 +8669,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1820e152">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f5e1e40f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8636,7 +8679,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=555d8cef771b4404839188c0bf4caa6d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_student_solution" id="cell-id=44d646450efa4b8fb533d64e92ff237d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8653,7 +8696,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0efd669">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b1b41c06">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8663,7 +8706,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=848b44c089a64a5f929d4b1a8bd044b6">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=11b0e99a8b1b438ba897ab100bfa156e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8680,7 +8723,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4dd6b3d8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=494d33be">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8690,7 +8733,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=9ae9c6d94d7c4485b28f2fd64f3ad136">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_tests" id="cell-id=118e2d18e28240ac940fe6acdb2ca06c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8706,7 +8749,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83d4a845">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3111b30c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8716,7 +8759,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=dafdeab8">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7d7dd8b0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8731,7 +8774,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c933a54d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=640d8d69">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8743,7 +8786,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eae0728b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b22306b9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8765,7 +8808,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4706bbe7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dffff67a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8793,7 +8836,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2b067d60">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=27f81bd0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8821,7 +8864,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f520caa4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7fb9e6f2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8831,7 +8874,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4e37be28">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8d49762a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8846,7 +8889,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc1d1185">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e2fc7aa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8858,7 +8901,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f7fd0414">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=461ba537">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8880,7 +8923,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd3813a9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d6c52b2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8907,7 +8950,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b5747e12">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9de2b4a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8933,7 +8976,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2bc37d2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=349efe7a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8943,7 +8986,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=96919862">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d34102db">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8958,7 +9001,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4fb7853">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b435d9fb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8970,7 +9013,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=500703b5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d63969e0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8992,7 +9035,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64934a82">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ab20713b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9019,7 +9062,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1766301f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb400de7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9047,7 +9090,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a091a74f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=86250ed9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9057,7 +9100,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=af41baff">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0a8ac872">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9072,7 +9115,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5d4c6b0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d7991cc0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9084,7 +9127,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=940ab44f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a8172e0c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9106,7 +9149,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a0e0e7c2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=600b86cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9133,7 +9176,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3a46f8e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6024d831">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9151,17 +9194,13 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 
 <span class="c1"># Capture the printed output</span>
 <span class="n">captured_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">captured_output</span>
-
-<span class="n">odd_1_to_15</span><span class="p">()</span>
-
-<span class="c1"># Restore normal output</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span>
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">captured_output</span><span class="p">):</span>
+    <span class="n">odd_1_to_15</span><span class="p">()</span>
 
 <span class="c1"># Get the output and convert to list of integers for testing</span>
 <span class="n">output_lines</span> <span class="o">=</span> <span class="n">captured_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
@@ -9176,7 +9215,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2f56eb5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d3518e34">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9186,7 +9225,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3fbd62a2">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=aa5f3286">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9194,14 +9233,14 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import io</span><span class="se">\n</span><span class="s2">import sys</span><span class="se">\n\n</span><span class="s2"># Capture the printed output</span><span class="se">\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">sys.stdout = captured_output</span><span class="se">\n\n</span><span class="s2">odd_1_to_15()</span><span class="se">\n\n</span><span class="s2"># Restore normal output</span><span class="se">\n</span><span class="s2">sys.stdout = sys.__stdout__</span><span class="se">\n\n</span><span class="s2"># Get the output and convert to list of integers for testing</span><span class="se">\n</span><span class="s2">output_lines = captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">')</span><span class="se">\n</span><span class="s2">result = [int(line.strip()) for line in output_lines if line.strip()]</span><span class="se">\n\n</span><span class="s2">assert result == [1, 3, 5, 7, 9, 11, 13, 15]</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ odd_1_to_15 tests passed</span><span class="se">\"</span><span class="s2">)</span><span class="se">\n</span><span class="s2">print(f</span><span class="se">\"</span><span class="s2">Generated odd numbers: </span><span class="si">{result}</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import contextlib</span><span class="se">\n</span><span class="s2">import io</span><span class="se">\n\n</span><span class="s2"># Capture the printed output</span><span class="se">\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">with contextlib.redirect_stdout(captured_output):</span><span class="se">\n</span><span class="s2">    odd_1_to_15()</span><span class="se">\n\n</span><span class="s2"># Get the output and convert to list of integers for testing</span><span class="se">\n</span><span class="s2">output_lines = captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">')</span><span class="se">\n</span><span class="s2">result = [int(line.strip()) for line in output_lines if line.strip()]</span><span class="se">\n\n</span><span class="s2">assert result == [1, 3, 5, 7, 9, 11, 13, 15]</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ odd_1_to_15 tests passed</span><span class="se">\"</span><span class="s2">)</span><span class="se">\n</span><span class="s2">print(f</span><span class="se">\"</span><span class="s2">Generated odd numbers: </span><span class="si">{result}</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c8595d0e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7de8ea65">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9213,7 +9252,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eacde82a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=39cfd98c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9235,7 +9274,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e769da86">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b486ac00">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9262,7 +9301,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6df13718">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2e93268">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9280,17 +9319,13 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 
 <span class="c1"># Capture the printed output</span>
 <span class="n">captured_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">captured_output</span>
-
-<span class="n">countdown_5_to_1</span><span class="p">()</span>
-
-<span class="c1"># Restore normal output</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span>
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">captured_output</span><span class="p">):</span>
+    <span class="n">countdown_5_to_1</span><span class="p">()</span>
 
 <span class="c1"># Get the output and convert to list of integers for testing</span>
 <span class="n">output_lines</span> <span class="o">=</span> <span class="n">captured_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
@@ -9305,7 +9340,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8561ec32">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=faf4d947">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9315,7 +9350,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ac00bc44">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8bafdf3a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9323,14 +9358,14 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import io</span><span class="se">\n</span><span class="s2">import sys</span><span class="se">\n\n</span><span class="s2"># Capture the printed output</span><span class="se">\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">sys.stdout = captured_output</span><span class="se">\n\n</span><span class="s2">countdown_5_to_1()</span><span class="se">\n\n</span><span class="s2"># Restore normal output</span><span class="se">\n</span><span class="s2">sys.stdout = sys.__stdout__</span><span class="se">\n\n</span><span class="s2"># Get the output and convert to list of integers for testing</span><span class="se">\n</span><span class="s2">output_lines = captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">')</span><span class="se">\n</span><span class="s2">result = [int(line.strip()) for line in output_lines if line.strip()]</span><span class="se">\n\n</span><span class="s2">assert result == [5, 4, 3, 2, 1]</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ countdown_5_to_1 tests passed</span><span class="se">\"</span><span class="s2">)</span><span class="se">\n</span><span class="s2">print(f</span><span class="se">\"</span><span class="s2">Generated countdown: </span><span class="si">{result}</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">;</span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span><span class="p">;</span><span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;a href="https://pythontutor.com/visualize.html#code=</span><span class="si">{}</span><span class="s1">&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;"&gt;🔗 Visualize YOUR solution in Python Tutor&lt;/a&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">import contextlib</span><span class="se">\n</span><span class="s2">import io</span><span class="se">\n\n</span><span class="s2"># Capture the printed output</span><span class="se">\n</span><span class="s2">captured_output = io.StringIO()</span><span class="se">\n</span><span class="s2">with contextlib.redirect_stdout(captured_output):</span><span class="se">\n</span><span class="s2">    countdown_5_to_1()</span><span class="se">\n\n</span><span class="s2"># Get the output and convert to list of integers for testing</span><span class="se">\n</span><span class="s2">output_lines = captured_output.getvalue().strip().split('</span><span class="se">\n</span><span class="s2">')</span><span class="se">\n</span><span class="s2">result = [int(line.strip()) for line in output_lines if line.strip()]</span><span class="se">\n\n</span><span class="s2">assert result == [5, 4, 3, 2, 1]</span><span class="se">\n</span><span class="s2">print(</span><span class="se">\"</span><span class="s2">✓ countdown_5_to_1 tests passed</span><span class="se">\"</span><span class="s2">)</span><span class="se">\n</span><span class="s2">print(f</span><span class="se">\"</span><span class="s2">Generated countdown: </span><span class="si">{result}</span><span class="se">\"</span><span class="s2">)"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"assert"</span><span class="p">,</span><span class="s2">"print("</span><span class="p">,</span><span class="s2">"HTML("</span><span class="p">,</span><span class="s2">"display("</span><span class="p">,</span><span class="s2">"import"</span><span class="p">,</span><span class="s2">"from IPython"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"="</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">))),</span> <span class="p">(</span><span class="n">_ih</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ih</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s2">"# No code"</span><span class="p">)))))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=20cfce63">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64b1dfc6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9342,7 +9377,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d4c2c316">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=49a7e103">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9364,7 +9399,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ae398606">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d243b408">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9391,7 +9426,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=637df719">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ee08a5f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9417,7 +9452,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=13653117">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=328f5908">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9427,7 +9462,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=285ccf9c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d80af0ff">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9442,7 +9477,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9265b9d8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d8b92ef1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9454,7 +9489,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5dc24588">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88f19b9e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9476,7 +9511,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8a7126ad">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d67c1306">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9503,7 +9538,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc8070a5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d726e5c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9531,7 +9566,7 @@ main {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0ae80268">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b5abdeb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9541,7 +9576,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7f6b0e64">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bcb3fa6d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
