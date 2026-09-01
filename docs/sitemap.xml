@@ -7,4 +7,10 @@
   <url>
     <loc>http://localhost:3000/a00-introduction</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/c00-bits-and-bytes</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/c01-boolean-logic</loc>
+  </url>
 </urlset>
