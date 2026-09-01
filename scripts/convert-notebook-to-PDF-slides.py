@@ -15,6 +15,7 @@ import subprocess
 import fitz  # PyMuPDF for PDF manipulation
 import threading
 import multiprocessing
+import uuid
 
 def file_hash(path):
     hasher = hashlib.sha256()
@@ -201,7 +202,18 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
     """Converts a single notebook file to PDF, checking cache unless forced."""
     filename = str(filename)
     hash_name = name_hash(filename)
-    
+
+    # Every intermediate/temp file below is scoped with this run_id. In
+    # --watch mode, a new file change can start a new conversion before an
+    # older one (still mid-flight past its last abort checkpoint) has
+    # actually stopped - see the join(timeout=2) in watch mode below, which
+    # gives up waiting long before a browser-based conversion can realistically
+    # finish. Without per-run-unique names, two overlapping conversions on the
+    # same notebook collide on the same fixed filenames (e.g. one thread's
+    # cleanup removes/renames a file the other thread is still reading),
+    # which is what caused "no such file: ..._slides.pdf" crashes.
+    run_id = uuid.uuid4().hex[:8]
+
     # Define expected output files
     pdf_file = filename.replace(".ipynb", ".pdf")
     html_file = filename.replace(".ipynb", ".slides.html")
@@ -213,12 +225,12 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
         return
 
     print(f"\nConverting to PDF: {filename}")
-    
+
     # Check if first cell is marked as slide type
     is_slide_presentation = check_first_cell_is_slide(filename)
     if verbose:
         print(f"First cell is slide type: {is_slide_presentation}")
-    
+
     # Extract title from notebook for front slide (only if it's a slide presentation)
     title = None
     if is_slide_presentation:
@@ -231,13 +243,15 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
         print(f"Conversion aborted for {filename}")
         return
 
+    suffix = f'.slide.pdf.{run_id}'
+
     # Generate the prerequisite HTML slides for PDF conversion (step 1)
     # Use subprocess instead of os.system to avoid signal handling issues in threads
     try:
         if verbose: print("Generating HTML slides for PDF conversion...")
         env = os.environ.copy()
         env['SCROLLABLE'] = 'False'
-        env['SUFFIX'] = '.slide.pdf'
+        env['SUFFIX'] = suffix
         result = subprocess.run([
             'python3', 'scripts/convert-notebook-to-HTML-slides.py', filename
         ], env=env, check=True, capture_output=False, text=True)
@@ -246,11 +260,12 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
         print(f"[ERROR] HTML generation failed: {e}")
         return
 
+    slide_pdf_html = filename.replace('.ipynb', f'{suffix}.html')
+
     # Check for abortion after HTML generation
     if abort_event and abort_event.is_set():
         print(f"Conversion aborted for {filename}")
         # Clean up the generated slide.pdf.html file
-        slide_pdf_html = filename.replace('.ipynb', '.slide.pdf.html')
         if os.path.exists(slide_pdf_html):
             os.remove(slide_pdf_html)
         return
@@ -266,8 +281,7 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
             ]
         )
 
-        slide_pdf_html = filename.replace('.ipynb', '.slide.pdf.html')
-        main_pdf_path = f"{os.getcwd()}/{filename.replace('.ipynb', '_slides.pdf')}"
+        main_pdf_path = f"{os.getcwd()}/{filename.replace('.ipynb', f'_slides.{run_id}.pdf')}"
 
         # Everything from here on must guarantee that slide_pdf_html and
         # main_pdf_path are removed the moment they are no longer needed,
@@ -277,7 +291,7 @@ def convert_to_pdf(filename, force=False, verbose=False, abort_event=None):
             page.emulate_media(media="screen")
 
             # Use the slide.pdf.html file for PDF conversion
-            html_url = f"file://{os.getcwd()}/{filename.replace('.ipynb', '.slide.pdf.html?print-pdf')}"
+            html_url = f"file://{os.getcwd()}/{slide_pdf_html}?print-pdf"
             if verbose: print(f"Visiting {html_url}")
 
             print("  - Loading slides in browser...")
