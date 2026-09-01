@@ -56,10 +56,6 @@ build-book:
 	# this clean means every past build's orphaned hash-named files ride
 	# along into docs/ (and git) forever.
 	rm -rf _build/html || echo "nothing to clean"
-	# embed slides/PDF/Colab/JupyterLite links into each notebook's frontmatter
-	# (must run BEFORE slide generation: it rewrites notebook bytes, which
-	# would otherwise invalidate the slide-generation hash cache every run)
-	. ~/.venv/bin/activate; python3 scripts/inject-download-links.py
 	# generate slides in HTML and PDF
 	. ~/.venv/bin/activate; python3 scripts/convert-notebook-to-PDF-slides.py
 	# generate website with jupyter-book (v2, myst.yml)
@@ -71,6 +67,11 @@ build-book:
 	cp -r docs/.hashes . || true
 	rm -rf docs ; mkdir docs && cp -r _build/html/* docs && mv .hashes docs || true
 	. ~/.venv/bin/activate; python3 scripts/finalize-website.py docs
+	# patch in slides/PDF/Colab/JupyterLite links: a website-navigation
+	# concern, so it patches the built docs/ pages directly rather than
+	# writing into src/*.ipynb (which CI would otherwise commit back to git
+	# as a build byproduct on every run)
+	. ~/.venv/bin/activate; python3 scripts/inject-download-links.py docs
 	# mystmd emits a separate content-hashed copy of a notebook for every
 	# path it discovers it through, even when nothing differs between them
 	# (confirmed even on a from-scratch build) - collapse the duplicates.
