@@ -115,7 +115,10 @@ def remove_first_slide(pdf_path, output_path):
         for page_num in range(1, doc.page_count):  # Start from page 1 (skip page 0)
             new_doc.insert_pdf(doc, from_page=page_num, to_page=page_num)
         
-        new_doc.save(output_path)
+        # no_new_id: PyMuPDF otherwise stamps a fresh random /ID pair into the
+        # trailer on every save, so byte-for-byte identical page content still
+        # produces a different file hash on every rebuild.
+        new_doc.save(output_path, no_new_id=1)
         new_doc.close()
         doc.close()
         return output_path

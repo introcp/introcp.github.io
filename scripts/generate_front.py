@@ -220,7 +220,10 @@ class PDFCoverGenerator:
                     
                     print(f"Replaced '{placeholder}' with '{replacement}' ({len(lines)} lines) using font {font_name}, size {font_size}")
         
-        doc.save(output_pdf)
+        # no_new_id: PyMuPDF otherwise stamps a fresh random /ID pair into the
+        # trailer on every save, so byte-for-byte identical page content still
+        # produces a different file hash on every rebuild.
+        doc.save(output_pdf, no_new_id=1)
         doc.close()
         return output_pdf
     
@@ -240,7 +243,8 @@ class PDFCoverGenerator:
         final_doc.insert_pdf(pres_doc)
         pres_doc.close()
         
-        final_doc.save(output_pdf)
+        # no_new_id: see the comment on the save() call above.
+        final_doc.save(output_pdf, no_new_id=1)
         final_doc.close()
         
         return output_pdf
