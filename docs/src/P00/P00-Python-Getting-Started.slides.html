@@ -7663,10 +7663,10 @@ main {
 <img alt="No description has been provided for this image" src="img/win11-launch-powershell.png" width="400"/>
 </center>
 <ol start="2">
-<li>Type <code>Set-ExecutionPolicy unrestricted</code>, then run it and reply <em>y</em> (or "s" if your Windows is in italian) :</li>
+<li>Type <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code>, then run it:</li>
 </ol>
 <center>
-<img alt="No description has been provided for this image" src="img/win11-set-execution-policy.png" width="400"/>
+<img alt="No description has been provided for this image" src="img/Set_Execution_Remote_Signed.png" width="600"/>
 </center>
 </div>
 </div>
@@ -7726,10 +7726,30 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Launch-the-installer-(cont'd-2)-%5BWindows-only%5D">Launch the installer (cont'd 2) [Windows only]<a class="anchor-link" href="#Launch-the-installer-(cont'd-2)-%5BWindows-only%5D">¶</a></h2><ul>
-<li>In the <em>Advanced Installation Options</em> view, check "Add installation to my PATH environment variable", ignore warnings</li>
+<li>Install Miniconda just for your user (recommended) or for all users</li>
+<li>Make sure your Advanced Installation Options look like this:</li>
 </ul>
 <center>
-<img alt="No description has been provided for this image" src="img/miniconda-installer-windows-5.png" width="600"/>
+<img alt="No description has been provided for this image" src="img/Conda_Advanced_Options.png" width="600"/>
+</center>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Launch-the-installer-(cont'd-3)-%5BWindows-Only%5D">Launch the installer (cont'd 3) [Windows Only]<a class="anchor-link" href="#Launch-the-installer-(cont'd-3)-%5BWindows-Only%5D">¶</a></h2><ul>
+<li>After the installation type in the searchbar "Anaconda Powershell Prompt" and click on it to open the terminal</li>
+<li>Run the command <code>python --version</code> to check that the installation was successful. You should see the version of Python installed on your machine.</li>
+<li>Run the command <code>conda init powershell</code> to make conda available in the PowerShell.</li>
+<li>You should see something similar to this:</li>
+</ul>
+<center>
+<img alt="No description has been provided for this image" src="img/miniconda_powershell_setup.png" width="600"/>
 </center>
 </div>
 </div>
@@ -7744,6 +7764,8 @@ main {
 <h2 id="Install-a-(good)-code-editor:-Visual-Studio-Code">Install a (good) code editor: <strong>Visual Studio Code</strong><a class="anchor-link" href="#Install-a-(good)-code-editor:-Visual-Studio-Code">¶</a></h2><ol>
 <li>Visit: <strong><a href="https://code.visualstudio.com">https://code.visualstudio.com </a></strong></li>
 <li>Click on the button "Download for Windows" (if you have windows) or "Download for Mac" to start the download [check needed]</li>
+<li>Install the VSCode and follow the instructions of the setup wizard</li>
+<li>During installation, check the box "Add "Open with Code" action to Windows Explorer directory context menu." (windows only)</li>
 </ol>
 <center>
 <img alt="No description has been provided for this image" src="img/download-vscode-windows.png" width="300"/>
@@ -7779,7 +7801,7 @@ main {
 <li>Type the code <code>print('python installed!')</code> and hit enter, you will see the shell printing on screen "python installed!"</li>
 </ol>
 <center>
-<img alt="No description has been provided for this image" src="img/python-installed-terminal.png" width="650"/>
+<img alt="No description has been provided for this image" src="img/python_installed_terminal_new.png" width="650"/>
 </center>
 <!-- goto: troubleshooting if python not added to path -->
 </div>
@@ -8169,7 +8191,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Troubleshooting on Windows:<br/><code>python is not recognized</code> (cont'd - 4)</h3>
-<p>STEP 2 Reinstall miniconda properly:</p>
+<p>STEP 2 Reinstall miniconda but add it to PATH this time:</p>
 <ol>
 <li>Start the miniconda installer</li>
 <li>Click next and accept license terms</li>
