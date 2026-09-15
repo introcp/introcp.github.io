@@ -13,4 +13,7 @@
   <url>
     <loc>http://localhost:3000/c01-boolean-logic</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/c02-hardware</loc>
+  </url>
 </urlset>

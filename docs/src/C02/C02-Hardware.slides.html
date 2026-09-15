@@ -7852,6 +7852,45 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Why-do-we-care-about-equivalence?">Why do we care about equivalence?<a class="anchor-link" href="#Why-do-we-care-about-equivalence?">¶</a></h2><p>The tool above gave us a formula that looks nothing like the one we would have written by hand from the truth table, yet it is <strong>equivalent</strong>: it produces the exact same output for every possible input.</p>
+<ul>
+<li>Two circuits can be built very differently (different gates, different structure) and still compute the <em>same</em> function.</li>
+<li>Before replacing a circuit with a smaller/cheaper/faster one, engineers must <strong>prove the two are equivalent</strong> — this is called <em>equivalence checking</em>, a real formal-verification technique used in the chip industry to validate that an optimized circuit still matches its specification.</li>
+<li>The same idea applies to software: a compiler is only allowed to optimize your code if the optimized version is <em>equivalent</em> to the original program (same output, for every input).</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Why-do-we-care-about-tautologies-and-contradictions?">Why do we care about tautologies and contradictions?<a class="anchor-link" href="#Why-do-we-care-about-tautologies-and-contradictions?">¶</a></h2><ul>
+<li>A formula (circuit) that is a <strong>tautology</strong> always outputs 1, no matter the inputs.<ul>
+<li>If you designed a circuit meant to <em>check</em> something (e.g., "is it safe to proceed?") and it turns out to be a tautology, the check is broken: it always says "yes". The check carries no information and can be deleted, saving gates, area, and power.</li>
+</ul>
+</li>
+<li>A formula (circuit) that is a <strong>contradiction</strong> always outputs 0, no matter the inputs.<ul>
+<li>If you designed a circuit meant to <em>trigger</em> something (e.g., an alarm, an interrupt, an error signal) and it turns out to be a contradiction, that signal can never fire: it is dead logic that wastes silicon.</li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-block alert-info">
+<b>NOTE</b>: In software, the same reasoning finds <b>dead code</b>: a branch guarded by a condition that is a contradiction can never execute, and a branch guarded by a tautology always executes, so the "if" is useless. Compilers and static analyzers use exactly this kind of Boolean reasoning to warn about (or remove) such code.
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Implementing-real-world-components">Implementing real-world components<a class="anchor-link" href="#Implementing-real-world-components">¶</a></h2><p>For instance, we see how to implement two common components:</p>
 <ol>
 <li><p><strong>Half Adder</strong>: a circuit that implements the addition of two binary numbers.</p>
