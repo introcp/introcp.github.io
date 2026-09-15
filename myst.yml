@@ -41,7 +41,7 @@ project:
         - file: src/C01/C01-Boolean-Logic.ipynb
           hidden: false
         - file: src/C02/C02-Hardware.ipynb
-          hidden: true
+          hidden: false
         - file: src/C03/C03-Software.ipynb
           hidden: true
         - file: src/C04/C04-OS-Essentials.ipynb
