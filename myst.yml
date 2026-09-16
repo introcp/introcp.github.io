@@ -43,7 +43,7 @@ project:
         - file: src/C02/C02-Hardware.ipynb
           hidden: false
         - file: src/C03/C03-Software.ipynb
-          hidden: true
+          hidden: false
         - file: src/C04/C04-OS-Essentials.ipynb
           hidden: true
         - file: src/C05/C05-Computer-Network.ipynb
@@ -51,7 +51,7 @@ project:
     - title: Python
       children:
         - file: src/P00/P00-Python-Getting-Started.ipynb
-          hidden: true
+          hidden: false
         - file: src/P01/P01-Python-Expressions-and-Types.ipynb
           hidden: true
         - file: src/P02/P02-Python-Types-Strings.ipynb
