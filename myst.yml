@@ -45,7 +45,7 @@ project:
         - file: src/C03/C03-Software.ipynb
           hidden: false
         - file: src/C04/C04-OS-Essentials.ipynb
-          hidden: true
+          hidden: false
         - file: src/C05/C05-Computer-Network.ipynb
           hidden: true
     - title: Python
