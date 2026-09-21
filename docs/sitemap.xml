@@ -20,6 +20,9 @@
     <loc>http://localhost:3000/c03-software</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/c04-os-essentials</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/p00-python-getting-started</loc>
   </url>
 </urlset>
