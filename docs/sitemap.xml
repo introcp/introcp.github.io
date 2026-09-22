@@ -25,4 +25,10 @@
   <url>
     <loc>http://localhost:3000/p00-python-getting-started</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/p01-python-expressions-and-types</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/p02-python-types-strings</loc>
+  </url>
 </urlset>
