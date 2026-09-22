@@ -55,7 +55,7 @@ project:
         - file: src/P01/P01-Python-Expressions-and-Types.ipynb
           hidden: false
         - file: src/P02/P02-Python-Types-Strings.ipynb
-          hidden: true
+          hidden: false
         - file: src/P03/P03-Python-Branching.ipynb
           hidden: true
         - file: src/P04/P04-Python-Functions.ipynb
