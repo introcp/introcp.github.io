@@ -92,7 +92,7 @@ project:
     - file: src/E02/E02-Python-Exercises-Math-Datetime.ipynb
       hidden: true
     - file: src/E03/E03-Python-Exercises-Branching.ipynb
-      hidden: true
+      hidden: false
     - file: src/E03/E03-Python-Exercises-Branching-pseudocode.ipynb
       hidden: true
     - file: src/E03/E03-Python-Exercises-Branching-solution.ipynb
