@@ -32,6 +32,12 @@
     <loc>http://localhost:3000/p02-python-types-strings</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/p03-python-branching</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/e00-exercises-binary-boolean</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/e03-python-exercises-branching</loc>
   </url>
 </urlset>
