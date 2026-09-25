@@ -89,8 +89,10 @@ project:
       children:
         - file: src/E00/E00-Exercises-Binary-Boolean.ipynb
           hidden: false
+          title: Binary and Boolean
         - file: src/E03/E03-Python-Exercises-Branching.ipynb
           hidden: false
+          title: Branching
         - file: src/E03/E03-Python-Exercises-Branching-pseudocode.ipynb
           hidden: true
         - file: src/E03/E03-Python-Exercises-Branching-solution.ipynb
