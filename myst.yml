@@ -57,7 +57,7 @@ project:
         - file: src/P02/P02-Python-Types-Strings.ipynb
           hidden: false
         - file: src/P03/P03-Python-Branching.ipynb
-          hidden: true
+          hidden: false
         - file: src/P04/P04-Python-Functions.ipynb
           hidden: true
         - file: src/E01/E01-Python-Errors.ipynb
