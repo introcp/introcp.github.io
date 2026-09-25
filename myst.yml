@@ -85,7 +85,7 @@ project:
     # Companion exercise notebooks: not shown in the nav, but built and
     # reachable by URL since chapter pages link to them directly (e.g.
     # "find more exercises here"). See scripts/fix-cross-reference-links.py.
-   - title: Exercises
+    - title: Exercises
       children:
         - file: src/E00/E00-Exercises-Binary-Boolean.ipynb
           hidden: false
