@@ -59,7 +59,7 @@ project:
         - file: src/P03/P03-Python-Branching.ipynb
           hidden: false
         - file: src/P04/P04-Python-Functions.ipynb
-          hidden: true
+          hidden: false
         - file: src/E01/E01-Python-Errors.ipynb
           hidden: true
         - file: src/P05/P05-Python-Iteration.ipynb
