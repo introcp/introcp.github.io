@@ -61,7 +61,7 @@ project:
         - file: src/P04/P04-Python-Functions.ipynb
           hidden: false
         - file: src/E01/E01-Python-Errors.ipynb
-          hidden: true
+          hidden: false
         - file: src/P05/P05-Python-Iteration.ipynb
           hidden: true
         - file: src/P06/P06-Python-Strings.ipynb
@@ -98,8 +98,6 @@ project:
         - file: src/E03/E03-Python-Exercises-Branching-solution.ipynb
           hidden: true
         - file: src/E03/E03-Python-Exercises-Branching-student.ipynb
-          hidden: true
-        - file: src/E01/E01-Python-Errors.ipynb
           hidden: true
         - file: src/E02/E02-Python-Exercises-Math-Datetime.ipynb
           hidden: true
