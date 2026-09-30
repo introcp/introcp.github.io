@@ -97,11 +97,11 @@ project:
           hidden: true
         - file: src/E03/E03-Python-Exercises-Branching-solution.ipynb
           hidden: true
-        - file: src/E03/E03-Python-Exercises-Branching-student.ipynb
-          hidden: true
         - file: src/E02/E02-Python-Exercises-Math-Datetime.ipynb
-          hidden: true
+          hidden: false
         - file: src/E04/E04-Python-Exercises-Functions.ipynb
+          hidden: false
+        - file: src/E03/E03-Python-Exercises-Branching-student.ipynb
           hidden: true
         - file: src/E04/E04-Python-Exercises-Functions-pseudocode.ipynb
           hidden: true
