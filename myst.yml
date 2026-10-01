@@ -101,6 +101,7 @@ project:
           hidden: true
         - file: src/E04/E04-Python-Exercises-Functions.ipynb
           hidden: false
+          title: Functions
         - file: src/E04/E04-Python-Exercises-Functions-pseudocode.ipynb
           hidden: true
         - file: src/E04/E04-Python-Exercises-Functions-solution.ipynb
@@ -109,6 +110,7 @@ project:
           hidden: true
         - file: src/E02/E02-Python-Exercises-Math-Datetime.ipynb
           hidden: false
+          title: Math and Datetime Modules
         - file: src/E02/E02-Python-Exercises-Datetime-student.ipynb
           hidden: true
         - file: src/E02/E02-Python-Exercises-Datetime-pseudocode.ipynb
