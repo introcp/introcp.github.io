@@ -5,30 +5,124 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Live Feedback</title>
+  <script>
+    // The MyST book theme toggles a `dark` class on the parent's <html>; this
+    // page is framed same-origin, so mirror it and adopt the theme's design
+    // tokens (colors + fonts) straight from the parent document. Standalone (or
+    // cross-origin) it falls back to the OS preference and to the CSS defaults,
+    // which hold the same values the site uses.
+    (function () {
+      var root = null;
+      try {
+        if (window.parent !== window) root = window.parent.document.documentElement;
+      } catch (err) { /* cross-origin parent */ }
+
+      var html = document.documentElement;
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function rgba(color, alpha) {
+        var match = /^rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(color || '');
+        return match ? 'rgba(' + match[1] + ',' + match[2] + ',' + match[3] + ',' + alpha + ')' : null;
+      }
+
+      function adoptParentStyles() {
+        if (!root) return;
+        try {
+          var win = window.parent;
+          var doc = win.document;
+          var cs = win.getComputedStyle;
+          var body = cs.call(win, doc.body);
+          var heading = cs.call(win, doc.querySelector('article h1') || doc.querySelector('h1') || doc.body);
+          var vars = {
+            '--bg': body.backgroundColor,
+            '--fg': heading.color,
+            '--font-body': body.fontFamily,
+            '--font-heading': heading.fontFamily,
+            '--muted': rgba(heading.color, 0.62),
+            '--border': rgba(heading.color, 0.16),
+            '--card': rgba(heading.color, 0.05),
+          };
+          for (var name in vars) {
+            // transparent backgrounds would break the page, keep the CSS default
+            if (vars[name] && vars[name] !== 'rgba(0, 0, 0, 0)') {
+              html.style.setProperty(name, vars[name]);
+            }
+          }
+        } catch (err) { /* parent unreadable: keep CSS defaults */ }
+      }
+
+      function apply() {
+        html.classList.toggle('dark', root ? root.classList.contains('dark') : media.matches);
+        adoptParentStyles();
+      }
+
+      apply();
+      document.addEventListener('DOMContentLoaded', adoptParentStyles);
+      if (root) {
+        new MutationObserver(apply).observe(root, { attributes: true, attributeFilter: ['class'] });
+      } else {
+        media.addEventListener('change', apply);
+      }
+    })();
+  </script>
   <style>
-    :root {
-      color-scheme: light dark;
-      --fg: #1f2933;
-      --muted: #6b7280;
-      --bg: #ffffff;
-      --card: #f6f7f9;
-      --border: #e2e5ea;
-      --yes: #1a9c53;
-      --no: #d1332e;
-      --accent: #2456a6;
+    @font-face {
+      font-family: "LUISS";
+      font-style: normal;
+      font-weight: normal;
+      src: url("dist/fonts/LuissSans-Regular.otf") format("opentype"),
+           url("/dist/fonts/LuissSans-Regular.otf") format("opentype");
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --fg: #e8eaed;
-        --muted: #9aa0a6;
-        --bg: #16181d;
-        --card: #1f2229;
-        --border: #2f333c;
-        --yes: #2fbf71;
-        --no: #ef5350;
-        --accent: #7aa7ff;
-      }
+    @font-face {
+      font-family: "LUISS";
+      font-style: normal;
+      font-weight: bold;
+      src: url("dist/fonts/LuissSans-Bold.otf") format("opentype"),
+           url("/dist/fonts/LuissSans-Bold.otf") format("opentype");
+    }
+
+    @font-face {
+      font-family: "LUISS";
+      font-style: italic;
+      font-weight: normal;
+      src: url("dist/fonts/LuissSans-italic.otf") format("opentype"),
+           url("/dist/fonts/LuissSans-italic.otf") format("opentype");
+    }
+
+    @font-face {
+      font-family: "LUISS";
+      font-style: italic;
+      font-weight: bold;
+      src: url("dist/fonts/LuissSans-BoldItalic.otf") format("opentype"),
+           url("/dist/fonts/LuissSans-BoldItalic.otf") format("opentype");
+    }
+
+    /* Defaults mirror the MyST book theme; when framed, the script above
+       overwrites them with the parent's live computed values. */
+    :root {
+      color-scheme: light;
+      --font-body: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      --font-heading: "LUISS", "Lato", sans-serif;
+      --fg: #1c1917;
+      --muted: rgba(28, 25, 23, .62);
+      --bg: #ffffff;
+      --card: rgba(28, 25, 23, .05);
+      --border: rgba(28, 25, 23, .16);
+      --accent: var(--fg);
+      --yes: #1a9c53;
+      --no: #d1332e;
+    }
+
+    :root.dark {
+      color-scheme: dark;
+      --fg: #ffffff;
+      --muted: rgba(255, 255, 255, .62);
+      --bg: #1c1917;
+      --card: rgba(255, 255, 255, .05);
+      --border: rgba(255, 255, 255, .16);
+      --yes: #2fbf71;
+      --no: #ef5350;
     }
 
     * {
@@ -48,7 +142,9 @@
     body {
       background: var(--bg);
       color: var(--fg);
-      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
       padding: 20px;
     }
 
@@ -74,7 +170,9 @@
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.75rem;
       margin: 0 0 8px;
     }
 
@@ -205,18 +303,16 @@
     <section id="view-vote" hidden>
       <h1>Vote!</h1>
       <p class="lead">Are you following the lecture?</p>
-      <div id="vote-buttons" class="choices">
+      <div id="vote-buttons" class="choices" hidden>
         <button type="button" class="choice yes" data-vote="positive">Yes</button>
         <button type="button" class="choice no" data-vote="negative">No</button>
-      </div>
-      <div id="vote-done" hidden>
-        <p class="lead">Thanks, your vote has been recorded.</p>
       </div>
       <p id="vote-msg" class="msg" role="status"></p>
     </section>
 
     <section id="view-status" hidden>
       <h1>Results</h1>
+      <p id="thanks" class="lead" hidden></p>
       <p class="lead">Votes: <strong id="voters">–</strong></p>
       <div class="bar" role="img" aria-label="Yes/No split">
         <div id="bar-yes"></div>
@@ -249,6 +345,7 @@
     const HEADERS = { 'X-Feedback-Client': 'web' };
     const EPOCH_KEY = 'feedbackEpoch';
     const PASSWORD_KEY = 'feedbackPassword';
+    const POLL_MS = 5000;
 
     const $ = (id) => document.getElementById(id);
 
@@ -282,22 +379,16 @@
 
     // --- vote ---------------------------------------------------------------
 
-    let statusTimer = null;
-
-    function showVoted() {
-      $('vote-buttons').hidden = true;
-      $('vote-done').hidden = false;
-    }
-
     async function initVote() {
       show('vote');
-      $('vote-buttons').hidden = false;
-      $('vote-done').hidden = true;
       try {
         const epoch = await api('/epoch');
         if (localStorage.getItem(EPOCH_KEY) === epoch) {
-          showVoted();
+          // Already voted in this poll: show the live tally instead of buttons.
+          initStatus('Your vote has been recorded. Waiting for the lecturer to reset the poll.');
+          return;
         }
+        $('vote-buttons').hidden = false;
       } catch (err) {
         message('vote-msg', 'Server unreachable: ' + err.message, true);
       }
@@ -311,7 +402,7 @@
         const epoch = await api('/epoch');
         await api('/feedback?t=' + kind);
         localStorage.setItem(EPOCH_KEY, epoch);
-        showVoted();
+        initStatus('Thanks, your vote has been recorded.');
       } catch (err) {
         message('vote-msg', 'Vote not recorded: ' + err.message, true);
         buttons.forEach((b) => { b.disabled = false; });
@@ -323,6 +414,8 @@
     }
 
     // --- results ------------------------------------------------------------
+
+    let statusTimer = null;
 
     function render(state) {
       const positive = state.positive || 0;
@@ -346,11 +439,13 @@
       }
     }
 
-    function initStatus() {
+    function initStatus(note) {
       show('status');
+      $('thanks').textContent = note || '';
+      $('thanks').hidden = !note;
       refresh();
       clearInterval(statusTimer);
-      statusTimer = setInterval(refresh, 5000);
+      statusTimer = setInterval(refresh, POLL_MS);
     }
 
     // --- reset --------------------------------------------------------------
@@ -379,7 +474,6 @@
 
     // --- routing ------------------------------------------------------------
 
-    clearInterval(statusTimer);
     if (params.has('status')) {
       initStatus();
     } else if (params.has('reset')) {
