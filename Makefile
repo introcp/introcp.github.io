@@ -81,6 +81,8 @@ build-book:
 	cp -a src/dist/plugin docs/src/
 	cp _static/robots.txt docs/
 	cp src/download.html docs/src/
+	# standalone Live Feedback app, embedded by docs/live-feedback/ via iframe
+	cp src/feedback.html docs/src/
 	rm -rf docs/docs
 
 publish:

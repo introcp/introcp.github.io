@@ -31,6 +31,8 @@ project:
     - file: src/index.md
     - file: src/toc.md
       hidden: true
+    - file: src/feedback.md
+      title: Live Feedback
     - title: Introduction
       children:
         - file: src/A00/A00-Introduction.ipynb
