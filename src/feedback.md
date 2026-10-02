@@ -2,8 +2,7 @@
 title: Live Feedback
 ---
 
-Live in-class poll: vote **Yes** or **No**. The lecturer shows the live tally and
-resets the poll before each new question.
+Live in-class poll: vote **Yes** or **No**. 
 
 <!-- QR generated with segno for https://introcp.github.io/feedback/ (the URL of this page):
      segno.make(url).save('src/dist/img/feedback-qr.svg', kind='svg', omitsize=True, dark='#1c1917', light='#ffffff') -->

@@ -181,7 +181,7 @@ project:
         - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
           hidden: true
     - file: src/feedback.md
-    title: Live Feedback
+      title: Live Feedback
 
 site:
   template: book-theme
