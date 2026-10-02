@@ -1,0 +1,25 @@
+services:
+  feedback:
+    build: .
+    image: feedback-server
+    restart: unless-stopped
+    env_file: .env
+    # Host loopback is for local debugging only; the Cloudflare tunnel reaches
+    # the service directly over the compose network at http://feedback:8000.
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - feedback-data:/data
+
+  # Remotely-managed Cloudflare tunnel exposing the service as
+  # feedback.nosec.it. The public hostname is configured in the Cloudflare
+  # dashboard and must point at http://feedback:8000 (compose service name).
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - feedback
+
+volumes:
+  feedback-data:
