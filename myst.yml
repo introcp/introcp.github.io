@@ -63,7 +63,7 @@ project:
         - file: src/E01/E01-Python-Errors.ipynb
           hidden: false
         - file: src/P05/P05-Python-Iteration.ipynb
-          hidden: true
+          hidden: false
         - file: src/P06/P06-Python-Strings.ipynb
           hidden: true
         - file: src/P07/P07-Python-Lists.ipynb
@@ -125,6 +125,7 @@ project:
           hidden: true
         - file: src/E05/E05-Python-Exercises-Iteration.ipynb
           hidden: true
+          title: Iteration
         - file: src/E05/E05-Python-Iteration-Exercises-pseudocode.ipynb
           hidden: true
         - file: src/E05/E05-Python-Iteration-Exercises-solution.ipynb
