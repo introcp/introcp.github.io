@@ -105,3 +105,14 @@ img[data-canonical-url*="logo2"] {
   background-color: rgba(239, 68, 68, 0.15);
   border-color: #ef4444;
 }
+
+/* Live Feedback page: src/feedback.md embeds the standalone src/feedback.html
+   app in an <iframe>. mystmd wraps iframes in a responsive box sized to 60% of
+   the width, which is too short for the widget (vote/result/reset views); give
+   it a comfortable fixed height instead. */
+#feedback-frame > div {
+  height: 560px;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-bottom: 0 !important;
+}

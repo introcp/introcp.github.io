@@ -5,6 +5,9 @@
     <loc>http://localhost:3000</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/feedback</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/a00-introduction</loc>
   </url>
   <url>

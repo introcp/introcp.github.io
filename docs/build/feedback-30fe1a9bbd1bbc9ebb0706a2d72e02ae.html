@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Feedback</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --fg: #1f2933;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --card: #f6f7f9;
+      --border: #e2e5ea;
+      --yes: #1a9c53;
+      --no: #d1332e;
+      --accent: #2456a6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fg: #e8eaed;
+        --muted: #9aa0a6;
+        --bg: #16181d;
+        --card: #1f2229;
+        --border: #2f333c;
+        --yes: #2fbf71;
+        --no: #ef5350;
+        --accent: #7aa7ff;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      padding: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tabs a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .tabs a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+      margin-bottom: -11px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 8px;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .choice {
+      flex: 1 1 140px;
+      padding: 16px 28px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .choice:disabled {
+      opacity: .6;
+      cursor: default;
+    }
+
+    .choice.yes {
+      background: var(--yes);
+    }
+
+    .choice.no {
+      background: var(--no);
+    }
+
+    .bar {
+      display: flex;
+      height: 34px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    #bar-yes {
+      width: 0;
+      background: var(--yes);
+    }
+
+    #bar-no {
+      width: 0;
+      background: var(--no);
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      color: var(--muted);
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .dot.yes {
+      background: var(--yes);
+    }
+
+    .dot.no {
+      background: var(--no);
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    input[type=password] {
+      flex: 1 1 180px;
+      padding: 12px;
+      font-size: 1rem;
+      color: var(--fg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .primary {
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--accent);
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .msg {
+      color: var(--muted);
+      min-height: 1.5em;
+    }
+
+    .msg.error {
+      color: var(--no);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="tabs" aria-label="Feedback sections">
+    <a href="?" data-view="vote">Vote</a>
+    <a href="?status" data-view="status">Results</a>
+    <a href="?reset" data-view="reset">Reset</a>
+  </nav>
+
+  <main>
+    <section id="view-vote" hidden>
+      <h1>Vote!</h1>
+      <p class="lead">Are you following the lecture?</p>
+      <div id="vote-buttons" class="choices">
+        <button type="button" class="choice yes" data-vote="positive">Yes</button>
+        <button type="button" class="choice no" data-vote="negative">No</button>
+      </div>
+      <div id="vote-done" hidden>
+        <p class="lead">Thanks, your vote has been recorded.</p>
+      </div>
+      <p id="vote-msg" class="msg" role="status"></p>
+    </section>
+
+    <section id="view-status" hidden>
+      <h1>Results</h1>
+      <p class="lead">Votes: <strong id="voters">–</strong></p>
+      <div class="bar" role="img" aria-label="Yes/No split">
+        <div id="bar-yes"></div>
+        <div id="bar-no"></div>
+      </div>
+      <p class="legend">
+        <span><span class="dot yes"></span>Yes <strong id="pct-yes">–</strong></span>
+        <span><span class="dot no"></span>No <strong id="pct-no">–</strong></span>
+      </p>
+      <p id="status-msg" class="msg" role="status"></p>
+    </section>
+
+    <section id="view-reset" hidden>
+      <h1>Reset</h1>
+      <form id="reset-form">
+        <input id="reset-pw" type="password" placeholder="Password" autocomplete="current-password" required>
+        <button type="submit" class="primary">Reset</button>
+      </form>
+      <p id="reset-msg" class="msg" role="status"></p>
+    </section>
+  </main>
+
+  <script>
+    'use strict';
+
+    const params = new URLSearchParams(window.location.search);
+    // ?api= is only a local-development convenience; the deployed page uses the
+    // production endpoint.
+    const API = (params.get('api') || 'https://feedback.nosec.it').replace(/\/+$/, '');
+    const HEADERS = { 'X-Feedback-Client': 'web' };
+    const EPOCH_KEY = 'feedbackEpoch';
+    const PASSWORD_KEY = 'feedbackPassword';
+
+    const $ = (id) => document.getElementById(id);
+
+    async function api(path) {
+      const response = await fetch(API + path, {
+        headers: HEADERS,
+        cache: 'no-store',
+        credentials: 'omit',
+      });
+      const data = await response.json().catch(() => null);
+      if (!response.ok) {
+        throw new Error((data && data.error) || ('HTTP ' + response.status));
+      }
+      return data;
+    }
+
+    function message(id, text, isError) {
+      const el = $(id);
+      el.textContent = text || '';
+      el.classList.toggle('error', Boolean(isError));
+    }
+
+    function show(name) {
+      for (const view of ['vote', 'status', 'reset']) {
+        $('view-' + view).hidden = view !== name;
+      }
+      for (const link of document.querySelectorAll('.tabs a')) {
+        link.classList.toggle('active', link.dataset.view === name);
+      }
+    }
+
+    // --- vote ---------------------------------------------------------------
+
+    let statusTimer = null;
+
+    function showVoted() {
+      $('vote-buttons').hidden = true;
+      $('vote-done').hidden = false;
+    }
+
+    async function initVote() {
+      show('vote');
+      $('vote-buttons').hidden = false;
+      $('vote-done').hidden = true;
+      try {
+        const epoch = await api('/epoch');
+        if (localStorage.getItem(EPOCH_KEY) === epoch) {
+          showVoted();
+        }
+      } catch (err) {
+        message('vote-msg', 'Server unreachable: ' + err.message, true);
+      }
+    }
+
+    async function vote(kind) {
+      const buttons = $('vote-buttons').querySelectorAll('button');
+      buttons.forEach((b) => { b.disabled = true; });
+      message('vote-msg', '');
+      try {
+        const epoch = await api('/epoch');
+        await api('/feedback?t=' + kind);
+        localStorage.setItem(EPOCH_KEY, epoch);
+        showVoted();
+      } catch (err) {
+        message('vote-msg', 'Vote not recorded: ' + err.message, true);
+        buttons.forEach((b) => { b.disabled = false; });
+      }
+    }
+
+    for (const button of $('vote-buttons').querySelectorAll('button')) {
+      button.addEventListener('click', () => vote(button.dataset.vote));
+    }
+
+    // --- results ------------------------------------------------------------
+
+    function render(state) {
+      const positive = state.positive || 0;
+      const negative = state.negative || 0;
+      const total = positive + negative;
+      $('voters').textContent = String(total);
+      const yes = total ? 100 * positive / total : 0;
+      const no = total ? 100 * negative / total : 0;
+      $('bar-yes').style.width = yes + '%';
+      $('bar-no').style.width = no + '%';
+      $('pct-yes').textContent = total ? yes.toFixed(1) + '%' : '–';
+      $('pct-no').textContent = total ? no.toFixed(1) + '%' : '–';
+    }
+
+    async function refresh() {
+      try {
+        render(await api('/status'));
+        message('status-msg', '');
+      } catch (err) {
+        message('status-msg', 'Server unreachable: ' + err.message, true);
+      }
+    }
+
+    function initStatus() {
+      show('status');
+      refresh();
+      clearInterval(statusTimer);
+      statusTimer = setInterval(refresh, 5000);
+    }
+
+    // --- reset --------------------------------------------------------------
+
+    function initReset() {
+      show('reset');
+      $('reset-pw').value = localStorage.getItem(PASSWORD_KEY) || '';
+    }
+
+    $('reset-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const password = $('reset-pw').value;
+      message('reset-msg', 'Resetting...');
+      try {
+        const ok = await api('/reset?p=' + encodeURIComponent(password));
+        if (ok) {
+          localStorage.setItem(PASSWORD_KEY, password);
+          window.location.search = '?status';
+        } else {
+          message('reset-msg', 'Invalid password.', true);
+        }
+      } catch (err) {
+        message('reset-msg', 'Reset failed: ' + err.message, true);
+      }
+    });
+
+    // --- routing ------------------------------------------------------------
+
+    clearInterval(statusTimer);
+    if (params.has('status')) {
+      initStatus();
+    } else if (params.has('reset')) {
+      initReset();
+    } else {
+      initVote();
+    }
+  </script>
+</body>
+
+</html>
