@@ -302,7 +302,6 @@
   <main>
     <section id="view-vote" hidden>
       <h1>Vote!</h1>
-      <p class="lead">Are you following the lecture?</p>
       <div id="vote-buttons" class="choices" hidden>
         <button type="button" class="choice yes" data-vote="positive">Yes</button>
         <button type="button" class="choice no" data-vote="negative">No</button>
@@ -341,7 +340,7 @@
     const params = new URLSearchParams(window.location.search);
     // ?api= is only a local-development convenience; the deployed page uses the
     // production endpoint.
-    const API = (params.get('api') || 'https://feedback.nosec.it').replace(/\/+$/, '');
+    const API = (params.get('api') || 'https://feedback.webhack.it').replace(/\/+$/, '');
     const HEADERS = { 'X-Feedback-Client': 'web' };
     const EPOCH_KEY = 'feedbackEpoch';
     const PASSWORD_KEY = 'feedbackPassword';
