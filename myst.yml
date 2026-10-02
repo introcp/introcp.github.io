@@ -178,6 +178,8 @@ project:
           hidden: true
         - file: src/P05/P05-Python-Iteration-Exercises-student.ipynb
           hidden: true
+        - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
+          hidden: true
 
 site:
   template: book-theme
