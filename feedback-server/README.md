@@ -27,7 +27,8 @@ is kept only for backward compatibility and is always `0`).
 Every endpoint except `/healthz` and `/` requires the request to look like a
 browser: a real `User-Agent` (curl/wget/python-requests/... are rejected), an
 allow-listed `Origin` when present, and the `X-Feedback-Client: web` header that
-the page sets. Votes and resets are also per-IP rate limited.
+the page sets. Votes are additionally capped **globally** (not per IP, so a whole
+class behind one campus NAT IP can vote at once) and resets are capped per IP.
 
 ## Configuration
 
@@ -37,7 +38,7 @@ Copy `.env.example` to `.env` and edit it:
 | --- | --- | --- |
 | `FEEDBACK_PASSWORD` | *(empty)* | Password for `/reset`. Empty disables reset. |
 | `ALLOWED_ORIGINS` | `https://introcp.github.io,http://localhost:3500` | Browser origins allowed by CORS. |
-| `VOTES_PER_MINUTE` | `20` | Per-IP vote limit. |
+| `MAX_VOTES_PER_MINUTE` | `3000` | Global vote cap (not per IP, see note below). |
 | `RESETS_PER_MINUTE` | `10` | Per-IP reset attempts limit (brute-force guard). |
 | `STATE_FILE` | `/data/state.json` | Where the tally is persisted. |
 
@@ -98,3 +99,6 @@ server {
   HTTPS only.
 - Client-side vote locking uses `localStorage`; a student who clears it can vote
   again. That matches the previous tool's "light filtering" approach.
+- Vote limiting is global on purpose: students on university WiFi share a single
+  public IP, so any per-IP vote limit would block the whole class after a few
+  votes. Only the reset endpoint is per-IP limited.

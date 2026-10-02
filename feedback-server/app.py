@@ -16,8 +16,10 @@ Endpoints (all return JSON, kept compatible with the previous client):
 
 Light abuse filtering (no authentication beyond the reset password): browser
 User-Agent required, allow-listed Origin, a custom client header set by the
-page, and a per-IP vote rate limit. Nothing here is meant to stop a determined
-attacker, only trivial `curl`/script spam, as before.
+page, plus a global vote cap and a per-IP reset cap. Nothing here is meant to
+stop a determined attacker, only trivial `curl`/script spam, as before. Votes are
+deliberately NOT limited per IP: a class sitting behind one NAT-ed campus IP must
+all be able to vote.
 """
 
 from __future__ import annotations
@@ -68,7 +70,12 @@ ALLOWED_ORIGINS = tuple(
 )
 CLIENT_HEADER = "X-Feedback-Client"
 CLIENT_VALUE = os.environ.get("CLIENT_VALUE", "web")
-VOTES_PER_MINUTE = _env_int("VOTES_PER_MINUTE", 20)
+# Votes are limited globally, not per IP: an entire class usually shares one
+# NAT-ed public IP (university WiFi), so a per-client vote limit would lock out
+# legitimate students. This cap is only a backstop against a runaway client.
+MAX_VOTES_PER_MINUTE = _env_int("MAX_VOTES_PER_MINUTE", 3000)
+# Resets come from the lecturer's own connection, so a per-IP limit is safe and
+# doubles as a brute-force brake on the password.
 RESETS_PER_MINUTE = _env_int("RESETS_PER_MINUTE", 10)
 
 # Substring match against the User-Agent; rejects non-browser clients such as
@@ -136,8 +143,19 @@ def _epoch() -> str:
         return _state["epoch"]
 
 
+def _password_matches(password: str) -> bool:
+    """Constant-time compare over UTF-8 bytes.
+
+    `hmac.compare_digest` refuses `str` values with non-ASCII characters, so a
+    password like "kljòjkòkl" used to raise TypeError and return HTTP 500.
+    """
+    if not PASSWORD:
+        return False
+    return hmac.compare_digest(password.encode("utf-8"), PASSWORD.encode("utf-8"))
+
+
 def _reset(password: str) -> bool:
-    if not PASSWORD or not hmac.compare_digest(password, PASSWORD):
+    if not _password_matches(password):
         return False
     with _lock:
         _state["positive"] = _state["neutral"] = _state["negative"] = 0
@@ -156,9 +174,10 @@ def _client_ip() -> str:
     return request.remote_addr or "unknown"
 
 
-def _rate_limited(bucket: str, limit: int) -> bool:
+def _rate_limited(bucket: str, limit: int, scope: str | None = None) -> bool:
+    """Sliding-window limiter; `scope=None` counts across all clients."""
     now = time.monotonic()
-    key = (bucket, _client_ip())
+    key = f"{bucket}:{scope}" if scope else bucket
     with _rate_lock:
         hits = [t for t in _rate.get(key, ()) if now - t < 60.0]
         if len(hits) >= limit:
@@ -223,7 +242,7 @@ def feedback():
     kind = request.args.get("t")
     if kind not in ("positive", "negative"):
         kind = None
-    if kind is not None and _rate_limited("vote", VOTES_PER_MINUTE):
+    if kind is not None and _rate_limited("vote", MAX_VOTES_PER_MINUTE):
         return jsonify({"error": "rate limited"}), 429
     return jsonify(_vote(kind))
 
@@ -253,7 +272,7 @@ def reset():
         return response
     if (response := _denied()) is not None:
         return response
-    if _rate_limited("reset", RESETS_PER_MINUTE):
+    if _rate_limited("reset", RESETS_PER_MINUTE, _client_ip()):
         return jsonify({"error": "rate limited"}), 429
     return jsonify(_reset(request.args.get("p", "")))
 
