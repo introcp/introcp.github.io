@@ -109,7 +109,6 @@
       --bg: #ffffff;
       --card: rgba(28, 25, 23, .05);
       --border: rgba(28, 25, 23, .16);
-      --accent: var(--fg);
       --yes: #1a9c53;
       --no: #d1332e;
     }
@@ -163,8 +162,8 @@
     }
 
     .tabs a.active {
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
+      color: var(--fg);
+      border-bottom: 2px solid var(--fg);
       padding-bottom: 8px;
       margin-bottom: -11px;
     }
@@ -274,8 +273,9 @@
       padding: 12px 24px;
       font-size: 1rem;
       font-weight: 600;
-      color: #fff;
-      background: var(--accent);
+      /* inverse of the theme's text color, so it stays visible in both modes */
+      color: var(--bg);
+      background: var(--fg);
       border: 0;
       border-radius: 8px;
       cursor: pointer;
