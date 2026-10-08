@@ -124,7 +124,7 @@ project:
         - file: src/E02/E02-Python-Exercises-Math-solution.ipynb
           hidden: true
         - file: src/E05/E05-Python-Exercises-Iteration.ipynb
-          hidden: true
+          hidden: false
           title: Iteration
         - file: src/E05/E05-Python-Iteration-Exercises-pseudocode.ipynb
           hidden: true
