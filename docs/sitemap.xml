@@ -56,6 +56,9 @@
     <loc>http://localhost:3000/e02-python-exercises-math-datetime</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/e05-python-exercises-iteration</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/feedback</loc>
   </url>
 </urlset>
