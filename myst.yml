@@ -180,6 +180,14 @@ project:
           hidden: true
         - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
           hidden: true
+    - title: Homework
+      children:
+        - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
+          hidden: false
+          title: Binary and Boolean
+        - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
+          hidden: false
+          title: Binary and Boolean
     - file: src/feedback.md
       title: Live Feedback
 
