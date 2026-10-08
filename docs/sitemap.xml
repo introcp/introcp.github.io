@@ -62,9 +62,6 @@
     <loc>http://localhost:3000/h00-exercises-binary-boolean-1</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/h00-exercises-binary-boolean-2</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/feedback</loc>
   </url>
 </urlset>
