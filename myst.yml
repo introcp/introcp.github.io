@@ -65,9 +65,9 @@ project:
         - file: src/P05/P05-Python-Iteration.ipynb
           hidden: false
         - file: src/P06/P06-Python-Strings.ipynb
-          hidden: true
+          hidden: false
         - file: src/P07/P07-Python-Lists.ipynb
-          hidden: true
+          hidden: false
         - file: src/P08/P08-Python-Dictionaries-Tuples-Sets.ipynb
           hidden: true
         - file: src/P11/P11-Python-Files.ipynb
