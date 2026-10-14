@@ -133,7 +133,8 @@ project:
         - file: src/E05/E05-Python-Iteration-Exercises-student.ipynb
           hidden: true
         - file: src/E06/E06-Python-Exercises-Strings-Lists.ipynb
-          hidden: true
+          hidden: false
+          title: Strings and Lists
         - file: src/E06/E06-Python-Exercises-Strings-Lists-pseudocode.ipynb
           hidden: true
         - file: src/E06/E06-Python-Exercises-Strings-Lists-solution.ipynb
@@ -159,7 +160,8 @@ project:
         - file: src/E11/E11-Python-Exercises-Files-student.ipynb
           hidden: true
         - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists.ipynb
-          hidden: true
+          hidden: false
+          title: Loops with Strings and Lists
         - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-pseudocode.ipynb
           hidden: true
         - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-solution.ipynb
