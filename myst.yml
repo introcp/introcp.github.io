@@ -141,6 +141,15 @@ project:
           hidden: true
         - file: src/E06/E06-Python-Exercises-Strings-Lists-student.ipynb
           hidden: true
+        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists.ipynb
+          hidden: false
+          title: Loops with Strings and Lists
+        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-pseudocode.ipynb
+          hidden: true
+        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-solution.ipynb
+          hidden: true
+        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-student.ipynb
+          hidden: true
         - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets.ipynb
           hidden: false
           title: Dictionaries, Tuples, and Sets
@@ -159,15 +168,6 @@ project:
         - file: src/E11/E11-Python-Exercises-Files-solution.ipynb
           hidden: true
         - file: src/E11/E11-Python-Exercises-Files-student.ipynb
-          hidden: true
-        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists.ipynb
-          hidden: false
-          title: Loops with Strings and Lists
-        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-pseudocode.ipynb
-          hidden: true
-        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-solution.ipynb
-          hidden: true
-        - file: src/E12/E12-Python-Exercises-Loops-With-Strings-Lists-student.ipynb
           hidden: true
         - file: src/P03/P03-Python-Branching-Exercises-pseudocode.ipynb
           hidden: true
