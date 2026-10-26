@@ -69,7 +69,7 @@ project:
         - file: src/P07/P07-Python-Lists.ipynb
           hidden: false
         - file: src/P08/P08-Python-Dictionaries-Tuples-Sets.ipynb
-          hidden: true
+          hidden: false
         - file: src/P11/P11-Python-Files.ipynb
           hidden: true
         - file: src/P12/P12-Python-Sockets-HTTP.ipynb
@@ -142,7 +142,7 @@ project:
         - file: src/E06/E06-Python-Exercises-Strings-Lists-student.ipynb
           hidden: true
         - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets.ipynb
-          hidden: true
+          hidden: false
         - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets-pseudocode.ipynb
           hidden: true
         - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets-solution.ipynb
