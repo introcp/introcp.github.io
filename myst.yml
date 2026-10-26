@@ -143,6 +143,7 @@ project:
           hidden: true
         - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets.ipynb
           hidden: false
+          title: Dictionaries, Tuples, and Sets
         - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets-pseudocode.ipynb
           hidden: true
         - file: src/E08/E08-Python-Exercises-Dicts-Tuples-Sets-solution.ipynb
