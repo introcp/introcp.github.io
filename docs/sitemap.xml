@@ -50,6 +50,9 @@
     <loc>http://localhost:3000/p07-python-lists</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/p08-python-dictionaries-tuples-sets</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/e00-exercises-binary-boolean</loc>
   </url>
   <url>
@@ -66,6 +69,9 @@
   </url>
   <url>
     <loc>http://localhost:3000/e06-python-exercises-strings-lists</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/e08-python-exercises-dicts-tuples-sets</loc>
   </url>
   <url>
     <loc>http://localhost:3000/e12-python-exercises-loops-with-strings-lists</loc>
