@@ -53,6 +53,9 @@
     <loc>http://localhost:3000/p08-python-dictionaries-tuples-sets</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/p11-python-files</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/e00-exercises-binary-boolean</loc>
   </url>
   <url>
@@ -75,6 +78,9 @@
   </url>
   <url>
     <loc>http://localhost:3000/e08-python-exercises-dicts-tuples-sets</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/e11-python-exercises-files</loc>
   </url>
   <url>
     <loc>http://localhost:3000/h00-exercises-binary-boolean</loc>
