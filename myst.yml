@@ -181,13 +181,19 @@ project:
           hidden: true
         - file: src/P05/P05-Python-Iteration-Exercises-student.ipynb
           hidden: true
-        - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
-          hidden: true
     - title: Homework
       children:
         - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
           hidden: false
           title: Binary and Boolean
+        - file: src/H01/H01-Python-Recap.ipynb
+          hidden: false
+        - file: src/H01/H01-Python-Recap-student.ipynb
+          hidden: true
+        - file: src/H01/H01-Python-Recap-pseudocode.ipynb
+          hidden: true
+        - file: src/H01/H01-Python-Recap-solution.ipynb
+          hidden: true
     - file: src/feedback.md
       title: Live Feedback
 
