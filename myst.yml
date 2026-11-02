@@ -71,7 +71,7 @@ project:
         - file: src/P08/P08-Python-Dictionaries-Tuples-Sets.ipynb
           hidden: false
         - file: src/P11/P11-Python-Files.ipynb
-          hidden: true
+          hidden: false
         - file: src/P12/P12-Python-Sockets-HTTP.ipynb
           hidden: true
         - file: src/P09/P09-Python-Classes.ipynb
@@ -162,7 +162,8 @@ project:
         - file: src/E09/E09-Python-Exercises-Classes.ipynb
           hidden: true
         - file: src/E11/E11-Python-Exercises-Files.ipynb
-          hidden: true
+          hidden: false
+          title: Files
         - file: src/E11/E11-Python-Exercises-Files-pseudocode.ipynb
           hidden: true
         - file: src/E11/E11-Python-Exercises-Files-solution.ipynb
@@ -188,6 +189,7 @@ project:
           title: Binary and Boolean
         - file: src/H01/H01-Python-Recap.ipynb
           hidden: false
+          title: Python Recap I
         - file: src/H01/H01-Python-Recap-student.ipynb
           hidden: true
         - file: src/H01/H01-Python-Recap-pseudocode.ipynb
