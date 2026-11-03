@@ -47,7 +47,7 @@ project:
         - file: src/C04/C04-OS-Essentials.ipynb
           hidden: false
         - file: src/C05/C05-Computer-Network.ipynb
-          hidden: true
+          hidden: false
     - title: Python
       children:
         - file: src/P00/P00-Python-Getting-Started.ipynb
