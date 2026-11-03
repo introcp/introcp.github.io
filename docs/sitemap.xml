@@ -23,6 +23,9 @@
     <loc>http://localhost:3000/c04-os-essentials</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/c05-computer-network</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/p00-python-getting-started</loc>
   </url>
   <url>
