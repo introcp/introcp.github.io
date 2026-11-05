@@ -7529,7 +7529,6 @@ main {
 <li>What is JSON and why is it so popular for data exchange?</li>
 <li>How can we handle errors when working with APIs?</li>
 <li>How do we authenticate with APIs?</li>
-<li>How can we structure our code using model classes?</li>
 </ol>
 <p>Focus on:</p>
 <ol>
@@ -7683,6 +7682,7 @@ Who is already sick and pale with grief
 <li>Port 80 is the default port for HTTP</li>
 <li>The <code>.encode()</code> method converts strings to bytes (sockets work with bytes)</li>
 <li>The <code>.decode()</code> method converts bytes to strings</li>
+<li>The server replies with <code>HTTP/1.1</code> even though we asked with <code>HTTP/1.0</code>: servers answer with their own protocol version</li>
 </ul>
 </div>
 </div>
@@ -7921,26 +7921,24 @@ I
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="p">{</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">,</span>
-    <span class="s2">"age"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-    <span class="s2">"is_student"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s2">"courses"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Math"</span><span class="p">,</span> <span class="s2">"Physics"</span><span class="p">,</span> <span class="s2">"CS"</span><span class="p">],</span>
-    <span class="s2">"address"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"street"</span><span class="p">:</span> <span class="s2">"123 Main St"</span><span class="p">,</span>
-        <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"Rome"</span>
-    <span class="p">}</span>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"is_student"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Math"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Physics"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CS"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Main St"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rome"</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -8164,7 +8162,8 @@ Punchline: A maybe.
         <span class="s1">'count'</span><span class="p">:</span> <span class="mi">1</span>
     <span class="p">}</span>
     
-    <span class="n">geo_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">geocoding_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">geocoding_params</span><span class="p">)</span>
+    <span class="n">geo_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">geocoding_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">geocoding_params</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">geo_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
     <span class="n">geo_data</span> <span class="o">=</span> <span class="n">geo_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     
     <span class="c1"># Check if city was found</span>
@@ -8187,7 +8186,8 @@ Punchline: A maybe.
         <span class="s1">'temperature_unit'</span><span class="p">:</span> <span class="n">temp_unit</span>
     <span class="p">}</span>
     
-    <span class="n">weather_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weather_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">weather_params</span><span class="p">)</span>
+    <span class="n">weather_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weather_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">weather_params</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">weather_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
     <span class="n">weather_data</span> <span class="o">=</span> <span class="n">weather_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     
     <span class="c1"># Extract temperature</span>
@@ -8202,8 +8202,9 @@ Punchline: A maybe.
 <span class="c1"># Test the function</span>
 <span class="n">weather</span> <span class="o">=</span> <span class="n">get_weather</span><span class="p">(</span><span class="s1">'Rome'</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">weather</span><span class="p">:</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="s1">'°C'</span> <span class="k">if</span> <span class="n">weather</span><span class="p">[</span><span class="s1">'units'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'metric'</span> <span class="k">else</span> <span class="s1">'°F'</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"City: </span><span class="si">{</span><span class="n">weather</span><span class="p">[</span><span class="s1">'city'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Temperature: </span><span class="si">{</span><span class="n">weather</span><span class="p">[</span><span class="s1">'temperature'</span><span class="p">]</span><span class="si">}</span><span class="s2">°C"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Temperature: </span><span class="si">{</span><span class="n">weather</span><span class="p">[</span><span class="s1">'temperature'</span><span class="p">]</span><span class="si">}{</span><span class="n">symbol</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Units: </span><span class="si">{</span><span class="n">weather</span><span class="p">[</span><span class="s1">'units'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8249,7 +8250,7 @@ Punchline: A maybe.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Creating-Data-with-POST">Creating Data with POST<a class="anchor-link" href="#Creating-Data-with-POST">¶</a></h3>
+<h3 id="Creating-Data-with-POST">Creating Data with POST<a class="anchor-link" href="#Creating-Data-with-POST">¶</a></h3><p>JSONBin.io requires a free account: copy your <strong>X-Master-Key</strong> from the <em>API Keys</em> page and store it in the <code>JSONBIN_KEY</code> environment variable.</p>
 </div>
 </div>
 </div>
@@ -8261,52 +8262,43 @@ Punchline: A maybe.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">create_bin</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Create a JSON storage bin using JSONBin.io API"""</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s1">'https://api.jsonbin.io/v3/b'</span>
-    
-    <span class="c1"># Set headers</span>
+
+    <span class="c1"># Set headers (JSONBin requires an API key to create a bin)</span>
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+        <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+        <span class="s1">'X-Master-Key'</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'JSONBIN_KEY'</span><span class="p">]</span>
     <span class="p">}</span>
-    
+
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Make POST request with JSON data</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-        
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
         <span class="c1"># Check if successful</span>
-        <span class="n">success</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">201</span><span class="p">]</span>
-        
-        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-            <span class="c1"># Parse response</span>
-            <span class="n">response_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-            
-            <span class="c1"># Extract bin ID</span>
-            <span class="n">bin_id</span> <span class="o">=</span> <span class="n">response_data</span><span class="p">[</span><span class="s1">'metadata'</span><span class="p">][</span><span class="s1">'id'</span><span class="p">]</span>
-            
-            <span class="c1"># Build URL</span>
-            <span class="n">bin_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'https://api.jsonbin.io/v3/b/</span><span class="si">{</span><span class="n">bin_id</span><span class="si">}</span><span class="s1">'</span>
-            
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">201</span><span class="p">]:</span>
+            <span class="c1"># Extract bin ID from the response</span>
+            <span class="n">bin_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'metadata'</span><span class="p">][</span><span class="s1">'id'</span><span class="p">]</span>
             <span class="k">return</span> <span class="p">{</span>
                 <span class="s1">'success'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                 <span class="s1">'bin_id'</span><span class="p">:</span> <span class="n">bin_id</span><span class="p">,</span>
-                <span class="s1">'url'</span><span class="p">:</span> <span class="n">bin_url</span>
+                <span class="s1">'url'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'https://api.jsonbin.io/v3/b/</span><span class="si">{</span><span class="n">bin_id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+                <span class="s1">'error'</span><span class="p">:</span> <span class="kc">None</span>
             <span class="p">}</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">{</span>
                 <span class="s1">'success'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
                 <span class="s1">'bin_id'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="s1">'url'</span><span class="p">:</span> <span class="kc">None</span>
+                <span class="s1">'url'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">'error'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s1">'</span>
             <span class="p">}</span>
-    
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">'success'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="s1">'bin_id'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s1">'url'</span><span class="p">:</span> <span class="kc">None</span>
-        <span class="p">}</span>
+
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">'success'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'bin_id'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">'url'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">'error'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
 
 <span class="c1"># Test the function</span>
 <span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span>
@@ -8320,6 +8312,8 @@ Punchline: A maybe.
 <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s1">'success'</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bin ID: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'bin_id'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"URL: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'error'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8338,6 +8332,7 @@ Punchline: A maybe.
 <li>The data is automatically serialized to JSON</li>
 <li>The Content-Type header is automatically set to application/json</li>
 <li>You don't need to call <code>json.dumps()</code> manually</li>
+<li>Any other header you pass (like <code>X-Master-Key</code>) is kept and sent along</li>
 </ul>
 </div>
 </div>
@@ -8351,7 +8346,7 @@ Punchline: A maybe.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Error-Handling">Error Handling<a class="anchor-link" href="#Error-Handling">¶</a></h2><p>Robust applications must handle various types of errors when working with APIs.</p>
-<h3 id="Example-8:-Comprehensive-Error-Handling">Example 8: Comprehensive Error Handling<a class="anchor-link" href="#Example-8:-Comprehensive-Error-Handling">¶</a></h3>
+<h3 id="Comprehensive-Error-Handling">Comprehensive Error Handling<a class="anchor-link" href="#Comprehensive-Error-Handling">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8519,7 +8514,8 @@ Punchline: A maybe.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_weather_with_api_key</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Get weather data using OpenWeatherMap API with authentication"""</span>
@@ -8534,7 +8530,7 @@ Punchline: A maybe.
     
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Make GET request with API key in parameters</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         
         <span class="c1"># Check if request was successful</span>
         <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
@@ -8551,10 +8547,11 @@ Punchline: A maybe.
             <span class="s1">'humidity'</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">'main'</span><span class="p">][</span><span class="s1">'humidity'</span><span class="p">]</span>
         <span class="p">}</span>
     
-    <span class="k">except</span><span class="p">:</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Request failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span>
 
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">'YOUR_OPENWEATHER_API_KEY_HERE'</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'OPENWEATHER_API_KEY'</span><span class="p">]</span>  <span class="c1"># never write the key itself here</span>
 
 <span class="n">weather</span> <span class="o">=</span> <span class="n">get_weather_with_api_key</span><span class="p">(</span><span class="s1">'Rome'</span><span class="p">,</span> <span class="n">API_KEY</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">weather</span><span class="p">:</span>
@@ -8575,8 +8572,19 @@ Punchline: A maybe.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div class="alert alert-block alert-warning">
-<b>SECURITY NOTE</b>: Never hardcode API keys in your code!
+<b>SECURITY NOTE</b>: Never hardcode API keys in your code! Anyone who sees your code (or your slides, or your GitHub repository) can use your key.
 </div>
+<p>Store the key in an <strong>environment variable</strong> and read it with <code>os.environ</code>:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Option A: set it once in the terminal, before starting Jupyter</span>
+<span class="c1">#   Windows:     setx OPENWEATHER_API_KEY "your-key"   (then reopen the terminal)</span>
+<span class="c1">#   macOS/Linux: export OPENWEATHER_API_KEY="your-key"</span>
+
+<span class="c1"># Option B: type it when the notebook runs (it is never saved in the file)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'OPENWEATHER_API_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s1">'API key: '</span><span class="p">)</span>
+</pre></div>
+<p><b>NOTE</b>: a new OpenWeatherMap key can take some time to activate: until then the API answers <code>401</code>.</p>
 </div>
 </div>
 </div>
@@ -8613,6 +8621,7 @@ Punchline: A maybe.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Example:-OpenAI-SDK">Example: OpenAI SDK<a class="anchor-link" href="#Example:-OpenAI-SDK">¶</a></h3><p>The OpenAI SDK is a great example of how SDKs simplify working with APIs. Instead of manually constructing HTTP requests to the OpenAI API, you can use the SDK's intuitive interface.</p>
+<p>Many other AI providers accept the same requests, so the same SDK also works with them: you only change the server address (<code>base_url</code>) and the model name.</p>
 <p><strong>Installation:</strong></p>
 </div>
 </div>
@@ -8638,8 +8647,12 @@ Punchline: A maybe.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Get-an-API-token">Get an API token<a class="anchor-link" href="#Get-an-API-token">¶</a></h4><p>To use most of the OpenAI API, you need to get an API token from OpenAI.</p>
-<p>In this case, we will use a free API token offered by <a href="https://github.com/selfsff/GPT4ALL-Free-GPT-API">gpt4all.xyz</a>: you can get one from their <a href="https://t.me/gpt4all_robot">Telegram bot</a>.</p>
+<h4 id="Get-an-API-token">Get an API token<a class="anchor-link" href="#Get-an-API-token">¶</a></h4><p>To use the OpenAI API, you need an API token. Instead of OpenAI (which is paid), we will use <strong>Groq</strong>, a provider that offers free access to open models and understands the same requests as OpenAI:</p>
+<ol>
+<li>Sign up for free at <a href="https://console.groq.com">console.groq.com</a> (no credit card needed)</li>
+<li>Open <strong>API Keys</strong> and click <strong>Create API Key</strong></li>
+<li>Copy the key (it starts with <code>gsk_</code>) and save it in the <code>GROQ_API_KEY</code> environment variable</li>
+</ol>
 </div>
 </div>
 </div>
@@ -8651,16 +8664,18 @@ Punchline: A maybe.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
 
-<span class="c1"># Initialize the client with your API key</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">"g4a-H4FGnkOh5tj5DiL1TgOL6HdezWrNlQlBICt"</span><span class="p">,</span> 
-                                <span class="n">base_url</span><span class="o">=</span><span class="s2">"https://api.gpt4-all.xyz/v1"</span><span class="p">)</span>
+<span class="c1"># Initialize the client with your API key (read from an environment variable)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"GROQ_API_KEY"</span><span class="p">],</span>
+                <span class="n">base_url</span><span class="o">=</span><span class="s2">"https://api.groq.com/openai/v1"</span><span class="p">)</span>
 
 <span class="c1"># Make a chat completion request</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">"List the best 5 books for a python developer"</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-    <span class="n">model</span><span class="o">=</span><span class="s2">"gpt-4o-mini"</span><span class="p">,</span>
-    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"List the best 5 books for a python developer"</span><span class="p">}],</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">"openai/gpt-oss-120b"</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}],</span>
     <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -8721,7 +8736,7 @@ These books cater to a range of skill levels and areas of interest within Python
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Understanding-Each-Component">Understanding Each Component<a class="anchor-link" href="#Understanding-Each-Component">¶</a></h3><p>Let's break down what each part does and <strong>why</strong> it's needed:</p>
-<h4 id="1.-Creating-the-Client">1. Creating the Client<a class="anchor-link" href="#1.-Creating-the-Client">¶</a></h4><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">"API_KEY_HERE"</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"https://api.gpt4-all.xyz/v1"</span><span class="p">)</span>
+<h4 id="1.-Creating-the-Client">1. Creating the Client<a class="anchor-link" href="#1.-Creating-the-Client">¶</a></h4><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">"API_KEY_HERE"</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"https://api.groq.com/openai/v1"</span><span class="p">)</span>
 </pre></div>
 <br/>
 <ul>
@@ -8759,12 +8774,12 @@ These books cater to a range of skill levels and areas of interest within Python
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="3.-Specifying-the-Model">3. Specifying the Model<a class="anchor-link" href="#3.-Specifying-the-Model">¶</a></h4><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="s2">"gpt-4o-mini"</span>
+<h4 id="3.-Specifying-the-Model">3. Specifying the Model<a class="anchor-link" href="#3.-Specifying-the-Model">¶</a></h4><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="s2">"openai/gpt-oss-120b"</span>
 </pre></div>
 <br/>
 <ul>
 <li>Different models have different capabilities and speeds</li>
-<li><code>gpt-4o-mini</code> is fast and good for most tasks</li>
+<li><code>openai/gpt-oss-120b</code> is a free open model from OpenAI, good for most tasks</li>
 </ul>
 </div>
 </div>
@@ -8859,22 +8874,24 @@ The response contains lots of information. We navigate to the part we want:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">"List the best 5 books for a python developer"</span>
 
 <span class="c1"># You have to manually construct the URL</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.gpt4-all.xyz/v1/chat/completions"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.groq.com/openai/v1/chat/completions"</span>
 
 <span class="c1"># You have to manually create the headers with authentication</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer API_KEY_HERE"</span><span class="p">,</span>
+    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'GROQ_API_KEY'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span>
 <span class="p">}</span>
 
 <span class="c1"># You have to manually structure the request body as a dictionary</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-4o-mini"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"List the best 5 books for a python developer"</span><span class="p">}],</span>
+    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"openai/gpt-oss-120b"</span><span class="p">,</span>
+    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}],</span>
     <span class="s2">"stream"</span><span class="p">:</span> <span class="kc">False</span>
 <span class="p">}</span>
 </pre></div>
@@ -9032,6 +9049,7 @@ The response contains lots of information. We navigate to the part we want:
 <li><a href="https://www.json.org/">JSON Documentation</a></li>
 <li><a href="https://github.com/public-apis/public-apis">Public APIs List</a></li>
 <li><a href="https://platform.openai.com/docs">OpenAI API Documentation</a></li>
+<li><a href="https://console.groq.com/docs/openai">Groq OpenAI compatibility</a></li>
 </ul>
 </div>
 </div>
