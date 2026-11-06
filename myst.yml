@@ -73,7 +73,7 @@ project:
         - file: src/P11/P11-Python-Files.ipynb
           hidden: false
         - file: src/P12/P12-Python-Sockets-HTTP.ipynb
-          hidden: true
+          hidden: false
         - file: src/P09/P09-Python-Classes.ipynb
           hidden: true
         - file: src/P13/P13-Python-Exceptions.ipynb
