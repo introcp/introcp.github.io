@@ -59,6 +59,9 @@
     <loc>http://localhost:3000/p11-python-files</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/p12-python-sockets-http</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/e00-exercises-binary-boolean</loc>
   </url>
   <url>
