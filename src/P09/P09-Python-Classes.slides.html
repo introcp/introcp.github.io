@@ -7499,6 +7499,48 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Describing-a-Car">Describing a Car<a class="anchor-link" href="#Describing-a-Car">¶</a></h2><p>We can use a dictionary to keep a car's data, and ordinary functions to work with it:</p>
+<div class="highlight"><pre><span></span><span class="n">car</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"make"</span><span class="p">:</span> <span class="s2">"Toyota"</span><span class="p">,</span> <span class="s2">"color"</span><span class="p">:</span> <span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"speed"</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">accelerate</span><span class="p">(</span><span class="n">car</span><span class="p">):</span>
+    <span class="n">car</span><span class="p">[</span><span class="s2">"speed"</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">10</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">brake</span><span class="p">(</span><span class="n">car</span><span class="p">):</span>
+    <span class="n">car</span><span class="p">[</span><span class="s2">"speed"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">car</span><span class="p">[</span><span class="s2">"speed"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">accelerate</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="p">[</span><span class="s2">"speed"</span><span class="p">])</span>  <span class="c1"># 10</span>
+</pre></div>
+<p>The car's data and the functions that operate on it are separate.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Describing-a-Persona">Describing a Persona<a class="anchor-link" href="#Describing-a-Persona">¶</a></h2><p>We can describe a person in the same way, keeping the data in a dictionary and using a function to describe them:</p>
+<div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first_name"</span><span class="p">:</span> <span class="s2">"Ada"</span><span class="p">,</span> <span class="s2">"last_name"</span><span class="p">:</span> <span class="s2">"Lovelace"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mi">36</span><span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">person</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">person</span><span class="p">[</span><span class="s1">'first_name'</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">person</span><span class="p">[</span><span class="s1">'last_name'</span><span class="p">]</span><span class="si">}</span><span class="s2">, age </span><span class="si">{</span><span class="n">person</span><span class="p">[</span><span class="s1">'age'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">describe</span><span class="p">(</span><span class="n">person</span><span class="p">))</span>
+</pre></div>
+<p>This works, but we have to keep track of which functions go with which data. Classes give us another way to organize them.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Objects-and-Classes">Objects and Classes<a class="anchor-link" href="#Objects-and-Classes">¶</a></h2><p>Recall from our first Python lecture that a given data type is characterised by:</p>
 <ul>
 <li>a set of <strong>values</strong> (the domain)</li>
