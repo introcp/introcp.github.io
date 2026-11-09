@@ -75,7 +75,7 @@ project:
         - file: src/P12/P12-Python-Sockets-HTTP.ipynb
           hidden: false
         - file: src/P09/P09-Python-Classes.ipynb
-          hidden: true
+          hidden: false
         - file: src/P13/P13-Python-Exceptions.ipynb
           hidden: true
         - file: src/P10/P10-Python-Recursion.ipynb
