@@ -95,10 +95,16 @@
     <loc>http://localhost:3000/e11-python-exercises-files</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/e09-python-exercises-classes-1</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/h00-exercises-binary-boolean</loc>
   </url>
   <url>
     <loc>http://localhost:3000/h01-python-recap</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/h02-python-recap-ii</loc>
   </url>
   <url>
     <loc>http://localhost:3000/feedback</loc>
