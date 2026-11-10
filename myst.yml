@@ -182,6 +182,15 @@ project:
           hidden: true
         - file: src/P05/P05-Python-Iteration-Exercises-student.ipynb
           hidden: true
+        - file: src/E09/E09-Python-Exercises-Classes.ipynb
+          hidden: false
+          title: Classes
+        - file: src/E09/E09-Python-Exercises-Classes-pseudocode.ipynb
+          hidden: true
+        - file: src/E09/E09-Python-Exercises-Classes-solution.ipynb
+          hidden: true
+        - file: src/E09/E09-Python-Exercises-Classes-student.ipynb
+          hidden: true
     - title: Homework
       children:
         - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
@@ -195,6 +204,15 @@ project:
         - file: src/H01/H01-Python-Recap-pseudocode.ipynb
           hidden: true
         - file: src/H01/H01-Python-Recap-solution.ipynb
+          hidden: true
+        - file: src/H02/H02-Python-Recap-II.ipynb
+          hidden: false
+          title: Python Recap II
+        - file: src/H02/H02-Python-Recap-II-student.ipynb
+          hidden: true
+        - file: src/H02/H02-Python-Recap-II-pseudocode.ipynb
+          hidden: true
+        - file: src/H02/H02-Python-Recap-II-solution.ipynb
           hidden: true
     - file: src/feedback.md
       title: Live Feedback
