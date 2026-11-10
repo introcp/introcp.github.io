@@ -77,7 +77,7 @@ project:
         - file: src/P09/P09-Python-Classes.ipynb
           hidden: false
         - file: src/P13/P13-Python-Exceptions.ipynb
-          hidden: true
+          hidden: false
         - file: src/P10/P10-Python-Recursion.ipynb
           hidden: true
         - file: src/P14/P14-Python-Multiprocessing.ipynb
