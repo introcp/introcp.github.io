@@ -79,7 +79,7 @@ project:
         - file: src/P13/P13-Python-Exceptions.ipynb
           hidden: false
         - file: src/P10/P10-Python-Recursion.ipynb
-          hidden: true
+          hidden: false
         - file: src/P14/P14-Python-Multiprocessing.ipynb
           hidden: true
     # Companion exercise notebooks: not shown in the nav, but built and
