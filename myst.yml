@@ -191,6 +191,15 @@ project:
           hidden: true
         - file: src/E09/E09-Python-Exercises-Classes-student.ipynb
           hidden: true
+        - file: src/E10/E10-Python-Exercises-Recursion.ipynb
+          hidden: false
+          title: Recursion
+        - file: src/E10/E10-Python-Exercises-Recursion-pseudocode.ipynb
+          hidden: true
+        - file: src/E10/E10-Python-Exercises-Recursion-solution.ipynb
+          hidden: true
+        - file: src/E10/E10-Python-Exercises-Recursion-student.ipynb
+          hidden: true
     - title: Homework
       children:
         - file: src/H00/H00-Exercises-Binary-Boolean.ipynb
