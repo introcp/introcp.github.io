@@ -232,6 +232,15 @@ project:
           hidden: true
         - file: src/H03/H03-Python-Recap-III-solution.ipynb
           hidden: true
+        - file: src/H04/H04-Python-Recap-IV.ipynb
+          hidden: false
+          title: Python Recap IV
+        - file: src/H04/H04-Python-Recap-IV-student.ipynb
+          hidden: true
+        - file: src/H04/H04-Python-Recap-IV-pseudocode.ipynb
+          hidden: true
+        - file: src/H04/H04-Python-Recap-IV-solution.ipynb
+          hidden: true
     - file: src/feedback.md
       title: Live Feedback
 
