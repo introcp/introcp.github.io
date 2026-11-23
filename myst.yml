@@ -81,7 +81,7 @@ project:
         - file: src/P10/P10-Python-Recursion.ipynb
           hidden: false
         - file: src/P14/P14-Python-Multiprocessing.ipynb
-          hidden: true
+          hidden: false
     # Companion exercise notebooks: not shown in the nav, but built and
     # reachable by URL since chapter pages link to them directly (e.g.
     # "find more exercises here"). See scripts/fix-cross-reference-links.py.
