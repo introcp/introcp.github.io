@@ -119,6 +119,9 @@
     <loc>http://localhost:3000/h03-python-recap-iii</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/h04-python-recap-iv</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/feedback</loc>
   </url>
 </urlset>
